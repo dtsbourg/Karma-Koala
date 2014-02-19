@@ -7,6 +7,7 @@
 //
 
 #import "TaskViewController.h"
+#import "LoginViewController.h"
 
 @interface TaskViewController ()
 
@@ -16,7 +17,8 @@
 - (IBAction)logout:(id)sender {
     
     [PFUser logOut];
-    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    
+    LoginViewController *logInViewController = [[LoginViewController alloc] init];
     [logInViewController setDelegate:self]; // Set ourselves as the delegate
     
     logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
@@ -68,7 +70,7 @@
     
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        LoginViewController *logInViewController = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
         logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
@@ -107,24 +109,30 @@
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
- PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    if ([PFUser currentUser]) {
+         PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+        [query whereKey:@"user" equalTo:[PFUser currentUser].username];
  
- // If Pull To Refresh is enabled, query against the network by default.
- if (self.pullToRefreshEnabled) {
- query.cachePolicy = kPFCachePolicyNetworkOnly;
+        // If Pull To Refresh is enabled, query against the network by default.
+        if (self.pullToRefreshEnabled) {
+            query.cachePolicy = kPFCachePolicyNetworkOnly;
+        }
+ 
+
+         // If no objects are loaded in memory, we look to the cache first to fill the table
+         // and then subsequently do a query against the network.
+        if (self.objects.count == 0) {
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
+ 
+            [query orderByDescending:@"updatedAt"];
+ 
+        return query;
+     }
+     
+     else return nil;
  }
- 
- // If no objects are loaded in memory, we look to the cache first to fill the table
- // and then subsequently do a query against the network.
- if (self.objects.count == 0) {
- query.cachePolicy = kPFCachePolicyCacheThenNetwork;
- }
- 
- [query orderByDescending:@"updatedAt"];
- 
- return query;
- }
- 
+
 
 
  // Override to customize the look of a cell representing an object. The default is to display

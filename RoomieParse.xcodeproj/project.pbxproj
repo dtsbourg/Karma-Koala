@@ -33,6 +33,7 @@
 		FCFE9E0918B507F00019DC9F /* highway-to-hipster-dream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */; };
 		FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0818B507F00019DC9F /* shibe.png */; };
 		FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */; };
+		FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		FCFE9E0818B507F00019DC9F /* shibe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibe.png; sourceTree = "<group>"; };
 		FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		FCFE9E0E18B51F5B0019DC9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,16 +157,10 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
-				FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */,
-				FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */,
-				FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */,
-				FCFE9E0818B507F00019DC9F /* shibe.png */,
-				FCFE9E0118B507610019DC9F /* Task.h */,
-				FCFE9E0218B507610019DC9F /* Task.m */,
-				FCFE9E0318B507610019DC9F /* Roommate.h */,
-				FCFE9E0418B507610019DC9F /* Roommate.m */,
-				FCFE9DCB18B506820019DC9F /* AppDelegate.h */,
-				FCFE9DCC18B506820019DC9F /* AppDelegate.m */,
+				FCFE9E1318B51F760019DC9F /* Model */,
+				FCFE9E1218B51F6A0019DC9F /* Tasks */,
+				FCFE9E1118B51F620019DC9F /* Login */,
+				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
 				FCFE9DD418B506820019DC9F /* Images.xcassets */,
 				FCFE9DC318B506820019DC9F /* Supporting Files */,
@@ -174,6 +171,8 @@
 		FCFE9DC318B506820019DC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */,
+				FCFE9E0818B507F00019DC9F /* shibe.png */,
 				FCFE9DC418B506820019DC9F /* RoomieParse-Info.plist */,
 				FCFE9DC518B506820019DC9F /* InfoPlist.strings */,
 				FCFE9DC818B506820019DC9F /* main.m */,
@@ -198,6 +197,44 @@
 				FCFE9DE418B506820019DC9F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCFE9E1118B51F620019DC9F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9E0E18B51F5B0019DC9F /* LoginViewController.h */,
+				FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		FCFE9E1218B51F6A0019DC9F /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */,
+				FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		FCFE9E1318B51F760019DC9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9E0118B507610019DC9F /* Task.h */,
+				FCFE9E0218B507610019DC9F /* Task.m */,
+				FCFE9E0318B507610019DC9F /* Roommate.h */,
+				FCFE9E0418B507610019DC9F /* Roommate.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FCFE9E1418B51F900019DC9F /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9DCB18B506820019DC9F /* AppDelegate.h */,
+				FCFE9DCC18B506820019DC9F /* AppDelegate.m */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +338,7 @@
 			files = (
 				FCFE9E0518B507610019DC9F /* Task.m in Sources */,
 				FCFE9DCD18B506820019DC9F /* AppDelegate.m in Sources */,
+				FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */,
 				FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */,
 				FCFE9DC918B506820019DC9F /* main.m in Sources */,
 				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
