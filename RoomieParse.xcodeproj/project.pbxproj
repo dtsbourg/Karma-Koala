@@ -14,13 +14,25 @@
 		FCFE9DC918B506820019DC9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DC818B506820019DC9F /* main.m */; };
 		FCFE9DCD18B506820019DC9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DCC18B506820019DC9F /* AppDelegate.m */; };
 		FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DCE18B506820019DC9F /* Main.storyboard */; };
-		FCFE9DD318B506820019DC9F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DD218B506820019DC9F /* ViewController.m */; };
 		FCFE9DD518B506820019DC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DD418B506820019DC9F /* Images.xcassets */; };
 		FCFE9DDC18B506820019DC9F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DDB18B506820019DC9F /* XCTest.framework */; };
 		FCFE9DDD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DDE18B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
 		FCFE9DE618B506820019DC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DE418B506820019DC9F /* InfoPlist.strings */; };
 		FCFE9DE818B506820019DC9F /* RoomieParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DE718B506820019DC9F /* RoomieParseTests.m */; };
+		FCFE9DF218B506A90019DC9F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF118B506A90019DC9F /* Parse.framework */; };
+		FCFE9DFA18B506FC0019DC9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */; };
+		FCFE9DFB18B506FC0019DC9F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF418B506FC0019DC9F /* libz.dylib */; };
+		FCFE9DFC18B506FC0019DC9F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF518B506FC0019DC9F /* MobileCoreServices.framework */; };
+		FCFE9DFD18B506FC0019DC9F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF618B506FC0019DC9F /* QuartzCore.framework */; };
+		FCFE9DFE18B506FC0019DC9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF718B506FC0019DC9F /* Security.framework */; };
+		FCFE9DFF18B506FC0019DC9F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF818B506FC0019DC9F /* StoreKit.framework */; };
+		FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */; };
+		FCFE9E0518B507610019DC9F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0218B507610019DC9F /* Task.m */; };
+		FCFE9E0618B507610019DC9F /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0418B507610019DC9F /* Roommate.m */; };
+		FCFE9E0918B507F00019DC9F /* highway-to-hipster-dream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */; };
+		FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0818B507F00019DC9F /* shibe.png */; };
+		FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +57,28 @@
 		FCFE9DCB18B506820019DC9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCFE9DCC18B506820019DC9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FCFE9DCF18B506820019DC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCFE9DD118B506820019DC9F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FCFE9DD218B506820019DC9F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FCFE9DD418B506820019DC9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FCFE9DDA18B506820019DC9F /* RoomieParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomieParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DDB18B506820019DC9F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FCFE9DE318B506820019DC9F /* RoomieParseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoomieParseTests-Info.plist"; sourceTree = "<group>"; };
 		FCFE9DE518B506820019DC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCFE9DE718B506820019DC9F /* RoomieParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomieParseTests.m; sourceTree = "<group>"; };
+		FCFE9DF118B506A90019DC9F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FCFE9DF418B506FC0019DC9F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FCFE9DF518B506FC0019DC9F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FCFE9DF618B506FC0019DC9F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FCFE9DF718B506FC0019DC9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FCFE9DF818B506FC0019DC9F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FCFE9E0118B507610019DC9F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		FCFE9E0218B507610019DC9F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		FCFE9E0318B507610019DC9F /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roommate.h; sourceTree = "<group>"; };
+		FCFE9E0418B507610019DC9F /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Roommate.m; sourceTree = "<group>"; };
+		FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "highway-to-hipster-dream.jpg"; sourceTree = "<group>"; };
+		FCFE9E0818B507F00019DC9F /* shibe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibe.png; sourceTree = "<group>"; };
+		FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +86,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFE9DFA18B506FC0019DC9F /* AudioToolbox.framework in Frameworks */,
+				FCFE9DFB18B506FC0019DC9F /* libz.dylib in Frameworks */,
+				FCFE9DFC18B506FC0019DC9F /* MobileCoreServices.framework in Frameworks */,
+				FCFE9DFD18B506FC0019DC9F /* QuartzCore.framework in Frameworks */,
+				FCFE9DFE18B506FC0019DC9F /* Security.framework in Frameworks */,
+				FCFE9DFF18B506FC0019DC9F /* StoreKit.framework in Frameworks */,
+				FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */,
 				FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */,
 				FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */,
+				FCFE9DF218B506A90019DC9F /* Parse.framework in Frameworks */,
 				FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +135,14 @@
 		FCFE9DBB18B506820019DC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */,
+				FCFE9DF418B506FC0019DC9F /* libz.dylib */,
+				FCFE9DF518B506FC0019DC9F /* MobileCoreServices.framework */,
+				FCFE9DF618B506FC0019DC9F /* QuartzCore.framework */,
+				FCFE9DF718B506FC0019DC9F /* Security.framework */,
+				FCFE9DF818B506FC0019DC9F /* StoreKit.framework */,
+				FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */,
+				FCFE9DF118B506A90019DC9F /* Parse.framework */,
 				FCFE9DBC18B506820019DC9F /* Foundation.framework */,
 				FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */,
 				FCFE9DC018B506820019DC9F /* UIKit.framework */,
@@ -112,11 +154,17 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */,
+				FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */,
+				FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */,
+				FCFE9E0818B507F00019DC9F /* shibe.png */,
+				FCFE9E0118B507610019DC9F /* Task.h */,
+				FCFE9E0218B507610019DC9F /* Task.m */,
+				FCFE9E0318B507610019DC9F /* Roommate.h */,
+				FCFE9E0418B507610019DC9F /* Roommate.m */,
 				FCFE9DCB18B506820019DC9F /* AppDelegate.h */,
 				FCFE9DCC18B506820019DC9F /* AppDelegate.m */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
-				FCFE9DD118B506820019DC9F /* ViewController.h */,
-				FCFE9DD218B506820019DC9F /* ViewController.m */,
 				FCFE9DD418B506820019DC9F /* Images.xcassets */,
 				FCFE9DC318B506820019DC9F /* Supporting Files */,
 			);
@@ -230,6 +278,8 @@
 			files = (
 				FCFE9DD518B506820019DC9F /* Images.xcassets in Resources */,
 				FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */,
+				FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */,
+				FCFE9E0918B507F00019DC9F /* highway-to-hipster-dream.jpg in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,9 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCFE9DD318B506820019DC9F /* ViewController.m in Sources */,
+				FCFE9E0518B507610019DC9F /* Task.m in Sources */,
 				FCFE9DCD18B506820019DC9F /* AppDelegate.m in Sources */,
+				FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */,
 				FCFE9DC918B506820019DC9F /* main.m in Sources */,
+				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +428,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
@@ -389,6 +445,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
