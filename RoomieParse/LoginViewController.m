@@ -37,7 +37,10 @@
     [self.logInView.usernameField setTextColor:[UIColor darkGrayColor]];
     [self.logInView.passwordField setTextColor:[UIColor darkGrayColor]];
     
-    
+    CALayer *layer = self.logInView.usernameField.layer;
+    layer.shadowOpacity = 0.0;
+    layer = self.logInView.passwordField.layer;
+    layer.shadowOpacity = 0.0;
     
     [self.logInView.logInButton setAlpha:0.7];
     

@@ -8,6 +8,7 @@
 
 #import "TaskViewController.h"
 #import "LoginViewController.h"
+#import "SignUpViewController.h"
 
 @interface TaskViewController ()
 
@@ -21,15 +22,14 @@
     LoginViewController *logInViewController = [[LoginViewController alloc] init];
     [logInViewController setDelegate:self]; // Set ourselves as the delegate
     
-    logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
+    logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten;
     
     // Create the sign up view controller
-    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+    SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
     [signUpViewController setDelegate:self]; // Set ourselves as the delegate
     
     // Assign our sign up controller to be displayed from the login controller
     [logInViewController setSignUpController:signUpViewController];
-    
     
     // Present the log in view controller
     [self presentViewController:logInViewController animated:YES completion:NULL];
@@ -76,7 +76,7 @@
         logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
         
         // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
         
         // Assign our sign up controller to be displayed from the login controller
@@ -140,12 +140,16 @@
  // and the imageView being the imageKey in the object.
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+     
  static NSString *CellIdentifier = @"Cell";
  
  PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
  if (cell == nil) {
  cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
  }
+     
+    
+     self.tableView.separatorColor = [UIColor clearColor];
  
  // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];

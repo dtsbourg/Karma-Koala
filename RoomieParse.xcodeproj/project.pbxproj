@@ -34,6 +34,8 @@
 		FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0818B507F00019DC9F /* shibe.png */; };
 		FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */; };
 		FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */; };
+		FCFE9E1718B53DE40019DC9F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E1618B53DE40019DC9F /* SignUpViewController.m */; };
+		FCFE9E1F18B546530019DC9F /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E1E18B546530019DC9F /* NewTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,10 @@
 		FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		FCFE9E0E18B51F5B0019DC9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FCFE9E1518B53DE40019DC9F /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		FCFE9E1618B53DE40019DC9F /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		FCFE9E1D18B546530019DC9F /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
+		FCFE9E1E18B546530019DC9F /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,11 +163,13 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FCFE9E1818B53DEB0019DC9F /* Sign Up */,
+				FCFE9E1118B51F620019DC9F /* Login */,
 				FCFE9E1318B51F760019DC9F /* Model */,
 				FCFE9E1218B51F6A0019DC9F /* Tasks */,
-				FCFE9E1118B51F620019DC9F /* Login */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
+				FCFE9E1C18B545CB0019DC9F /* New Task */,
 				FCFE9DD418B506820019DC9F /* Images.xcassets */,
 				FCFE9DC318B506820019DC9F /* Supporting Files */,
 			);
@@ -235,6 +243,24 @@
 				FCFE9DCC18B506820019DC9F /* AppDelegate.m */,
 			);
 			name = Delegate;
+			sourceTree = "<group>";
+		};
+		FCFE9E1818B53DEB0019DC9F /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9E1518B53DE40019DC9F /* SignUpViewController.h */,
+				FCFE9E1618B53DE40019DC9F /* SignUpViewController.m */,
+			);
+			name = "Sign Up";
+			sourceTree = "<group>";
+		};
+		FCFE9E1C18B545CB0019DC9F /* New Task */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9E1D18B546530019DC9F /* NewTaskViewController.h */,
+				FCFE9E1E18B546530019DC9F /* NewTaskViewController.m */,
+			);
+			name = "New Task";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +367,8 @@
 				FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */,
 				FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */,
 				FCFE9DC918B506820019DC9F /* main.m in Sources */,
+				FCFE9E1718B53DE40019DC9F /* SignUpViewController.m in Sources */,
+				FCFE9E1F18B546530019DC9F /* NewTaskViewController.m in Sources */,
 				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
