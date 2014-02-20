@@ -92,6 +92,38 @@
 - (IBAction)taskIsCompleted:(id)sender {
     
     
+    PFUser *user = [PFUser currentUser];
+    // Do any additional setup after loading the view.
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:user.username];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+            
+        } else {
+            // The find succeeded.
+            //object[@"karma"] = [NSNumber numberWithInt:([self.taskKarma intValue]+[object[@"karma"] intValue])];
+            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:[self.taskKarma intValue]]];
+            [object saveInBackground];
+        }
+    }];
+    
+    PFQuery *queryTask = [PFQuery queryWithClassName:@"Tasks"];
+    [queryTask whereKey:@"user" equalTo:[PFUser currentUser].username];
+    [queryTask whereKey:@"taskId" equalTo:self.taskText];
+    
+    [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+        } else {
+            // The find succeeded.
+            [object deleteInBackground];
+        }
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)delayTask:(id)sender {
