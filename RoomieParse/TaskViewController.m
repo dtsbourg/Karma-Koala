@@ -9,6 +9,7 @@
 #import "TaskViewController.h"
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
+#import "TaskDetailViewController.h"
 
 @interface TaskViewController ()
 
@@ -94,7 +95,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -102,8 +103,14 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    TaskDetailViewController *destvc = [segue destinationViewController];
+    NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+    
+    destvc.taskText = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
+    destvc.taskKarma = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
+    
 }
-*/
+
 
 
  // Override to customize what kind of query to perform on the class. The default is to query for
@@ -153,18 +160,11 @@
  
  // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];
-     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
+     cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
  
  return cell;
  }
 
-
-/*
- // Override if you need to change the ordering of objects in the table.
- - (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
- return [self.objects objectAtIndex:indexPath.row];
- }
- */
 
 /*
  // Override to customize the look of the cell that allows the user to load the next page of objects.

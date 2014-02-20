@@ -77,9 +77,7 @@
     NSString *trimmedTask = [self.taskText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     PFObject*newTask = [PFObject objectWithClassName:@"Tasks"];
-    
-    NSLog(@"%@ %f", [NSNumber numberWithInt:(int)self.karmaStepper.value], self.karmaStepper.value);
-    
+        
     newTask[@"taskId"]= trimmedTask;
     newTask[@"user"]=[PFUser currentUser].username;
     newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
