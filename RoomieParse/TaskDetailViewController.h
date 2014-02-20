@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface TaskDetailViewController : UIViewController
+@interface TaskDetailViewController : UIViewController <UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *taskName;
 @property (strong, nonatomic) IBOutlet UILabel *karma;
 @property (strong, nonatomic) IBOutlet UILabel *timeLeft;
@@ -17,4 +17,5 @@
 @property (strong, nonatomic) NSString *taskText;
 @property (strong, nonatomic) NSString *taskKarma;
 @property (strong, nonatomic) NSDate *dueDate;
+@property (weak, nonatomic) NSDate *delayDate;
 @end

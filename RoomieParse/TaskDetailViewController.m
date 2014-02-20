@@ -27,6 +27,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -91,7 +95,6 @@
 
 - (IBAction)taskIsCompleted:(id)sender {
     
-    
     PFUser *user = [PFUser currentUser];
     // Do any additional setup after loading the view.
     
@@ -104,7 +107,6 @@
             
         } else {
             // The find succeeded.
-            //object[@"karma"] = [NSNumber numberWithInt:([self.taskKarma intValue]+[object[@"karma"] intValue])];
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:[self.taskKarma intValue]]];
             [object saveInBackground];
         }
@@ -127,7 +129,42 @@
 }
 
 - (IBAction)delayTask:(id)sender {
+    
+    PFUser *user = [PFUser currentUser];
+    // Do any additional setup after loading the view.
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:user.username];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+            
+        } else {
+            // The find succeeded.
+            int karmaDelay = (int) - [self.taskKarma intValue]/2. ;
+            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:karmaDelay]];
+            [object saveInBackground];
+        }
+    }];
+    
+    PFQuery *queryTask = [PFQuery queryWithClassName:@"Tasks"];
+    [queryTask whereKey:@"user" equalTo:[PFUser currentUser].username];
+    [queryTask whereKey:@"taskId" equalTo:self.taskText];
+    
+    [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+        } else {
+            // The find succeeded.
+            [object setObject:[self.dueDate dateByAddingTimeInterval:86400] forKey:@"dateLimit"];
+        }
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 /*
 #pragma mark - Navigation
