@@ -60,7 +60,6 @@
         case 2:
             return 1;
             break;
-            
         default:
             return 0;
             break;
@@ -82,6 +81,7 @@
     newTask[@"user"]=[PFUser currentUser].username;
     newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
     newTask[@"done"]=[NSNumber numberWithInt:0];
+    newTask[@"dateLimit"]=self.datePick.date;
     
     
     [newTask saveInBackground];
@@ -114,6 +114,10 @@
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+- (IBAction)hoursSelection:(id)sender {
+    if (self.hoursSelector.isOn) self.datePick.datePickerMode = UIDatePickerModeDateAndTime;
+    else self.datePick.datePickerMode = UIDatePickerModeDate;
 }
 
 

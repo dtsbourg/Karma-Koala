@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *taskText;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePick;
 @property (strong, nonatomic) IBOutlet UIStepper *karmaStepper;
+@property (strong, nonatomic) IBOutlet UISwitch *hoursSelector;
 
 @end

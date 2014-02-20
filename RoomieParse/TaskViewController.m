@@ -145,14 +145,16 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    TaskDetailViewController *destvc = [segue destinationViewController];
-    NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
     
-    destvc.taskText = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
-    destvc.taskKarma = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
+    if ([segue.identifier isEqualToString:@"detailSegue"]) {
+        TaskDetailViewController *destvc = [segue destinationViewController];
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+    
+        destvc.taskText = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
+        destvc.taskKarma = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
+    }
     
 }
-
 
 
  // Override to customize what kind of query to perform on the class. The default is to query for
@@ -188,7 +190,7 @@
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
  // and the imageView being the imageKey in the object.
 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
      
  static NSString *CellIdentifier = @"Cell";
  
@@ -196,36 +198,15 @@
  if (cell == nil) {
  cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
  }
-     
-    
      self.tableView.separatorColor = [UIColor clearColor];
  
  // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];
      cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
  
- return cell;
- }
+    return cell;
+}
 
-
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
- 
- return cell;
- }
- */
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
@@ -270,8 +251,6 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    
     switch (buttonIndex) {
         case 0:
             self.priority=@"karma";
@@ -287,5 +266,24 @@
         }
     [self loadObjects];
 }
+
+/*
+ // Override to customize the look of the cell that allows the user to load the next page of objects.
+ // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+ static NSString *CellIdentifier = @"NextPage";
+ 
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+ 
+ if (cell == nil) {
+ cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+ }
+ 
+ cell.selectionStyle = UITableViewCellSelectionStyleNone;
+ cell.textLabel.text = @"Load more...";
+ 
+ return cell;
+ }
+ */
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface TaskDetailViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *taskName;
@@ -15,4 +16,5 @@
 
 @property (strong, nonatomic) NSString *taskText;
 @property (strong, nonatomic) NSString *taskKarma;
+@property (strong, nonatomic) NSDate *dueDate;
 @end
