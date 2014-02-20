@@ -118,6 +118,12 @@
                             <outlet property="delegate" destination="ArI-RG-xMQ" id="kwj-wy-O26"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="fve-xN-LKw" id="B4z-Ge-FcU"/>
+                        <outlet property="karmaLabel" destination="ivc-o4-8cp" id="Bkh-CK-jJq"/>
+                        <outlet property="lastNameLabel" destination="e6W-yn-3Sy" id="E91-aB-vrq"/>
+                        <outlet property="profilePicLabel" destination="Tdq-tM-8YP" id="QLO-GR-ihw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZa-EA-kCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

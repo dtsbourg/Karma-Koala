@@ -63,7 +63,47 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    PFUser *user = [PFUser currentUser];
     // Do any additional setup after loading the view.
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:user.username];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+            
+        } else {
+            // The find succeeded.
+            self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
+            
+            if ([[object objectForKey:@"karma"] intValue] >0) {
+                self.karmaLabel.textColor = [UIColor colorWithRed:144./255
+                                                            green:222./255
+                                                             blue:47./255
+                                                            alpha:1];
+            }
+            
+            else if ([[object objectForKey:@"karma"] intValue] >0) {
+                self.karmaLabel.textColor = [UIColor colorWithRed:204./255
+                                                            green:51./255
+                                                             blue:0
+                                                            alpha:1];
+            }
+            
+            else self.karmaLabel.textColor = [UIColor whiteColor];
+        }
+    }];
+    
+    
+    if (user) {
+        
+        
+        
+        self.firstNameLabel.text = user.username;
+    }
+
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
