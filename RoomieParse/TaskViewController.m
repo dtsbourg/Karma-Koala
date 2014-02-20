@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Dylan Bourgeois. All rights reserved.
 //
 
+
 #import "TaskViewController.h"
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
 #import "TaskDetailViewController.h"
 
 @interface TaskViewController ()
-
 @end
 
 @implementation TaskViewController
@@ -33,7 +33,7 @@
     [logInViewController setSignUpController:signUpViewController];
     
     // Present the log in view controller
-    [self presentViewController:logInViewController animated:YES completion:NULL];
+    [self presentViewController:logInViewController animated:YES completion:nil];
     
 }
 
@@ -56,6 +56,8 @@
         
         // The number of objects to show per page
         self.objectsPerPage = 25;
+        
+        self.priority = @"updatedAt";
     }
     return self;
 }
@@ -77,14 +79,17 @@
             // The find succeeded.
             self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
             
-            if ([[object objectForKey:@"karma"] intValue] >0) {
+            if ([[object objectForKey:@"karma"] intValue] > 0) {
                 self.karmaLabel.textColor = [UIColor colorWithRed:144./255
                                                             green:222./255
                                                              blue:47./255
                                                             alpha:1];
+                
+                self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
+
             }
             
-            else if ([[object objectForKey:@"karma"] intValue] >0) {
+            else if ([[object objectForKey:@"karma"] intValue] < 0) {
                 self.karmaLabel.textColor = [UIColor colorWithRed:204./255
                                                             green:51./255
                                                              blue:0
@@ -97,9 +102,6 @@
     
     
     if (user) {
-        
-        
-        
         self.firstNameLabel.text = user.username;
     }
 
@@ -156,23 +158,23 @@
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
+     
     if ([PFUser currentUser]) {
-         PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+        
+        PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
         [query whereKey:@"user" equalTo:[PFUser currentUser].username];
  
         // If Pull To Refresh is enabled, query against the network by default.
         if (self.pullToRefreshEnabled) {
             query.cachePolicy = kPFCachePolicyNetworkOnly;
         }
- 
-
          // If no objects are loaded in memory, we look to the cache first to fill the table
          // and then subsequently do a query against the network.
         if (self.objects.count == 0) {
             query.cachePolicy = kPFCachePolicyCacheThenNetwork;
         }
- 
-            [query orderByDescending:@"updatedAt"];
+        
+        [query orderByDescending:self.priority];
  
         return query;
      }
@@ -253,6 +255,37 @@
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (IBAction)orderFeed:(id)sender {
+    
+    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Order your Task Feed by :"
+                                                      delegate:self
+                                             cancelButtonTitle:@"Cancel"
+                                        destructiveButtonTitle:nil
+                                             otherButtonTitles:@"Karma points", @"Date",@"Responsible", nil];
+    
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    switch (buttonIndex) {
+        case 0:
+            self.priority=@"karma";
+            break;
+        case 1:
+            self.priority=@"dateLimit";
+            break;
+        case 2:
+            self.priority=@"username";
+            break;
+        default:
+            break;
+        }
+    [self loadObjects];
 }
 
 @end
