@@ -102,7 +102,7 @@
     
     
     if (user) {
-        self.firstNameLabel.text = user.username;
+        self.firstNameLabel.text = [user.username uppercaseString];
         [self loadObjects];
     }
 

@@ -39,6 +39,7 @@
 		FCFE9E2518B5DC380019DC9F /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2418B5DC380019DC9F /* icon-close.png */; };
 		FCFE9E2718B5DD8C0019DC9F /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2618B5DD8C0019DC9F /* calendar.png */; };
 		FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E2918B5DE480019DC9F /* TaskDetailViewController.m */; };
+		FCFE9E2C18B7EE160019DC9F /* icon-ios7-circle-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		FCFE9E2618B5DD8C0019DC9F /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		FCFE9E2818B5DE480019DC9F /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailViewController.h; path = RoomieParse/TaskDetailViewController.h; sourceTree = "<group>"; };
 		FCFE9E2918B5DE480019DC9F /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailViewController.m; path = RoomieParse/TaskDetailViewController.m; sourceTree = "<group>"; };
+		FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-circle-filled.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			children = (
 				FCFE9E2618B5DD8C0019DC9F /* calendar.png */,
 				FCFE9E2418B5DC380019DC9F /* icon-close.png */,
+				FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */,
 				FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */,
 				FCFE9E0818B507F00019DC9F /* shibe.png */,
 				FCFE9DC418B506820019DC9F /* RoomieParse-Info.plist */,
@@ -361,6 +364,7 @@
 			files = (
 				FCFE9E2718B5DD8C0019DC9F /* calendar.png in Resources */,
 				FCFE9DD518B506820019DC9F /* Images.xcassets in Resources */,
+				FCFE9E2C18B7EE160019DC9F /* icon-ios7-circle-filled.png in Resources */,
 				FCFE9E2518B5DC380019DC9F /* icon-close.png in Resources */,
 				FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */,
 				FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */,

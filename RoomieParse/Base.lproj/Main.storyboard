@@ -21,39 +21,32 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fve-xN-LKw">
-                                    <rect key="frame" x="107" y="10" width="107" height="38"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e6W-yn-3Sy">
-                                    <rect key="frame" x="107" y="46" width="107" height="38"/>
+                                    <rect key="frame" x="107" y="100" width="107" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karma" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecO-I7-YVM">
-                                    <rect key="frame" x="240" y="70" width="107" height="38"/>
+                                    <rect key="frame" x="240" y="78" width="107" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ivc-o4-8cp">
-                                    <rect key="frame" x="240" y="92" width="107" height="38"/>
+                                    <rect key="frame" x="240" y="100" width="107" height="38"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                     <color key="textColor" red="0.56574041190000002" green="0.86936257100000003" blue="0.18539151279999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shibe.png" id="Tdq-tM-8YP">
-                                    <rect key="frame" x="57" y="10" width="74" height="74"/>
+                                    <rect key="frame" x="129" y="34" width="74" height="74"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="uds-FU-mQI">
-                                    <rect key="frame" x="20" y="108" width="22" height="22"/>
+                                    <rect key="frame" x="9" y="108" width="22" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal">
@@ -65,7 +58,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="XKm-TJ-IfS">
-                                    <rect key="frame" x="57" y="108" width="22" height="22"/>
+                                    <rect key="frame" x="46" y="108" width="22" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal">
@@ -83,6 +76,13 @@
                                     <connections>
                                         <action selector="logout:" destination="ArI-RG-xMQ" eventType="touchUpInside" id="CWH-zj-qBv"/>
                                     </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r0c-Ms-Hnw">
+                                    <rect key="frame" x="85" y="108" width="22" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="icon-ios7-circle-filled.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -124,7 +124,6 @@
                     <connections>
                         <outlet property="firstNameLabel" destination="fve-xN-LKw" id="B4z-Ge-FcU"/>
                         <outlet property="karmaLabel" destination="ivc-o4-8cp" id="Bkh-CK-jJq"/>
-                        <outlet property="lastNameLabel" destination="e6W-yn-3Sy" id="E91-aB-vrq"/>
                         <outlet property="profilePicLabel" destination="Tdq-tM-8YP" id="QLO-GR-ihw"/>
                     </connections>
                 </tableViewController>
@@ -432,6 +431,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="calendar.png" width="512" height="512"/>
         <image name="highway-to-hipster-dream.jpg" width="640" height="960"/>
         <image name="icon-close.png" width="600" height="600"/>
+        <image name="icon-ios7-circle-filled.png" width="600" height="600"/>
         <image name="shibe.png" width="255" height="306"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

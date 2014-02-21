@@ -83,8 +83,6 @@
             }
         }
     }];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,12 +100,9 @@
     [query whereKey:@"username" equalTo:user.username];
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-            
-        } else {
-            // The find succeeded.
-            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:[self.taskKarma intValue]]];
+        if (object) {
+            [object incrementKey:@"karma"
+                        byAmount:[NSNumber numberWithInt:[self.taskKarma intValue]]];
             [object saveInBackground];
         }
     }];
@@ -117,12 +112,7 @@
     [queryTask whereKey:@"taskId" equalTo:self.taskText];
     
     [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-        } else {
-            // The find succeeded.
-            [object deleteInBackground];
-        }
+        if (object) [object deleteInBackground];
     }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -139,7 +129,6 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
-            
         } else {
             // The find succeeded.
             int karmaDelay = (int) - [self.taskKarma intValue]/2. ;
@@ -164,17 +153,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
