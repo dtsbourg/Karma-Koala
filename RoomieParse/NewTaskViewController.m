@@ -98,6 +98,7 @@
                                                     green:222./255
                                                     blue:47./255
                                                 alpha:1];
+        self.karmaValue.text = [NSString stringWithFormat:@"+%i", (int)sender.value];
     }
     
     else if (sender.value < 0) {

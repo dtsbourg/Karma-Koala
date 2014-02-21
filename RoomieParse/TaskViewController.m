@@ -240,7 +240,39 @@
  
  // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];
-     cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
+     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
+    
+    if ([[object objectForKey:@"karma"] intValue] > 0) {
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:144./255
+                                                    green:222./255
+                                                     blue:47./255
+                                                    alpha:1];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
+    }
+    
+    else if ([[object objectForKey:@"karma"] intValue] < 0) {
+        cell.detailTextLabel.textColor = [UIColor whiteColor];
+    }
+    
+    else cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    
+    if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
+    {
+        cell.backgroundColor = [UIColor colorWithRed:204./255 green:51./255 blue:0 alpha:1];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+        
+        NSDate *now = [NSDate date];
+        NSTimeInterval secondsBetween = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
+        NSTimeInterval secondsSinceUpdate = [[object updatedAt] timeIntervalSinceDate:now];
+        
+        int numberOfHours = secondsBetween / 3600, numberOfHoursSinceUpdate = secondsSinceUpdate / 3600;
+        
+        if (numberOfHoursSinceUpdate >= 12) {
+            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
+            [object saveInBackground];
+        }
+    }
  
     return cell;
 }
