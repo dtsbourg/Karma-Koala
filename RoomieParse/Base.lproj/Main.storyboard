@@ -38,7 +38,7 @@
                                     <color key="textColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Tdq-tM-8YP">
+                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bad-profile-pic-2.jpeg" id="Tdq-tM-8YP">
                                     <rect key="frame" x="107" y="20" width="107" height="83"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,7 +182,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.20784313730000001" green="0.098039215690000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="Delay by one day">
+                                        <state key="normal" title="Delay">
                                             <color key="titleColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -193,7 +193,7 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fY8-SS-fKY">
                                         <rect key="frame" x="20" y="132" width="280" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -209,13 +209,17 @@
                                             <action selector="cancel:" destination="wGS-u1-1lT" eventType="touchUpInside" id="gdy-MD-TXo"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oab-Kf-WLx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mMi-N0-nDh">
                                         <rect key="frame" x="135" y="282" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="60"/>
-                                        <color key="textColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayValueIncr:" destination="wGS-u1-1lT" eventType="touchUpInside" id="v0J-Pn-1OM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.32497336650000003" green="0.15054598720000001" blue="0.24993341620000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -224,7 +228,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="daysLate" destination="Oab-Kf-WLx" id="Iqn-Lb-ZCb"/>
+                        <outlet property="daysLate" destination="mMi-N0-nDh" id="bug-Dj-dBA"/>
                         <outlet property="karma" destination="1eG-f3-Hxq" id="erH-MM-9cW"/>
                         <outlet property="taskName" destination="VvQ-5F-Gin" id="hpq-m3-zJl"/>
                         <outlet property="timeLeft" destination="fY8-SS-fKY" id="7sR-v5-ueZ"/>
@@ -537,6 +541,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
+        <image name="bad-profile-pic-2.jpeg" width="1024" height="768"/>
         <image name="icon-ios7-circle-filled.png" width="600" height="600"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

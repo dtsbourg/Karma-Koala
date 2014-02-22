@@ -50,8 +50,6 @@
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
-        // Customize the table
-        
         // The className to query on
         self.parseClassName = @"Tasks";
         
@@ -198,7 +196,6 @@
     
 }
 
-
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
@@ -225,8 +222,6 @@
      
      else return nil;
  }
-
-
 
  // Override to customize the look of a cell representing an object. The default is to display
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,

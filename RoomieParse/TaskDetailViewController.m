@@ -13,6 +13,9 @@
 @interface TaskDetailViewController () {
 EFCircularSlider* minuteSlider;
 EFCircularSlider* hourSlider;
+    int delayHour;
+    int delayMinute;
+    //int delayDay;
 }
 @end
 
@@ -39,6 +42,8 @@ EFCircularSlider* hourSlider;
 {
     [super viewDidLoad];
     
+    self.daysLate.userInteractionEnabled=NO;
+    
     CGRect minuteSliderFrame = CGRectMake(30, 185, 260, 260);
     minuteSlider = [[EFCircularSlider alloc] initWithFrame:minuteSliderFrame];
     minuteSlider.unfilledColor = [UIColor colorWithRed:23/255.0f
@@ -63,6 +68,8 @@ EFCircularSlider* hourSlider;
     
     minuteSlider.handleType = EFDoubleCircleWithOpenCenter;
     minuteSlider.handleColor = minuteSlider.filledColor;
+    [minuteSlider addTarget:self action:@selector(minutesValueChanged:) forControlEvents:UIControlEventValueChanged];
+    minuteSlider.userInteractionEnabled = NO;
     [self.view addSubview:minuteSlider];
     
     CGRect hourSliderFrame = CGRectMake(80, 230, 160, 160);
@@ -80,7 +87,7 @@ EFCircularSlider* hourSlider;
     [hourSlider setInnerMarkingLabels:@[ @"2", @"4", @"6",@"8",@"10",@"12", @"14",@"16",@"18", @"20",@"22",@"0" ]];
     hourSlider.labelFont = [UIFont systemFontOfSize:14.0f];
     hourSlider.lineWidth = 12;
-    hourSlider.snapToLabels = NO;
+    hourSlider.snapToLabels = YES;
     hourSlider.minimumValue = 0;
     hourSlider.maximumValue = 24;
     hourSlider.labelColor = [UIColor colorWithRed:127/255.0f
@@ -90,9 +97,10 @@ EFCircularSlider* hourSlider;
     
     hourSlider.handleType = EFBigCircle;
     hourSlider.handleColor = hourSlider.filledColor;
-    [self.view addSubview:hourSlider];
-
     
+    [hourSlider addTarget:self action:@selector(hoursValueChanged:) forControlEvents:UIControlEventValueChanged];
+    hourSlider.userInteractionEnabled = NO;
+    [self.view addSubview:hourSlider];
     
     // Do any additional setup after loading the view.
     self.taskName.text = self.taskText;
@@ -121,7 +129,7 @@ EFCircularSlider* hourSlider;
             if (secondsBetween > 0) {
             if (numberOfDays) {
                 self.timeLeft.text = [NSString stringWithFormat:@"%i days , %i hours and %i minutes left !", numberOfDays, numberOfHours%24, numberOfMinutes%60];
-                self.daysLate.text = [NSString stringWithFormat:@"%i", numberOfDays];
+                [self.daysLate setTitle:[NSString stringWithFormat:@"%i", numberOfDays] forState:UIControlStateNormal ];
             } else {
                 if (numberOfHours) {
                     self.timeLeft.text = [NSString stringWithFormat:@"%ih and %im left !",numberOfHours%24, numberOfMinutes%60];
@@ -135,7 +143,7 @@ EFCircularSlider* hourSlider;
             else {
                 if (numberOfDays) {
                     self.timeLeft.text = [NSString stringWithFormat:@"%i days , %i hours and %i minutes late !", abs(numberOfDays), abs(numberOfHours%24), abs(numberOfMinutes%60)];
-                    self.daysLate.text = [NSString stringWithFormat:@"%i", abs(numberOfDays)];
+                    [self.daysLate setTitle:[NSString stringWithFormat:@"%i", abs(numberOfDays)] forState:UIControlStateNormal ];
                 } else {
                     if (numberOfHours) {
                         self.timeLeft.text = [NSString stringWithFormat:@"%i hours and %i minutes late !",abs(numberOfHours%24), abs(numberOfMinutes%60)];
@@ -148,6 +156,16 @@ EFCircularSlider* hourSlider;
             }
         }
     }];
+}
+
+-(void)hoursValueChanged:(EFCircularSlider*)slider {
+    delayHour = slider.currentValue;
+    NSLog(@"%i", delayHour);
+}
+
+-(void)minutesValueChanged:(EFCircularSlider*)slider {
+    delayMinute = slider.currentValue;
+    NSLog(@"%i", delayMinute);
 }
 
 - (void)didReceiveMemoryWarning
@@ -185,6 +203,41 @@ EFCircularSlider* hourSlider;
 
 - (IBAction)delayTask:(id)sender {
     
+    minuteSlider.userInteractionEnabled = YES;
+    hourSlider.userInteractionEnabled = YES;
+    [minuteSlider setCurrentValue:0];
+    [hourSlider setCurrentValue:0];
+    
+    self.daysLate.userInteractionEnabled = YES;
+    [self.daysLate setTitle:[NSString stringWithFormat:@"%i", self.delayDay] forState:UIControlStateNormal];
+//    CALayer *mainViewLayer = self.view.layer;
+//    [mainViewLayer addSublayer:self.daysLate.layer];
+    //[self.view insertSubview:self.daysLate aboveSubview:minuteSlider];
+    self.daysLate.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+    
+    
+    self.timeLeft.hidden = YES;
+        
+    UIButton *confirm = [[UIButton alloc]initWithFrame:CGRectMake(20, 134, 280, 42)];
+    [confirm setTitle:@"Confirm" forState:UIControlStateNormal];
+    [confirm setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [confirm setTitleColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1] forState:UIControlStateNormal];
+    [confirm.titleLabel setFont:[UIFont fontWithName:@"Futura" size:16]];
+    [confirm addTarget:self
+               action:@selector(confirm:)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:confirm];
+    
+    
+}
+
+-(IBAction)dayValueIncr:(UIButton*)sender{
+    self.delayDay = self.delayDay + 1;
+    [self.daysLate setTitle:[NSString stringWithFormat:@"%i", self.delayDay] forState:UIControlStateNormal ];
+}
+
+-(void)confirm:(UIButton*)sender {
     PFUser *user = [PFUser currentUser];
     // Do any additional setup after loading the view.
     
@@ -210,12 +263,15 @@ EFCircularSlider* hourSlider;
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
         } else {
+            
             // The find succeeded.
-            [object setObject:[self.dueDate dateByAddingTimeInterval:86400] forKey:@"dateLimit"];
+            NSLog(@"%i %i", delayHour, delayMinute);
+            //[object setObject:[self.dueDate dateByAddingTimeInterval:(self.delayDay*24 + delayHour*3600 + delayMinute*60)] forKey:@"dateLimit"];
         }
     }];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 

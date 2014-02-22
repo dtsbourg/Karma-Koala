@@ -13,10 +13,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *taskName;
 @property (strong, nonatomic) IBOutlet UILabel *karma;
 @property (strong, nonatomic) IBOutlet UILabel *timeLeft;
-@property (strong, nonatomic) IBOutlet UILabel *daysLate;
+@property (strong, nonatomic) IBOutlet UIButton *daysLate;
+
 
 @property (strong, nonatomic) NSString *taskText;
 @property (strong, nonatomic) NSString *taskKarma;
 @property (strong, nonatomic) NSDate *dueDate;
 @property (weak, nonatomic) NSDate *delayDate;
+@property (nonatomic, assign) int delayDay;
 @end

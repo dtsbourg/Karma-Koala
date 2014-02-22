@@ -66,8 +66,6 @@
 }
 
 - (IBAction)save:(id)sender {
-    
-    
     //TODO Data is complete verifications
     
     // Trim comment and save it in a dictionary for use later in our callback block
