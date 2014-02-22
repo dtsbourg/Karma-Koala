@@ -60,9 +60,24 @@
                 self.timeLeft.text = [NSString stringWithFormat:@"%i days , %i hours and %i minutes left !", numberOfDays, numberOfHours%24, numberOfMinutes%60];
             } else {
                 if (numberOfHours) {
-                    self.timeLeft.text = [NSString stringWithFormat:@"%i hours and %i minutes left !",numberOfHours%24, numberOfMinutes%60];
+                    self.timeLeft.text = [NSString stringWithFormat:@"%ih and %im left !",numberOfHours%24, numberOfMinutes%60];
                 } else {
                     self.timeLeft.text = [NSString stringWithFormat:@"%i minutes left !",numberOfMinutes%60];
+                    
+                    /* ======== IDEA for ui ======= */
+                    /*NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:self.timeLeft.text];
+                     NSRange selectedRange = NSMakeRange(0, 1);
+                     
+                     [string beginEditing];
+                     
+                     [string addAttribute:NSFontAttributeName
+                     value:[UIFont systemFontOfSize:50]
+                     range:selectedRange];
+                     
+                     [string endEditing];
+                     
+                     self.timeLeft.attributedText = string;*/
+                    /* =========================== */
                 }
                 
             }

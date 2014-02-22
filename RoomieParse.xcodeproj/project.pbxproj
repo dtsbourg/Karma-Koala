@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483018B89FED00C05E65 /* HomeViewController.m */; };
 		FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */; };
 		FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 		FCFE9E2718B5DD8C0019DC9F /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2618B5DD8C0019DC9F /* calendar.png */; };
 		FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E2918B5DE480019DC9F /* TaskDetailViewController.m */; };
 		FCFE9E2C18B7EE160019DC9F /* icon-ios7-circle-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */; };
+		FCFE9E8918B89EF10019DC9F /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E8818B89EF10019DC9F /* HMSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC73482F18B89FED00C05E65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		FC73483018B89FED00C05E65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		FCFE9DB918B506820019DC9F /* RoomieParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DBC18B506820019DC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +101,8 @@
 		FCFE9E2818B5DE480019DC9F /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailViewController.h; path = RoomieParse/TaskDetailViewController.h; sourceTree = "<group>"; };
 		FCFE9E2918B5DE480019DC9F /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailViewController.m; path = RoomieParse/TaskDetailViewController.m; sourceTree = "<group>"; };
 		FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-circle-filled.png"; sourceTree = "<group>"; };
+		FCFE9E8718B89EF10019DC9F /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		FCFE9E8818B89EF10019DC9F /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC73483218B89FF200C05E65 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC73482F18B89FED00C05E65 /* HomeViewController.h */,
+				FC73483018B89FED00C05E65 /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		FCFE9DB018B506820019DC9F = {
 			isa = PBXGroup;
 			children = (
@@ -172,12 +187,14 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FCFE9E8618B89EF10019DC9F /* HMSegmentedControl */,
 				FCFE9E1818B53DEB0019DC9F /* Sign Up */,
 				FCFE9E1118B51F620019DC9F /* Login */,
 				FCFE9E1318B51F760019DC9F /* Model */,
 				FCFE9E1218B51F6A0019DC9F /* Tasks */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
+				FC73483218B89FF200C05E65 /* Home */,
 				FCFE9E2318B5D9AE0019DC9F /* Task Details */,
 				FCFE9E1C18B545CB0019DC9F /* New Task */,
 				FCFE9DD418B506820019DC9F /* Images.xcassets */,
@@ -284,6 +301,15 @@
 			);
 			name = "Task Details";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		FCFE9E8618B89EF10019DC9F /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				FCFE9E8718B89EF10019DC9F /* HMSegmentedControl.h */,
+				FCFE9E8818B89EF10019DC9F /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,9 +420,11 @@
 				FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */,
 				FCFE9DC918B506820019DC9F /* main.m in Sources */,
 				FCFE9E1718B53DE40019DC9F /* SignUpViewController.m in Sources */,
+				FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */,
 				FCFE9E1F18B546530019DC9F /* NewTaskViewController.m in Sources */,
 				FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */,
 				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
+				FCFE9E8918B89EF10019DC9F /* HMSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +637,7 @@
 				FCFE9DED18B506820019DC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCFE9DEE18B506820019DC9F /* Build configuration list for PBXNativeTarget "RoomieParseTests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +646,7 @@
 				FCFE9DF018B506820019DC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

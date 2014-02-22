@@ -258,7 +258,10 @@
     
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.backgroundColor = [UIColor colorWithRed:204./255 green:51./255 blue:0 alpha:1];
+        cell.backgroundColor = [UIColor colorWithRed:204./255
+                                               green:51./255
+                                                blue:0
+                                               alpha:1];
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.detailTextLabel.backgroundColor = [UIColor clearColor];
         
@@ -272,6 +275,10 @@
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
             [object saveInBackground];
         }
+    }
+    
+    else {
+        cell.backgroundColor = [UIColor clearColor];
     }
  
     return cell;
