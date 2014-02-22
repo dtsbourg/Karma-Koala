@@ -563,7 +563,7 @@
     } else if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleDynamic) {
         CGFloat totalWidth;
         for (NSNumber *width in self.segmentWidthsArray) {
-            totalWidth = totalWidth + [width floatValue];
+            totalWidth += [width floatValue];
         }
         return totalWidth;
     } else {

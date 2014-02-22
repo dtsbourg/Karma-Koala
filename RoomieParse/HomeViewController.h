@@ -9,5 +9,6 @@
 #import <Parse/Parse.h>
 
 @interface HomeViewController : PFQueryTableViewController
+@property (strong, nonatomic) IBOutlet UIView *progressView;
 @property (strong, nonatomic) NSString * displayUser;
 @end

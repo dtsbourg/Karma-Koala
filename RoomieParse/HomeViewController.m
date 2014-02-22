@@ -40,7 +40,7 @@
     HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"All",@"Dylan", @"Tristan"]];
     segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    [segmentedControl setFrame:CGRectMake(0, 0 + yDelta, 320, 40)];
+    [segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
     [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:segmentedControl];
@@ -74,6 +74,7 @@
     }
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
     static NSString *CellIdentifier = @"Cell";
@@ -88,6 +89,12 @@
     // Configure the cell
     cell.textLabel.text = [object objectForKey:@"taskId"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
+    
+    /*UIView *cellBgView =[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300, [cell frame].size.height)];
+    [cellBgView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"highway-to-hipster-dream.jpg"]]];
+    [cellBgView setFrame:CGRectMake(0.0f, 0.0f, 200,[cell frame].size.height )];
+
+    [cell setBackgroundView:cellBgView];*/
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
         cell.detailTextLabel.textColor = [UIColor colorWithRed:144./255
@@ -171,6 +178,9 @@
         
     }
     return self;
+}
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
