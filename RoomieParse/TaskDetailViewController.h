@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *taskName;
 @property (strong, nonatomic) IBOutlet UILabel *karma;
 @property (strong, nonatomic) IBOutlet UILabel *timeLeft;
+@property (strong, nonatomic) IBOutlet UILabel *daysLate;
 
 @property (strong, nonatomic) NSString *taskText;
 @property (strong, nonatomic) NSString *taskKarma;

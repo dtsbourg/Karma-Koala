@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483018B89FED00C05E65 /* HomeViewController.m */; };
+		FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483518B8E8E000C05E65 /* EFCircularSlider.m */; };
+		FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483818B943F700C05E65 /* IBActionSheet.m */; };
 		FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */; };
 		FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
@@ -57,6 +59,10 @@
 /* Begin PBXFileReference section */
 		FC73482F18B89FED00C05E65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		FC73483018B89FED00C05E65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		FC73483418B8E8E000C05E65 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
+		FC73483518B8E8E000C05E65 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
+		FC73483718B943F700C05E65 /* IBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBActionSheet.h; sourceTree = "<group>"; };
+		FC73483818B943F700C05E65 /* IBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBActionSheet.m; sourceTree = "<group>"; };
 		FCFE9DB918B506820019DC9F /* RoomieParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DBC18B506820019DC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +152,25 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		FC73483318B8E8E000C05E65 /* EFCircularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				FC73483418B8E8E000C05E65 /* EFCircularSlider.h */,
+				FC73483518B8E8E000C05E65 /* EFCircularSlider.m */,
+			);
+			path = EFCircularSlider;
+			sourceTree = "<group>";
+		};
+		FC73483A18B9440100C05E65 /* IBActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				FC73483718B943F700C05E65 /* IBActionSheet.h */,
+				FC73483818B943F700C05E65 /* IBActionSheet.m */,
+			);
+			name = IBActionSheet;
+			path = EFCircularSlider;
+			sourceTree = "<group>";
+		};
 		FCFE9DB018B506820019DC9F = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +212,8 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FC73483A18B9440100C05E65 /* IBActionSheet */,
+				FC73483318B8E8E000C05E65 /* EFCircularSlider */,
 				FCFE9E8618B89EF10019DC9F /* HMSegmentedControl */,
 				FCFE9E1818B53DEB0019DC9F /* Sign Up */,
 				FCFE9E1118B51F620019DC9F /* Login */,
@@ -422,6 +449,8 @@
 				FCFE9E1718B53DE40019DC9F /* SignUpViewController.m in Sources */,
 				FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */,
 				FCFE9E1F18B546530019DC9F /* NewTaskViewController.m in Sources */,
+				FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */,
+				FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */,
 				FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */,
 				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
 				FCFE9E8918B89EF10019DC9F /* HMSegmentedControl.m in Sources */,

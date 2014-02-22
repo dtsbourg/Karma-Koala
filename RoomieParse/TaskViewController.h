@@ -7,8 +7,9 @@
 //
 
 #import <Parse/Parse.h>
+#import "IBActionSheet.h"
 
-@interface TaskViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIActionSheetDelegate>
+@interface TaskViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, IBActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *karmaLabel;
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lastNameLabel;

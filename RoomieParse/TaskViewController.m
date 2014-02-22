@@ -12,6 +12,7 @@
 #import "SignUpViewController.h"
 #import "TaskDetailViewController.h"
 
+
 @interface TaskViewController ()
 @end
 
@@ -65,6 +66,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     PFUser *user = [PFUser currentUser];
     // Do any additional setup after loading the view.
     
@@ -80,9 +84,9 @@
             self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
             
             if ([[object objectForKey:@"karma"] intValue] > 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:144./255
-                                                            green:222./255
-                                                             blue:47./255
+                self.karmaLabel.textColor = [UIColor colorWithRed:150./255
+                                                            green:210./255
+                                                             blue:149./255
                                                             alpha:1];
                 
                 self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
@@ -90,9 +94,9 @@
             }
             
             else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:204./255
-                                                            green:51./255
-                                                             blue:0
+                self.karmaLabel.textColor = [UIColor colorWithRed:244./255
+                                                            green:157./255
+                                                             blue:25./255
                                                             alpha:1];
             }
             
@@ -147,9 +151,9 @@
             self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
             
             if ([[object objectForKey:@"karma"] intValue] > 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:144./255
-                                                            green:222./255
-                                                             blue:47./255
+                self.karmaLabel.textColor = [UIColor colorWithRed:150./255
+                                                            green:210./255
+                                                             blue:149./255
                                                             alpha:1];
                 
                 self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
@@ -157,9 +161,9 @@
             }
             
             else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:204./255
-                                                            green:51./255
-                                                             blue:0
+                self.karmaLabel.textColor = [UIColor colorWithRed:244./255
+                                                            green:157./255
+                                                             blue:25./25
                                                             alpha:1];
             }
             
@@ -243,9 +247,9 @@
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:144./255
-                                                    green:222./255
-                                                     blue:47./255
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255
+                                                    green:210./255
+                                                     blue:149./255
                                                     alpha:1];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
@@ -258,13 +262,12 @@
     
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.backgroundColor = [UIColor colorWithRed:204./255
-                                               green:51./255
-                                                blue:0
-                                               alpha:1];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.detailTextLabel.backgroundColor = [UIColor clearColor];
         
+        cell.textLabel.textColor = [UIColor colorWithRed:255./255
+                                                 green:157./255
+                                                  blue:25./255
+                                                 alpha:1];
+
         NSDate *now = [NSDate date];
         NSTimeInterval secondsBetween = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
         NSTimeInterval secondsSinceUpdate = [[object updatedAt] timeIntervalSinceDate:now];
@@ -275,10 +278,6 @@
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
             [object saveInBackground];
         }
-    }
-    
-    else {
-        cell.backgroundColor = [UIColor clearColor];
     }
  
     return cell;
@@ -317,17 +316,21 @@
 }
 
 - (IBAction)orderFeed:(id)sender {
+    IBActionSheet *actionSheet = [[IBActionSheet alloc] initWithTitle:@"Order your task Feed by :"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Karma points", @"Date", nil, nil];
     
-    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Order your Task Feed by :"
-                                                      delegate:self
-                                             cancelButtonTitle:@"Cancel"
-                                        destructiveButtonTitle:nil
-                                             otherButtonTitles:@"Karma points", @"Date",@"Responsible", nil];
+    [actionSheet setFont:[UIFont fontWithName:@"Futura" size:16]];
+    [actionSheet setButtonBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [actionSheet setButtonTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
+    [actionSheet setTitleTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
     
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    [actionSheet showInView:self.view];
 }
 
-- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)actionSheet:(IBActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
             self.priority=@"karma";

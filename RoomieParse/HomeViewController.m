@@ -97,9 +97,9 @@
     [cell setBackgroundView:cellBgView];*/
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:144./255
-                                                         green:222./255
-                                                          blue:47./255
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255
+                                                         green:210./255
+                                                          blue:149./255
                                                          alpha:1];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
@@ -112,9 +112,9 @@
     
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.backgroundColor = [UIColor colorWithRed:204./255
-                                               green:51./255
-                                                blue:0
+        cell.backgroundColor = [UIColor colorWithRed:244./255
+                                               green:157./255
+                                                blue:25./255
                                                alpha:1];
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.detailTextLabel.backgroundColor = [UIColor clearColor];
