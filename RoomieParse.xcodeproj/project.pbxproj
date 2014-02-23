@@ -10,12 +10,12 @@
 		FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483018B89FED00C05E65 /* HomeViewController.m */; };
 		FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483518B8E8E000C05E65 /* EFCircularSlider.m */; };
 		FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483818B943F700C05E65 /* IBActionSheet.m */; };
-		FC73483C18B9705500C05E65 /* bad-profile-pic-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FC73483B18B9705500C05E65 /* bad-profile-pic-2.jpeg */; };
 		FC73483F18BA1D1C00C05E65 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483E18BA1D1C00C05E65 /* SettingsViewController.m */; };
-		FC73484418BA544B00C05E65 /* SignUp.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484318BA544B00C05E65 /* SignUp.png */; };
 		FC73484918BA56C900C05E65 /* purple_signup.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484718BA56C900C05E65 /* purple_signup.png */; };
 		FC73484A18BA56C900C05E65 /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484818BA56C900C05E65 /* purple.png */; };
 		FC73484C18BA5C8300C05E65 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484B18BA5C8300C05E65 /* close.png */; };
+		FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484D18BA76BB00C05E65 /* icon-home.png */; };
+		FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */; };
 		FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */; };
 		FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
@@ -39,16 +39,11 @@
 		FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */; };
 		FCFE9E0518B507610019DC9F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0218B507610019DC9F /* Task.m */; };
 		FCFE9E0618B507610019DC9F /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0418B507610019DC9F /* Roommate.m */; };
-		FCFE9E0918B507F00019DC9F /* highway-to-hipster-dream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */; };
-		FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E0818B507F00019DC9F /* shibe.png */; };
 		FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */; };
 		FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */; };
 		FCFE9E1718B53DE40019DC9F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E1618B53DE40019DC9F /* SignUpViewController.m */; };
 		FCFE9E1F18B546530019DC9F /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E1E18B546530019DC9F /* NewTaskViewController.m */; };
-		FCFE9E2518B5DC380019DC9F /* icon-close.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2418B5DC380019DC9F /* icon-close.png */; };
-		FCFE9E2718B5DD8C0019DC9F /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2618B5DD8C0019DC9F /* calendar.png */; };
 		FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E2918B5DE480019DC9F /* TaskDetailViewController.m */; };
-		FCFE9E2C18B7EE160019DC9F /* icon-ios7-circle-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */; };
 		FCFE9E8918B89EF10019DC9F /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E8818B89EF10019DC9F /* HMSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
@@ -69,13 +64,13 @@
 		FC73483518B8E8E000C05E65 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
 		FC73483718B943F700C05E65 /* IBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBActionSheet.h; sourceTree = "<group>"; };
 		FC73483818B943F700C05E65 /* IBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBActionSheet.m; sourceTree = "<group>"; };
-		FC73483B18B9705500C05E65 /* bad-profile-pic-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bad-profile-pic-2.jpeg"; sourceTree = "<group>"; };
 		FC73483D18BA1D1C00C05E65 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		FC73483E18BA1D1C00C05E65 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		FC73484318BA544B00C05E65 /* SignUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUp.png; sourceTree = "<group>"; };
 		FC73484718BA56C900C05E65 /* purple_signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_signup.png; sourceTree = "<group>"; };
 		FC73484818BA56C900C05E65 /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
 		FC73484B18BA5C8300C05E65 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		FC73484D18BA76BB00C05E65 /* icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home.png"; sourceTree = "<group>"; };
+		FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline.png"; sourceTree = "<group>"; };
 		FCFE9DB918B506820019DC9F /* RoomieParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DBC18B506820019DC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,8 +100,6 @@
 		FCFE9E0218B507610019DC9F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		FCFE9E0318B507610019DC9F /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roommate.h; sourceTree = "<group>"; };
 		FCFE9E0418B507610019DC9F /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Roommate.m; sourceTree = "<group>"; };
-		FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "highway-to-hipster-dream.jpg"; sourceTree = "<group>"; };
-		FCFE9E0818B507F00019DC9F /* shibe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shibe.png; sourceTree = "<group>"; };
 		FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		FCFE9E0E18B51F5B0019DC9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -115,11 +108,8 @@
 		FCFE9E1618B53DE40019DC9F /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		FCFE9E1D18B546530019DC9F /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		FCFE9E1E18B546530019DC9F /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
-		FCFE9E2418B5DC380019DC9F /* icon-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-close.png"; sourceTree = "<group>"; };
-		FCFE9E2618B5DD8C0019DC9F /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		FCFE9E2818B5DE480019DC9F /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailViewController.h; path = RoomieParse/TaskDetailViewController.h; sourceTree = "<group>"; };
 		FCFE9E2918B5DE480019DC9F /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailViewController.m; path = RoomieParse/TaskDetailViewController.m; sourceTree = "<group>"; };
-		FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-circle-filled.png"; sourceTree = "<group>"; };
 		FCFE9E8718B89EF10019DC9F /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		FCFE9E8818B89EF10019DC9F /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,16 +246,11 @@
 		FCFE9DC318B506820019DC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */,
+				FC73484D18BA76BB00C05E65 /* icon-home.png */,
 				FC73484B18BA5C8300C05E65 /* close.png */,
 				FC73484718BA56C900C05E65 /* purple_signup.png */,
 				FC73484818BA56C900C05E65 /* purple.png */,
-				FC73484318BA544B00C05E65 /* SignUp.png */,
-				FC73483B18B9705500C05E65 /* bad-profile-pic-2.jpeg */,
-				FCFE9E2618B5DD8C0019DC9F /* calendar.png */,
-				FCFE9E2418B5DC380019DC9F /* icon-close.png */,
-				FCFE9E2B18B7EE160019DC9F /* icon-ios7-circle-filled.png */,
-				FCFE9E0718B507F00019DC9F /* highway-to-hipster-dream.jpg */,
-				FCFE9E0818B507F00019DC9F /* shibe.png */,
 				FCFE9DC418B506820019DC9F /* RoomieParse-Info.plist */,
 				FCFE9DC518B506820019DC9F /* InfoPlist.strings */,
 				FCFE9DC818B506820019DC9F /* main.m */,
@@ -443,18 +428,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCFE9E2718B5DD8C0019DC9F /* calendar.png in Resources */,
+				FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */,
 				FCFE9DD518B506820019DC9F /* Images.xcassets in Resources */,
-				FC73484418BA544B00C05E65 /* SignUp.png in Resources */,
-				FCFE9E2C18B7EE160019DC9F /* icon-ios7-circle-filled.png in Resources */,
-				FCFE9E2518B5DC380019DC9F /* icon-close.png in Resources */,
 				FC73484A18BA56C900C05E65 /* purple.png in Resources */,
-				FC73483C18B9705500C05E65 /* bad-profile-pic-2.jpeg in Resources */,
 				FC73484C18BA5C8300C05E65 /* close.png in Resources */,
 				FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */,
+				FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */,
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
-				FCFE9E0A18B507F00019DC9F /* shibe.png in Resources */,
-				FCFE9E0918B507F00019DC9F /* highway-to-hipster-dream.jpg in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

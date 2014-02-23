@@ -42,7 +42,6 @@
     [segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
     [segmentedControl setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
     [segmentedControl setTextColor:[UIColor whiteColor]];
-    //[segmentedControl setSelectedTextColor:[UIColor whiteColor]];
     [segmentedControl setSelectedTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
     segmentedControl.selectionIndicatorColor= [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
     [segmentedControl setFont:[UIFont fontWithName:@"Futura" size:18]];

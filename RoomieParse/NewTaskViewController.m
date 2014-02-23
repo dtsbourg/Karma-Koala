@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    self.hoursSelector.on = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,13 +98,6 @@
                                                      blue:149./255
                                                     alpha:1];
         self.karmaValue.text = [NSString stringWithFormat:@"+%i", (int)sender.value];
-    }
-    
-    else if (sender.value < 0) {
-        self.karmaValue.textColor = [UIColor colorWithRed:244./255
-                                                    green:157./255
-                                                     blue:25./255
-                                                    alpha:1];
     }
     
     else self.karmaValue.textColor = [UIColor darkGrayColor];

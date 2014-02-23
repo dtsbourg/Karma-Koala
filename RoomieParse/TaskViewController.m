@@ -18,26 +18,6 @@
 @end
 
 @implementation TaskViewController
-- (IBAction)logout:(id)sender {
-    
-    [PFUser logOut];
-    
-    LoginViewController *logInViewController = [[LoginViewController alloc] init];
-    [logInViewController setDelegate:self]; // Set ourselves as the delegate
-    
-    logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten;
-    
-    // Create the sign up view controller
-    SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
-    [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-    
-    // Assign our sign up controller to be displayed from the login controller
-    [logInViewController setSignUpController:signUpViewController];
-    
-    // Present the log in view controller
-    [self presentViewController:logInViewController animated:YES completion:nil];
-    
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,11 +33,8 @@
     if (self) {
         // The className to query on
         self.parseClassName = @"Tasks";
-        
-        // The number of objects to show per page
-        self.objectsPerPage = 25;
-        
-        self.priority = @"updatedAt";
+        self.objectsPerPage = 10;
+        self.priority = @"dateLimit";
     }
     return self;
 }
@@ -65,72 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([PFUser currentUser]) {
-        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        
-        PFUser *user = [PFUser currentUser];
-        // Do any additional setup after loading the view.
-        
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:user.username];
-        
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (!object) {
-                NSLog(@"The getFirstObject request failed.");
-                
-            } else {
-                // The find succeeded.
-                self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
-                
-                if ([[object objectForKey:@"karma"] intValue] > 0) {
-                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255
-                                                                green:210./255
-                                                                 blue:149./255
-                                                                alpha:1];
-                    
-                    self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
-                    
-                }
-                
-                else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255
-                                                                green:157./255
-                                                                 blue:25./255
-                                                                alpha:1];
-                }
-                
-                else self.karmaLabel.textColor = [UIColor whiteColor];
-            }
-        }];
-        
-        
-        if (user) {
-            self.firstNameLabel.text = [user.username uppercaseString];
-            [self loadObjects];
-        }
-    }
-    
-    else {
-        // Create the log in view controller
-        LoginViewController *logInViewController = [[LoginViewController alloc] init];
-        [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
-        
-        // Create the sign up view controller
-        SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
-        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        // Assign our sign up controller to be displayed from the login controller
-        [logInViewController setSignUpController:signUpViewController];
-        
-        
-        // Present the log in view controller
-        [self presentViewController:logInViewController animated:YES completion:NULL];
-    }
-
-    
-    
+    if ([PFUser currentUser]) self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -148,7 +60,6 @@
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
-                
             } else {
                 // The find succeeded.
                 self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
@@ -160,17 +71,16 @@
                                                                 alpha:1];
                     
                     self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
-                    
                 }
                 
                 else if ([[object objectForKey:@"karma"] intValue] < 0) {
                     self.karmaLabel.textColor = [UIColor colorWithRed:244./255
                                                                 green:157./255
-                                                                 blue:25./25
+                                                                 blue:25./255
                                                                 alpha:1];
                 }
                 
-                else self.karmaLabel.textColor = [UIColor whiteColor];
+                else self.karmaLabel.textColor = [UIColor grayColor];
             }
         }];
         
@@ -184,7 +94,6 @@
         // Create the log in view controller
         LoginViewController *logInViewController = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
         logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
         
         // Create the sign up view controller
@@ -193,9 +102,6 @@
         
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
-        
-        
-        // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
     
@@ -213,13 +119,9 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         TaskDetailViewController *destvc = [segue destinationViewController];
         NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-    
         destvc.taskText = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
         destvc.taskKarma = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
     }
@@ -229,25 +131,21 @@
         
         PFUser *user = [PFUser currentUser];
         // Do any additional setup after loading the view.
-        
         PFQuery *query = [PFUser query];
         [query whereKey:@"username" equalTo:user.username];
         
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
-                
             } else {
                 destvc.roomies = [object objectForKey:@"roommates"];
             }
         }];
 
-        
         destvc.userKarma = self.karmaLabel.text;
         destvc.userText = [PFUser currentUser].username;
         
     }
-    
 }
 
  // Override to customize what kind of query to perform on the class. The default is to query for
@@ -291,7 +189,7 @@
  }
      self.tableView.separatorColor = [UIColor clearColor];
  
- // Configure the cell
+    // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
@@ -303,19 +201,14 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
     
-    else if ([[object objectForKey:@"karma"] intValue] < 0) {
-        cell.detailTextLabel.textColor = [UIColor whiteColor];
-    }
-    
     else cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        
-        cell.textLabel.textColor = [UIColor colorWithRed:255./255
-                                                 green:157./255
-                                                  blue:25./255
-                                                 alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithRed:244./255
+                                                   green:150./255
+                                                    blue:68./255
+                                                   alpha:1];
 
         NSDate *now = [NSDate date];
         NSTimeInterval secondsBetween = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
@@ -328,7 +221,11 @@
             [object saveInBackground];
         }
     }
- 
+    
+    else {
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }
+    
     return cell;
 }
 
@@ -360,7 +257,7 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -372,9 +269,10 @@
                                                     otherButtonTitles:@"Karma points", @"Date", nil, nil];
     
     [actionSheet setFont:[UIFont fontWithName:@"Futura" size:16]];
-    [actionSheet setButtonBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [actionSheet setButtonBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
     [actionSheet setButtonTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
-    [actionSheet setTitleTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
+    [actionSheet setTitleTextColor:[UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1]];
+    [actionSheet setButtonTextColor:[UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1] forButtonAtIndex:2];
     
     [actionSheet showInView:self.view];
 }
@@ -386,9 +284,6 @@
             break;
         case 1:
             self.priority=@"dateLimit";
-            break;
-        case 2:
-            self.priority=@"username";
             break;
         default:
             break;

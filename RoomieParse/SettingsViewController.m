@@ -36,7 +36,6 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
-            
         } else {
             self.roomies = [object objectForKey:@"roommates"];
         }
@@ -62,12 +61,35 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.userName.text = [self.userText uppercaseString];
-    self.karma.text = self.userKarma;
+    
+    if ([self.userKarma intValue] > 0) {
+        self.karma.textColor = [UIColor colorWithRed:150./255
+                                                         green:210./255
+                                                          blue:149./255
+                                                         alpha:1];
+        self.karma.text = [NSString stringWithFormat:@"+%@",self.userKarma];
+    }
+    
+    else if ([self.userKarma intValue] < 0) {
+        self.karma.textColor = [UIColor colorWithRed:254./255
+                                               green:150./255
+                                                blue:68./255
+                                               alpha:1];
+        self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
+    }
+    else {
+        self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
+        self.karma.textColor = [UIColor grayColor];
+    }
+    
     [self.tableView reloadData];
 }
 - (IBAction)edit:(id)sender {
-    [self.tableView setEditing:YES animated:YES];
+   
+    [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
+    
     [self.tableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning

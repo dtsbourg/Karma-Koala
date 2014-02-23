@@ -59,6 +59,7 @@ EFCircularSlider* hourSlider;
     [minuteSlider setInnerMarkingLabels:@[@"5", @"10", @"15", @"20", @"25", @"30", @"35", @"40", @"45", @"50", @"55", @"60"]];
     minuteSlider.labelFont = [UIFont systemFontOfSize:14.0f];
     minuteSlider.lineWidth = 8;
+    minuteSlider.snapToLabels = NO;
     minuteSlider.minimumValue = 0;
     minuteSlider.maximumValue = 60;
     minuteSlider.labelColor = [UIColor colorWithRed:76/255.0f
@@ -87,7 +88,7 @@ EFCircularSlider* hourSlider;
     [hourSlider setInnerMarkingLabels:@[ @"2", @"4", @"6",@"8",@"10",@"12", @"14",@"16",@"18", @"20",@"22",@"0" ]];
     hourSlider.labelFont = [UIFont systemFontOfSize:14.0f];
     hourSlider.lineWidth = 12;
-    hourSlider.snapToLabels = YES;
+    hourSlider.snapToLabels = NO;
     hourSlider.minimumValue = 0;
     hourSlider.maximumValue = 24;
     hourSlider.labelColor = [UIColor colorWithRed:127/255.0f
@@ -203,6 +204,7 @@ EFCircularSlider* hourSlider;
 
 - (IBAction)delayTask:(id)sender {
     
+    hourSlider.snapToLabels = YES;
     minuteSlider.userInteractionEnabled = YES;
     hourSlider.userInteractionEnabled = YES;
     [minuteSlider setCurrentValue:0];
@@ -214,7 +216,6 @@ EFCircularSlider* hourSlider;
 //    [mainViewLayer addSublayer:self.daysLate.layer];
     //[self.view insertSubview:self.daysLate aboveSubview:minuteSlider];
     self.daysLate.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-    
     
     self.timeLeft.hidden = YES;
         
@@ -228,8 +229,6 @@ EFCircularSlider* hourSlider;
      forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:confirm];
-    
-    
 }
 
 -(IBAction)dayValueIncr:(UIButton*)sender{
@@ -266,11 +265,11 @@ EFCircularSlider* hourSlider;
             
             // The find succeeded.
             NSLog(@"%i %i", delayHour, delayMinute);
-            //[object setObject:[self.dueDate dateByAddingTimeInterval:(self.delayDay*24 + delayHour*3600 + delayMinute*60)] forKey:@"dateLimit"];
+            [object setObject:[self.dueDate dateByAddingTimeInterval:(self.delayDay*24 + delayHour*3600 + delayMinute*60)] forKey:@"dateLimit"];
         }
     }];
     
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
