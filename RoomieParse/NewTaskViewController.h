@@ -10,7 +10,7 @@
 
 #import <Parse/Parse.h>
 
-@interface NewTaskViewController : UITableViewController
+@interface NewTaskViewController : UITableViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *taskAssign;
 @property (strong, nonatomic) IBOutlet UILabel *karmaValue;
 @property (strong, nonatomic) IBOutlet UITextField *taskText;

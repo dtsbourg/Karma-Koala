@@ -28,6 +28,9 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
     self.hoursSelector.on = YES;
+    
+    self.taskAssign.delegate = self;
+    self.taskText.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,10 +106,23 @@
     else self.karmaValue.textColor = [UIColor darkGrayColor];
 }
 
-
 - (IBAction)hoursSelection:(id)sender {
     if (self.hoursSelector.isOn) self.datePick.datePickerMode = UIDatePickerModeDateAndTime;
     else self.datePick.datePickerMode = UIDatePickerModeDate;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.taskAssign) {
+        [self.taskText becomeFirstResponder];
+        return YES;
+    }
+    
+    else {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    
 }
 
 
