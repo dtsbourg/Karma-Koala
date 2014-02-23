@@ -7,7 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "HMSegmentedControl/HMSegmentedControl.h"
 
 @interface HomeViewController ()
 
@@ -28,6 +27,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
     CGFloat yDelta;
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
@@ -36,40 +41,66 @@
         yDelta = 0.0f;
     }
     
-    HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"All",@"Dylan", @"Tristan"]];
-    segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-    segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    [segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
-    [segmentedControl setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
-    [segmentedControl setTextColor:[UIColor whiteColor]];
-    [segmentedControl setSelectedTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
-    segmentedControl.selectionIndicatorColor= [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
-    [segmentedControl setFont:[UIFont fontWithName:@"Futura" size:18]];
-    [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-    segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:segmentedControl];
+    [self.array insertObject:@"All" atIndex:0];
+    [self.array insertObject:[PFUser currentUser].username atIndex:1];
+    self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
+
+    self.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+    self.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    [self.segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
+    [self.segmentedControl setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [self.segmentedControl setTextColor:[UIColor whiteColor]];
+    [self.segmentedControl setSelectedTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
+    self.segmentedControl.selectionIndicatorColor= [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
+    [self.segmentedControl setFont:[UIFont fontWithName:@"Futura" size:18]];
+    [self.segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.segmentedControl];
     
     self.displayUser = @"all";
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.displayUser = @"all";
-    
-}
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
-            self.displayUser = @"all";
+            self.displayUser = [self.array objectAtIndex:0];
             [self loadObjects];
             break;
         case 1:
-            self.displayUser = @"dylan";
+            self.displayUser = [self.array objectAtIndex:1];
             [self loadObjects];
             break;
             
         case 2:
-            self.displayUser = @"tristan";
+            self.displayUser = [self.array objectAtIndex:2];
+            [self loadObjects];
+            break;
+        case 3:
+            self.displayUser = [self.array objectAtIndex:3];
+            [self loadObjects];
+            break;
+        case 4:
+            self.displayUser = [self.array objectAtIndex:4];
+            [self loadObjects];
+            break;
+        case 5:
+            self.displayUser = [self.array objectAtIndex:5];
+            [self loadObjects];
+            break;
+        case 6:
+            self.displayUser = [self.array objectAtIndex:6];
+            [self loadObjects];
+            break;
+        case 7:
+            self.displayUser = [self.array objectAtIndex:7];
+            [self loadObjects];
+            break;
+        case 8:
+            self.displayUser = [self.array objectAtIndex:8];
+            [self loadObjects];
+            break;
+        case 9:
+            self.displayUser = [self.array objectAtIndex:9];
             [self loadObjects];
             break;
             
@@ -132,13 +163,14 @@
         
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
         
-        if ([self.displayUser isEqualToString:@"all"])
+        if ([self.displayUser isEqualToString:@"All"])
         {
             // Finds scores from any of Jonathan, Dario, or Shawn
-            NSArray *names = @[@"dylan",
-                               @"tristan"];
+            NSMutableArray *names = [self.array mutableCopy];
+            [names removeObjectAtIndex:0];
             [query whereKey:@"user" containedIn:names];
         }
+        
         else if (self.displayUser) [query whereKey:@"user" equalTo:self.displayUser];
         
         // If Pull To Refresh is enabled, query against the network by default.
@@ -167,13 +199,10 @@
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
-        // Customize the table
-        
         // The className to query on
         self.parseClassName = @"Tasks";
-        
         // The number of objects to show per page
-        self.objectsPerPage = 25;
+        self.objectsPerPage = 15;
         
     }
     return self;

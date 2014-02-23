@@ -7,8 +7,10 @@
 //
 
 #import <Parse/Parse.h>
+#import "HMSegmentedControl/HMSegmentedControl.h"
 
 @interface HomeViewController : PFQueryTableViewController
-@property (strong, nonatomic) IBOutlet UIView *progressView;
 @property (strong, nonatomic) NSString * displayUser;
+@property (strong, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
+@property (strong, nonatomic) NSMutableArray * array;
 @end

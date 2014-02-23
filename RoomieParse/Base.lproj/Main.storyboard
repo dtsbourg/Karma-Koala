@@ -68,7 +68,7 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="djz-xU-tRk" kind="modal" id="dH8-83-R3Z"/>
+                                        <segue destination="djz-xU-tRk" kind="modal" identifier="homeSegue" id="dH8-83-R3Z"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Je-Hw-MHj">
@@ -502,7 +502,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-50" maximumValue="100" id="hoF-HH-4g2">
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="hoF-HH-4g2">
                                                     <rect key="frame" x="206" y="7" width="94" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <color key="tintColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>

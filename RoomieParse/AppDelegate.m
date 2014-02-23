@@ -16,8 +16,7 @@
     [Parse setApplicationId:@"SxNsyhkZsT98RGCom5S5WWv1IoMNctxDg8KmfjKt"
                   clientKey:@"CuvUVmO7kA3FTaxx8rdQ21YpXMpasSExSvlnNsrd"];
     // Override point for customization after application launch.
-    
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

@@ -12,6 +12,7 @@
 #import "SignUpViewController.h"
 #import "TaskDetailViewController.h"
 #import "SettingsViewController.h"
+#import "HomeViewController.h"
 
 
 @interface TaskViewController ()
@@ -146,6 +147,25 @@
         destvc.userText = [PFUser currentUser].username;
         
     }
+    
+    else if ([segue.identifier isEqualToString:@"homeSegue"]) {
+        HomeViewController *destvc = [segue destinationViewController];
+        
+        PFUser *user = [PFUser currentUser];
+        // Do any additional setup after loading the view.
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:user.username];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!object) {
+                NSLog(@"The getFirstObject request failed.");
+            } else {
+                destvc.array = [object objectForKey:@"roommates"];
+            }
+        }];
+    }
+    
+    
 }
 
  // Override to customize what kind of query to perform on the class. The default is to query for
