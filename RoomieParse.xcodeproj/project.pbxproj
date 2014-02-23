@@ -11,6 +11,7 @@
 		FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483518B8E8E000C05E65 /* EFCircularSlider.m */; };
 		FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483818B943F700C05E65 /* IBActionSheet.m */; };
 		FC73483C18B9705500C05E65 /* bad-profile-pic-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FC73483B18B9705500C05E65 /* bad-profile-pic-2.jpeg */; };
+		FC73483F18BA1D1C00C05E65 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483E18BA1D1C00C05E65 /* SettingsViewController.m */; };
 		FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */; };
 		FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
@@ -65,6 +66,8 @@
 		FC73483718B943F700C05E65 /* IBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBActionSheet.h; sourceTree = "<group>"; };
 		FC73483818B943F700C05E65 /* IBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBActionSheet.m; sourceTree = "<group>"; };
 		FC73483B18B9705500C05E65 /* bad-profile-pic-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bad-profile-pic-2.jpeg"; sourceTree = "<group>"; };
+		FC73483D18BA1D1C00C05E65 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		FC73483E18BA1D1C00C05E65 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		FCFE9DB918B506820019DC9F /* RoomieParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DBC18B506820019DC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -173,6 +176,15 @@
 			path = EFCircularSlider;
 			sourceTree = "<group>";
 		};
+		FC73484018BA1D2100C05E65 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FC73483D18BA1D1C00C05E65 /* SettingsViewController.h */,
+				FC73483E18BA1D1C00C05E65 /* SettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		FCFE9DB018B506820019DC9F = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +235,7 @@
 				FCFE9E1218B51F6A0019DC9F /* Tasks */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
+				FC73484018BA1D2100C05E65 /* Settings */,
 				FC73483218B89FF200C05E65 /* Home */,
 				FCFE9E2318B5D9AE0019DC9F /* Task Details */,
 				FCFE9E1C18B545CB0019DC9F /* New Task */,
@@ -458,6 +471,7 @@
 				FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */,
 				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
 				FCFE9E8918B89EF10019DC9F /* HMSegmentedControl.m in Sources */,
+				FC73483F18BA1D1C00C05E65 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

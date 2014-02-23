@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
 #import "TaskDetailViewController.h"
+#import "SettingsViewController.h"
 
 
 @interface TaskViewController ()
@@ -192,6 +193,30 @@
     
         destvc.taskText = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
         destvc.taskKarma = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
+    }
+    
+    else if ([segue.identifier isEqualToString:@"settingsSegue"]) {
+        SettingsViewController *destvc = [segue destinationViewController];
+        
+        PFUser *user = [PFUser currentUser];
+        // Do any additional setup after loading the view.
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:user.username];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!object) {
+                NSLog(@"The getFirstObject request failed.");
+                
+            } else {
+                destvc.roomies = [object objectForKey:@"roommates"];
+            }
+        }];
+
+        
+        destvc.userKarma = self.karmaLabel.text;
+        destvc.userText = [PFUser currentUser].username;
+        
     }
     
 }

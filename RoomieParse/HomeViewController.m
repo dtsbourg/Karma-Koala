@@ -36,11 +36,16 @@
         yDelta = 0.0f;
     }
     
-    // Minimum code required to use the segmented control with the default styling.
     HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"All",@"Dylan", @"Tristan"]];
     segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     [segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
+    [segmentedControl setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [segmentedControl setTextColor:[UIColor whiteColor]];
+    //[segmentedControl setSelectedTextColor:[UIColor whiteColor]];
+    [segmentedControl setSelectedTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
+    segmentedControl.selectionIndicatorColor= [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
+    [segmentedControl setFont:[UIFont fontWithName:@"Futura" size:18]];
     [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:segmentedControl];
@@ -87,14 +92,11 @@
     self.tableView.separatorColor = [UIColor clearColor];
     
     // Configure the cell
-    cell.textLabel.text = [object objectForKey:@"taskId"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
-    /*UIView *cellBgView =[[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300, [cell frame].size.height)];
-    [cellBgView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"highway-to-hipster-dream.jpg"]]];
-    [cellBgView setFrame:CGRectMake(0.0f, 0.0f, 200,[cell frame].size.height )];
-
-    [cell setBackgroundView:cellBgView];*/
+    cell.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+    cell.textLabel.text = [object objectForKey:@"taskId"];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
         cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255
@@ -112,17 +114,15 @@
     
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.backgroundColor = [UIColor colorWithRed:244./255
+        cell.textLabel.textColor = [UIColor colorWithRed:244./255
                                                green:157./255
                                                 blue:25./255
                                                alpha:1];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     }
     
-    else {
-        cell.backgroundColor = [UIColor clearColor];
-    }
+    [cell.textLabel setFont:[UIFont fontWithName:@"Futura" size:24]];
+    [cell.detailTextLabel setFont:[UIFont fontWithName:@"Futura" size:20]];
+    cell.userInteractionEnabled = NO;
     
     return cell;
 }

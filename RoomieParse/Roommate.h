@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Roommate : NSObject
-@property (nonatomic, strong) NSString *firstName; // name of recipe
-@property (nonatomic, strong) NSString *lastName; // preparation time
-@property (nonatomic, strong) NSString *imageFile; // image filename of recipe
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *imageFile; 
 @property (nonatomic) float karma; 
 @end

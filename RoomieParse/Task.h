@@ -10,8 +10,8 @@
 
 @interface Task : NSObject
 
-@property (nonatomic, strong) NSString *name; // name of task
-@property (nonatomic) float karma; // karma
+@property (nonatomic, strong) NSString *name; 
+@property (nonatomic) float karma;
 @property (nonatomic) bool completed;
 @property (nonatomic, strong) NSDate *date;
 

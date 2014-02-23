@@ -70,15 +70,18 @@
     
     // Trim comment and save it in a dictionary for use later in our callback block
     NSString *trimmedTask = [self.taskText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *trimmedUser = [self.taskAssign.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     PFObject*newTask = [PFObject objectWithClassName:@"Tasks"];
-        
-    newTask[@"taskId"]= trimmedTask;
-    newTask[@"user"]=[PFUser currentUser].username;
-    newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
-    newTask[@"done"]=[NSNumber numberWithInt:0];
-    newTask[@"dateLimit"]=self.datePick.date;
     
+    
+    newTask[@"taskId"]= trimmedTask;
+    //Is user part of roommates ? OR uipicker OR autocomplete ?
+    newTask[@"user"]=trimmedUser;
+    // Is value > 0 ?
+    newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
+    //Is date after [NSDate date]
+    newTask[@"dateLimit"]=self.datePick.date;
     
     [newTask saveInBackground];
     
