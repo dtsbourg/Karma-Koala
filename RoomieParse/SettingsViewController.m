@@ -52,7 +52,6 @@
 }
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
-    PFUser *currentUser = [PFUser currentUser];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

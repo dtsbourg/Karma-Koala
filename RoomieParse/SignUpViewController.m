@@ -27,23 +27,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"highway-to-hipster-dream.jpg"]]];
+    [self.signUpView setBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
     [self.signUpView setLogo:nil];
     [self.signUpView setTintColor:[UIColor whiteColor]];
     
-    [self.signUpView.usernameField setBackgroundColor:[UIColor whiteColor]];
-    [self.signUpView.passwordField setBackgroundColor:[UIColor whiteColor]];
-    [self.signUpView.emailField setBackgroundColor:[UIColor whiteColor]];
+    [self.signUpView.usernameField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [self.signUpView.passwordField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [self.signUpView.emailField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
     
-    [self.signUpView.usernameField setTextColor:[UIColor darkGrayColor]];
-    [self.signUpView.passwordField setTextColor:[UIColor darkGrayColor]];
-    [self.signUpView.emailField setTextColor:[UIColor darkGrayColor]];
-
+    [self.signUpView.usernameField setTextColor:[UIColor whiteColor]];
+    [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
+    [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
 }
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [user setObject:@0 forKey:@"karma"];
+    [user setObject:self.signUpView.usernameField.text forKey:@"user"];
     [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
 }
 
@@ -61,6 +61,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews
+{
+    [self setFontFamily:@"Futura" forView:view andSubViews:YES];
+}
+
+-(void)viewDidLayoutSubviews {
+    [self.signUpView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
+    [self.signUpView.dismissButton setFrame:CGRectMake(self.signUpView.dismissButton.frame.origin.x, 30, self.signUpView.dismissButton.frame.size.width, self.signUpView.dismissButton.frame.size.height)];
+    [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    
+    
+    UIColor *color = [UIColor colorWithWhite:1 alpha:0.7];
+    UIFont *font = [UIFont fontWithName:@"Futura" size:20];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:color, NSForegroundColorAttributeName, font, NSFontAttributeName, nil];
+    
+    self.signUpView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:attrsDictionary];
+    self.signUpView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attrsDictionary];
+    self.signUpView.emailField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:attrsDictionary];
+
 }
 
 /*
