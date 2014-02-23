@@ -74,7 +74,6 @@
     
     PFObject*newTask = [PFObject objectWithClassName:@"Tasks"];
     
-    
     newTask[@"taskId"]= trimmedTask;
     //Is user part of roommates ? OR uipicker OR autocomplete ?
     newTask[@"user"]=trimmedUser;

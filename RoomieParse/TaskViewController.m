@@ -65,57 +65,52 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    PFUser *user = [PFUser currentUser];
-    // Do any additional setup after loading the view.
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
-    
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-            
-        } else {
-            // The find succeeded.
-            self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
-            
-            if ([[object objectForKey:@"karma"] intValue] > 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:150./255
-                                                            green:210./255
-                                                             blue:149./255
-                                                            alpha:1];
+    if ([PFUser currentUser]) {
+        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        
+        PFUser *user = [PFUser currentUser];
+        // Do any additional setup after loading the view.
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:user.username];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!object) {
+                NSLog(@"The getFirstObject request failed.");
                 
-                self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
-
+            } else {
+                // The find succeeded.
+                self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
+                
+                if ([[object objectForKey:@"karma"] intValue] > 0) {
+                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255
+                                                                green:210./255
+                                                                 blue:149./255
+                                                                alpha:1];
+                    
+                    self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
+                    
+                }
+                
+                else if ([[object objectForKey:@"karma"] intValue] < 0) {
+                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255
+                                                                green:157./255
+                                                                 blue:25./255
+                                                                alpha:1];
+                }
+                
+                else self.karmaLabel.textColor = [UIColor whiteColor];
             }
-            
-            else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:244./255
-                                                            green:157./255
-                                                             blue:25./255
-                                                            alpha:1];
-            }
-            
-            else self.karmaLabel.textColor = [UIColor whiteColor];
+        }];
+        
+        
+        if (user) {
+            self.firstNameLabel.text = [user.username uppercaseString];
+            [self loadObjects];
         }
-    }];
-    
-    
-    if (user) {
-        self.firstNameLabel.text = [user.username uppercaseString];
-        [self loadObjects];
     }
-
     
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    if (![PFUser currentUser]) { // No user logged in
+    else {
         // Create the log in view controller
         LoginViewController *logInViewController = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
@@ -133,42 +128,76 @@
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
-    [self loadObjects];
+
     
-    PFUser *user = [PFUser currentUser];
-    // Do any additional setup after loading the view.
     
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-            
-        } else {
-            // The find succeeded.
-            self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
-            
-            if ([[object objectForKey:@"karma"] intValue] > 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:150./255
-                                                            green:210./255
-                                                             blue:149./255
-                                                            alpha:1];
+    if ([PFUser currentUser]) {
+        [self loadObjects];
+        
+        PFUser *user = [PFUser currentUser];
+        // Do any additional setup after loading the view.
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:user.username];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!object) {
+                NSLog(@"The getFirstObject request failed.");
                 
-                self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
+            } else {
+                // The find succeeded.
+                self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                 
+                if ([[object objectForKey:@"karma"] intValue] > 0) {
+                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255
+                                                                green:210./255
+                                                                 blue:149./255
+                                                                alpha:1];
+                    
+                    self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
+                    
+                }
+                
+                else if ([[object objectForKey:@"karma"] intValue] < 0) {
+                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255
+                                                                green:157./255
+                                                                 blue:25./25
+                                                                alpha:1];
+                }
+                
+                else self.karmaLabel.textColor = [UIColor whiteColor];
             }
-            
-            else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                self.karmaLabel.textColor = [UIColor colorWithRed:244./255
-                                                            green:157./255
-                                                             blue:25./25
-                                                            alpha:1];
-            }
-            
-            else self.karmaLabel.textColor = [UIColor whiteColor];
+        }];
+        
+        if (user) {
+            self.firstNameLabel.text = [user.username uppercaseString];
+            [self loadObjects];
         }
-    }];
+    }
+    
+    else {
+        // Create the log in view controller
+        LoginViewController *logInViewController = [[LoginViewController alloc] init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
+        
+        // Create the sign up view controller
+        SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        // Assign our sign up controller to be displayed from the login controller
+        [logInViewController setSignUpController:signUpViewController];
+        
+        
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
     
 }
 

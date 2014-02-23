@@ -7,6 +7,8 @@
 //
 
 #import "SettingsViewController.h"
+#import "LoginViewController.h"
+#import "SignUpViewController.h"
 
 @interface SettingsViewController ()
 
@@ -37,7 +39,6 @@
             
         } else {
             self.roomies = [object objectForKey:@"roommates"];
-            NSLog(@"%@", self.roomies);
         }
     }];
     [self.tableView reloadData];
@@ -50,6 +51,9 @@
 - (IBAction)inviteFriends:(id)sender {
 }
 - (IBAction)logout:(id)sender {
+    [PFUser logOut];
+    PFUser *currentUser = [PFUser currentUser];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad
@@ -90,15 +94,18 @@
     }
     
     else {
-        UITextField * tx= [[UITextField alloc] initWithFrame:CGRectMake(15, cell.frame.origin.y+12, 185, 30)];
-        tx.adjustsFontSizeToFitWidth = YES;
-        tx.textColor = [UIColor whiteColor];
-        tx.placeholder = @"Add a roommate !";
-        tx.font = [UIFont fontWithName:@"Futura" size:24];
-        tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-        tx.autocorrectionType = UITextAutocorrectionTypeNo;
-        [tx setEnabled:YES];
-        [cell.contentView addSubview:tx];
+        self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, cell.frame.origin.y+10, 185, 30)];
+        self.tx.delegate = self;
+        self.tx.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.tx.returnKeyType = UIReturnKeyDone;
+        self.tx.adjustsFontSizeToFitWidth = YES;
+        self.tx.textColor = [UIColor whiteColor];
+        self.tx.placeholder = @"Add a roommate !";
+        self.tx.font = [UIFont fontWithName:@"Futura" size:24];
+        self.tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+        self.tx.autocorrectionType = UITextAutocorrectionTypeNo;
+        [self.tx setEnabled:YES];
+        [cell.contentView addSubview:self.tx];
     }
     
     cell.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
@@ -140,12 +147,53 @@
 }
 
 - (void) tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editing forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if( editing == UITableViewCellEditingStyleDelete ) {
-        /* ============== REMOVE FROM PARSE AS WELL =============== */
-        [self.roomies removeObjectAtIndex:indexPath.row];
-        [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                  withRowAnimation:UITableViewRowAnimationLeft];
+    if( editing == UITableViewCellEditingStyleDelete ) {        
+        PFUser *user = [PFUser currentUser];
+        // Do any additional setup after loading the view.
+        
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:user.username];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!object) {
+                NSLog(@"The getFirstObject request failed.");
+                
+            } else {
+                [object removeObject:[[self.roomies objectAtIndex:indexPath.row] lowercaseString] forKey:@"roommates"];
+                [object saveInBackground];
+            }
+            self.tableView.editing = NO;
+            [self.roomies removeObjectAtIndex:indexPath.row];
+            
+            [self.tableView reloadData];
+        }];
     }
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    [self.roomies addObject:textField.text];
+    self.tableView.editing = NO;
+    PFUser *user = [PFUser currentUser];
+    // Do any additional setup after loading the view.
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:user.username];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+            
+        } else {
+            [object addObject:[textField.text lowercaseString] forKey:@"roommates"];
+            [object saveInBackground];
+        }
+    }];
+
+    [self.tableView reloadData];
+    return NO;
+}
+
 
 @end
