@@ -15,7 +15,6 @@ EFCircularSlider* minuteSlider;
 EFCircularSlider* hourSlider;
     int delayHour;
     int delayMinute;
-    //int delayDay;
 }
 @end
 

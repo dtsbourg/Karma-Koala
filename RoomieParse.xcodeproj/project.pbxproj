@@ -16,6 +16,7 @@
 		FC73484C18BA5C8300C05E65 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484B18BA5C8300C05E65 /* close.png */; };
 		FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484D18BA76BB00C05E65 /* icon-home.png */; };
 		FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */; };
+		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */; };
 		FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
@@ -29,7 +30,6 @@
 		FCFE9DDE18B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
 		FCFE9DE618B506820019DC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DE418B506820019DC9F /* InfoPlist.strings */; };
 		FCFE9DE818B506820019DC9F /* RoomieParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DE718B506820019DC9F /* RoomieParseTests.m */; };
-		FCFE9DF218B506A90019DC9F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF118B506A90019DC9F /* Parse.framework */; };
 		FCFE9DFA18B506FC0019DC9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */; };
 		FCFE9DFB18B506FC0019DC9F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF418B506FC0019DC9F /* libz.dylib */; };
 		FCFE9DFC18B506FC0019DC9F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF518B506FC0019DC9F /* MobileCoreServices.framework */; };
@@ -71,6 +71,7 @@
 		FC73484B18BA5C8300C05E65 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		FC73484D18BA76BB00C05E65 /* icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home.png"; sourceTree = "<group>"; };
 		FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline.png"; sourceTree = "<group>"; };
+		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCFE9DB918B506820019DC9F /* RoomieParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DBC18B506820019DC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,7 +89,6 @@
 		FCFE9DE318B506820019DC9F /* RoomieParseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoomieParseTests-Info.plist"; sourceTree = "<group>"; };
 		FCFE9DE518B506820019DC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCFE9DE718B506820019DC9F /* RoomieParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomieParseTests.m; sourceTree = "<group>"; };
-		FCFE9DF118B506A90019DC9F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FCFE9DF418B506FC0019DC9F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FCFE9DF518B506FC0019DC9F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -125,10 +125,10 @@
 				FCFE9DFD18B506FC0019DC9F /* QuartzCore.framework in Frameworks */,
 				FCFE9DFE18B506FC0019DC9F /* Security.framework in Frameworks */,
 				FCFE9DFF18B506FC0019DC9F /* StoreKit.framework in Frameworks */,
+				FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */,
 				FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */,
 				FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */,
 				FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */,
-				FCFE9DF218B506A90019DC9F /* Parse.framework in Frameworks */,
 				FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +205,7 @@
 		FCFE9DBB18B506820019DC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCF243E518BB7B9800AC4306 /* Parse.framework */,
 				FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */,
 				FCFE9DF418B506FC0019DC9F /* libz.dylib */,
 				FCFE9DF518B506FC0019DC9F /* MobileCoreServices.framework */,
@@ -212,7 +213,6 @@
 				FCFE9DF718B506FC0019DC9F /* Security.framework */,
 				FCFE9DF818B506FC0019DC9F /* StoreKit.framework */,
 				FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */,
-				FCFE9DF118B506A90019DC9F /* Parse.framework */,
 				FCFE9DBC18B506820019DC9F /* Foundation.framework */,
 				FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */,
 				FCFE9DC018B506820019DC9F /* UIKit.framework */,
@@ -590,6 +590,7 @@
 		FCFE9DEC18B506820019DC9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -607,6 +608,7 @@
 		FCFE9DED18B506820019DC9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (

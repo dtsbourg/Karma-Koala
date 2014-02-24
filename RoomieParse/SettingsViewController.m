@@ -26,21 +26,6 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    PFUser *user = [PFUser currentUser];
-    // Do any additional setup after loading the view.
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
-    
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-        } else {
-            self.roomies = [object objectForKey:@"roommates"];
-        }
-    }];
-    [self.tableView reloadData];
 }
 
 - (IBAction)dismiss:(id)sender {
@@ -61,13 +46,13 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.userName.text = [self.userText uppercaseString];
-    
+    self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
+
     if ([self.userKarma intValue] > 0) {
         self.karma.textColor = [UIColor colorWithRed:150./255
                                                          green:210./255
                                                           blue:149./255
                                                          alpha:1];
-        self.karma.text = [NSString stringWithFormat:@"+%@",self.userKarma];
     }
     
     else if ([self.userKarma intValue] < 0) {
@@ -75,10 +60,8 @@
                                                green:150./255
                                                 blue:68./255
                                                alpha:1];
-        self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
     }
     else {
-        self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
         self.karma.textColor = [UIColor grayColor];
     }
     
@@ -87,7 +70,6 @@
 - (IBAction)edit:(id)sender {
    
     [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
-    
     [self.tableView reloadData];
 
 }

@@ -62,7 +62,8 @@
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
             } else {
-                // The find succeeded.
+                
+                self.roommateArray = [object objectForKey:@"roommates"];
                 self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                 
                 if ([[object objectForKey:@"karma"] intValue] > 0) {
@@ -130,19 +131,7 @@
     else if ([segue.identifier isEqualToString:@"settingsSegue"]) {
         SettingsViewController *destvc = [segue destinationViewController];
         
-        PFUser *user = [PFUser currentUser];
-        // Do any additional setup after loading the view.
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:user.username];
-        
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (!object) {
-                NSLog(@"The getFirstObject request failed.");
-            } else {
-                destvc.roomies = [object objectForKey:@"roommates"];
-            }
-        }];
-
+        destvc.roomies = self.roommateArray;
         destvc.userKarma = self.karmaLabel.text;
         destvc.userText = [PFUser currentUser].username;
         
@@ -150,19 +139,7 @@
     
     else if ([segue.identifier isEqualToString:@"homeSegue"]) {
         HomeViewController *destvc = [segue destinationViewController];
-        
-        PFUser *user = [PFUser currentUser];
-        // Do any additional setup after loading the view.
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:user.username];
-        
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            if (!object) {
-                NSLog(@"The getFirstObject request failed.");
-            } else {
-                destvc.array = [object objectForKey:@"roommates"];
-            }
-        }];
+        destvc.array = self.roommateArray;
     }
     
     
@@ -208,7 +185,7 @@
  cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
  }
      self.tableView.separatorColor = [UIColor clearColor];
- 
+    
     // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
@@ -252,7 +229,7 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Sent to the delegate when the sign up attempt fails.

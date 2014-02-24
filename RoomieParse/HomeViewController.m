@@ -27,12 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-}
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
     CGFloat yDelta;
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending) {
@@ -44,7 +38,7 @@
     [self.array insertObject:@"All" atIndex:0];
     [self.array insertObject:[PFUser currentUser].username atIndex:1];
     self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
-
+    
     self.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     self.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     [self.segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
@@ -58,6 +52,13 @@
     [self.view addSubview:self.segmentedControl];
     
     self.displayUser = @"All";
+    
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
 }
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
@@ -122,7 +123,6 @@
     self.tableView.separatorColor = [UIColor clearColor];
     
     // Configure the cell
-    
     cell.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
     cell.textLabel.text = [object objectForKey:@"taskId"];
     cell.textLabel.textColor = [UIColor whiteColor];
