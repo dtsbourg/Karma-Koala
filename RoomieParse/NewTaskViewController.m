@@ -31,6 +31,20 @@
     
     self.taskAssign.delegate = self;
     self.taskText.delegate = self;
+    
+    PFUser *user = [PFUser currentUser];
+    // Do any additional setup after loading the view.
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:user.username];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+        } else {
+            self.array = [object objectForKey:@"roommates"];
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,24 +85,79 @@
 
 - (IBAction)save:(id)sender {
     //TODO Data is complete verifications
-    
+    BOOL err= NO;
     // Trim comment and save it in a dictionary for use later in our callback block
     NSString *trimmedTask = [self.taskText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedUser = [self.taskAssign.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    PFObject*newTask = [PFObject objectWithClassName:@"Tasks"];
-    
-    newTask[@"taskId"]= trimmedTask;
     //Is user part of roommates ? OR uipicker OR autocomplete ?
-    newTask[@"user"]=trimmedUser;
-    // Is value > 0 ?
-    newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
-    //Is date after [NSDate date]
-    newTask[@"dateLimit"]=self.datePick.date;
+    if (![self.array containsObject:trimmedUser])
+    {
+        if ([trimmedUser length] > 0) {
+            UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                         message:[NSString stringWithFormat:@"Sorry, %@ is not part of your home ! Add him and try again !", trimmedUser]
+                                                        delegate:self
+                                               cancelButtonTitle:@"Try again"
+                                               otherButtonTitles:nil];
+            [al show];
+        }
+        
+        else {
+            UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                         message:@"The roomate field is empty !"
+                                                        delegate:self
+                                               cancelButtonTitle:@"Try again"
+                                               otherButtonTitles:nil];
+            [al show];
+        }
+        err=YES;
+    }
     
-    [newTask saveInBackground];
+    else if ([trimmedTask length] == 0) {
+        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                     message:@"The task field is empty !"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Try again"
+                                           otherButtonTitles:nil];
+        [al show];
+        err=YES;
+
+    }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    else if ([NSNumber numberWithInt:(int)self.karmaStepper.value] < 0)
+    {
+        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                     message:@"Sorry, the karma value must be superior to 0"
+                                                    delegate:self
+                                           cancelButtonTitle:@"Try again"
+                                           otherButtonTitles:nil];
+        [al show];
+        err=YES;
+    }
+    else if ([self.datePick.date compare:[NSDate date]] == NSOrderedAscending)
+    {
+        UIAlertView *al = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                     message:@"Sorry, this is not a valid date."
+                                                    delegate:self
+                                           cancelButtonTitle:@"Try again"
+                                           otherButtonTitles:nil];
+        [al show];
+        err=YES;
+    }
+    
+    
+    if (!err) {
+        PFObject*newTask = [PFObject objectWithClassName:@"Tasks"];
+        newTask[@"taskId"]= trimmedTask;
+        newTask[@"user"]=trimmedUser;
+        newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
+        newTask[@"dateLimit"]=self.datePick.date;
+    
+        [newTask saveInBackground];
+         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+   
     
 }
 

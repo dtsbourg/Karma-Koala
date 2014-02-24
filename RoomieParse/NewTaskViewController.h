@@ -10,12 +10,15 @@
 
 #import <Parse/Parse.h>
 
-@interface NewTaskViewController : UITableViewController <UITextFieldDelegate>
+@interface NewTaskViewController : UITableViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *taskAssign;
 @property (strong, nonatomic) IBOutlet UILabel *karmaValue;
 @property (strong, nonatomic) IBOutlet UITextField *taskText;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePick;
 @property (strong, nonatomic) IBOutlet UIStepper *karmaStepper;
 @property (strong, nonatomic) IBOutlet UISwitch *hoursSelector;
+
+@property (strong, nonatomic) NSArray *array;
+
 
 @end
