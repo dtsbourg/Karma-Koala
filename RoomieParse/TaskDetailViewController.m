@@ -124,32 +124,33 @@ EFCircularSlider* hourSlider;
             int numberOfHours = secondsBetween / 3600;
             int numberOfMinutes = secondsBetween / 60;
             
-           [ minuteSlider setCurrentValue:abs(numberOfMinutes%60) ];
-            [hourSlider setCurrentValue:abs(numberOfHours%60)];
             
-            if (secondsBetween > 0) {
+           [minuteSlider setCurrentValue:abs(numberOfMinutes%60) ];
+    
+            [hourSlider setCurrentValue:abs(numberOfHours%24)];
+            
+        if (secondsBetween > 0) {
             if (numberOfDays) {
-                self.timeLeft.text = [NSString stringWithFormat:@"%i days , %i hours and %i minutes left !", numberOfDays, numberOfHours%24, numberOfMinutes%60];
+                self.timeLeft.text = [NSString stringWithFormat:@"%i %@ , %i %@ and %i %@ left !", numberOfDays, (numberOfDays == 1) ? @"day" : @"days", numberOfHours%24, (numberOfHours%24 == 1) ? @"hour" : @"hours", numberOfMinutes%60, (numberOfMinutes%60 == 1) ? @"minute" : @"minutes" ];
                 [self.daysLate setTitle:[NSString stringWithFormat:@"%i", numberOfDays] forState:UIControlStateNormal ];
             } else {
                 if (numberOfHours) {
-                    self.timeLeft.text = [NSString stringWithFormat:@"%ih and %im left !",numberOfHours%24, numberOfMinutes%60];
+                    self.timeLeft.text = [NSString stringWithFormat:@"%i %@ and %i %@ left !",numberOfHours%24,(numberOfHours%24 == 1) ? @"hour" : @"hours", numberOfMinutes%60, (numberOfMinutes%60 == 1) ? @"minute" : @"minutes"];
                 } else {
-                    self.timeLeft.text = [NSString stringWithFormat:@"%i minutes left !",numberOfMinutes%60];
+                    self.timeLeft.text = [NSString stringWithFormat:@"%i %@ left !",numberOfMinutes%60, (numberOfMinutes%60 == 1) ? @"minute" : @"minutes"];
                 }
-                
             }
-            }
+        }
             
             else {
                 if (numberOfDays) {
-                    self.timeLeft.text = [NSString stringWithFormat:@"%i days , %i hours and %i minutes late !", abs(numberOfDays), abs(numberOfHours%24), abs(numberOfMinutes%60)];
+                    self.timeLeft.text = [NSString stringWithFormat:@"%i %@ , %i %@ and %i %@ late !", abs(numberOfDays), (abs(numberOfDays) == 1) ? @"day" : @"days", abs(numberOfHours%24),(abs(numberOfHours%24) == 1) ? @"hour" : @"hours", abs(numberOfMinutes%60), (abs(numberOfMinutes%60) == 1) ? @"minute" : @"minutes"];
                     [self.daysLate setTitle:[NSString stringWithFormat:@"%i", abs(numberOfDays)] forState:UIControlStateNormal ];
                 } else {
                     if (numberOfHours) {
-                        self.timeLeft.text = [NSString stringWithFormat:@"%i hours and %i minutes late !",abs(numberOfHours%24), abs(numberOfMinutes%60)];
+                        self.timeLeft.text = [NSString stringWithFormat:@"%i %@ and %i %@late !",abs(numberOfHours%24),(abs(numberOfHours%24) == 1) ? @"hour" : @"hours", abs(numberOfMinutes%60), (abs(numberOfMinutes%60) == 1) ? @"minute" : @"minutes"];
                     } else {
-                        self.timeLeft.text = [NSString stringWithFormat:@"%i minutes late !",abs(numberOfMinutes%60)];
+                        self.timeLeft.text = [NSString stringWithFormat:@"%i %@ late !",abs(numberOfMinutes%60), (abs(numberOfMinutes%60) == 1) ? @"minute" : @"minutes"];
                     }
                     
                 }
@@ -161,12 +162,10 @@ EFCircularSlider* hourSlider;
 
 -(void)hoursValueChanged:(EFCircularSlider*)slider {
     delayHour = slider.currentValue;
-    NSLog(@"%i", delayHour);
 }
 
 -(void)minutesValueChanged:(EFCircularSlider*)slider {
     delayMinute = slider.currentValue;
-    NSLog(@"%i", delayMinute);
 }
 
 - (void)didReceiveMemoryWarning
@@ -245,7 +244,6 @@ EFCircularSlider* hourSlider;
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
-            NSLog(@"The getFirstObject request failed.");
         } else {
             // The find succeeded.
             int karmaDelay = (int) - [self.taskKarma intValue]/2. ;
@@ -260,11 +258,7 @@ EFCircularSlider* hourSlider;
     
     [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
-            NSLog(@"The getFirstObject request failed.");
         } else {
-            
-            // The find succeeded.
-            NSLog(@"%i %i", delayHour, delayMinute);
             [object setObject:[self.dueDate dateByAddingTimeInterval:(self.delayDay*24 + delayHour*3600 + delayMinute*60)] forKey:@"dateLimit"];
         }
     }];

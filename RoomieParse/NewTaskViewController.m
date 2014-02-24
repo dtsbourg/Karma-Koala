@@ -90,7 +90,6 @@
     NSString *trimmedTask = [self.taskText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedUser = [self.taskAssign.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    //Is user part of roommates ? OR uipicker OR autocomplete ?
     if (![self.array containsObject:trimmedUser])
     {
         if ([trimmedUser length] > 0) {
