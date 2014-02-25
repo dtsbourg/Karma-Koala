@@ -8,8 +8,10 @@
 
 #import <Parse/Parse.h>
 #import "HMSegmentedControl/HMSegmentedControl.h"
+#import "FlatUIKit.h"
+#import "Reachability.h"
 
-@interface HomeViewController : PFQueryTableViewController
+@interface HomeViewController : PFQueryTableViewController <FUIAlertViewDelegate>
 @property (strong, nonatomic) NSString * displayUser;
 @property (strong, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
 @property (strong, nonatomic) NSMutableArray * array;

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "FlatUIKit.h"
+#import "Reachability.h"
 
-@interface SettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface SettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,FUIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *userName;
 @property (strong, nonatomic) IBOutlet UILabel *karma;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

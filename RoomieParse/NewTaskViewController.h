@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import <Parse/Parse.h>
+#import "FlatUIKit.h"
+#import "Reachability.h"
 
-@interface NewTaskViewController : UITableViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@interface NewTaskViewController : UITableViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, FUIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *taskAssign;
 @property (strong, nonatomic) IBOutlet UILabel *karmaValue;
 @property (strong, nonatomic) IBOutlet UITextField *taskText;

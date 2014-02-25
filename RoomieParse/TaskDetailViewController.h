@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "FlatUIKit.h"
+#import "Reachability.h"
 
-@interface TaskDetailViewController : UIViewController <UIActionSheetDelegate>
+@interface TaskDetailViewController : UIViewController <UIActionSheetDelegate, FUIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *taskName;
 @property (strong, nonatomic) IBOutlet UILabel *karma;
 @property (strong, nonatomic) IBOutlet UILabel *timeLeft;
