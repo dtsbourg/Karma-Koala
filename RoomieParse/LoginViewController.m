@@ -28,7 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.logInView setBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
-    [self.logInView setLogo:nil];
     [self.logInView setTintColor:[UIColor whiteColor]];
 
     [self.logInView.usernameField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
@@ -42,6 +41,9 @@
     layer = self.logInView.passwordField.layer;
     layer.shadowOpacity = 0.0;
     [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
+    
+    if ([UIScreen mainScreen].bounds.size.height < 568)
+    [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x, self.logInView.logo.frame.origin.y, self.logInView.logo.frame.size.width -80, self.logInView.logo.frame.size.height -80)];
     
     [self.logInView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
     

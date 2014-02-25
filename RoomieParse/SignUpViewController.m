@@ -28,7 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.signUpView setBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
-    [self.signUpView setLogo:nil];
     [self.signUpView setTintColor:[UIColor whiteColor]];
     
     [self.signUpView.usernameField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
@@ -40,6 +39,8 @@
     [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
     
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
+    if ([UIScreen mainScreen].bounds.size.height < 568)
+        [self.signUpView.logo setFrame:CGRectMake(self.signUpView.logo.frame.origin.x, self.signUpView.logo.frame.origin.y, self.signUpView.logo.frame.size.width -80, self.signUpView.logo.frame.size.height -80)];
 }
 
 // Sent to the delegate when a PFUser is signed up.
@@ -72,7 +73,7 @@
 
 -(void)viewDidLayoutSubviews {
     [self.signUpView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
-    [self.signUpView.dismissButton setFrame:CGRectMake(self.signUpView.dismissButton.frame.origin.x, 30, self.signUpView.dismissButton.frame.size.width, self.signUpView.dismissButton.frame.size.height)];
+    [self.signUpView.dismissButton setFrame:CGRectMake(self.signUpView.dismissButton.frame.origin.x +10, 30, self.signUpView.dismissButton.frame.size.width, self.signUpView.dismissButton.frame.size.height)];
     [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     
     

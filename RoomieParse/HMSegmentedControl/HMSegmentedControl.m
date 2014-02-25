@@ -5,6 +5,8 @@
 //  Created by Hesham Abd-Elmegid on 23/12/12.
 //  Copyright (c) 2012 Hesham Abd-Elmegid. All rights reserved.
 //
+// Modified by Dylan Bourgeois on 23/02/14
+//
 
 #import "HMSegmentedControl.h"
 #import <QuartzCore/QuartzCore.h>

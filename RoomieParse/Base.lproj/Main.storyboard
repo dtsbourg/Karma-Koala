@@ -12,6 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.32497336650000003" green="0.15054598720000001" blue="0.24993341620000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="p0U-47-aEO">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
