@@ -41,7 +41,7 @@
     layer.shadowOpacity = 0.0;
     layer = self.logInView.passwordField.layer;
     layer.shadowOpacity = 0.0;
-    
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
     
     [self.logInView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
     

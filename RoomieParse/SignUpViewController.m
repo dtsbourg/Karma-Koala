@@ -38,6 +38,8 @@
     [self.signUpView.usernameField setTextColor:[UIColor whiteColor]];
     [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
     [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
+    
+    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
 }
 
 // Sent to the delegate when a PFUser is signed up.

@@ -14,7 +14,6 @@
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
 
-
 @interface TaskViewController ()
 @end
 
@@ -104,7 +103,7 @@
         
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
-        [self presentViewController:logInViewController animated:YES completion:NULL];
+        [self presentViewController:logInViewController animated:NO completion:NULL];
     }
     
 }
@@ -182,7 +181,7 @@
  
  PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
  if (cell == nil) {
- cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+     cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
  }
      self.tableView.separatorColor = [UIColor clearColor];
     

@@ -36,7 +36,7 @@
 }
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)viewDidLoad
@@ -64,6 +64,7 @@
     else {
         self.karma.textColor = [UIColor grayColor];
     }
+    
     
     [self.tableView reloadData];
 }
@@ -187,7 +188,6 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
-            
         } else {
             [object addObject:[textField.text lowercaseString] forKey:@"roommates"];
             [object saveInBackground];
