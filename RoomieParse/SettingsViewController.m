@@ -66,6 +66,11 @@
     }
     
     
+    if ([UIScreen mainScreen].bounds.size.height < 568) {
+        self.buttonInvite.frame = CGRectMake(self.buttonInvite.frame.origin.x, self.buttonInvite.frame.origin.y - 88, self.buttonInvite.frame.size.width, self.buttonInvite.frame.size.height);
+        self.buttonDisconnect.frame = CGRectMake(self.buttonDisconnect.frame.origin.x, self.buttonDisconnect.frame.origin.y - 88, self.buttonDisconnect.frame.size.width, self.buttonDisconnect.frame.size.height);
+    }
+    
     [self.tableView reloadData];
 }
 - (IBAction)edit:(id)sender {

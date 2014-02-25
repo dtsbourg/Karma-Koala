@@ -14,6 +14,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *karma;
 @property (strong, nonatomic) IBOutlet UILabel *timeLeft;
 @property (strong, nonatomic) IBOutlet UIButton *daysLate;
+@property (strong, nonatomic) IBOutlet UIButton *buttonDelay;
+@property (strong, nonatomic) IBOutlet UIButton *buttonComplete;
+
 
 
 @property (strong, nonatomic) NSString *taskText;

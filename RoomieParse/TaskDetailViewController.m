@@ -41,9 +41,20 @@ EFCircularSlider* hourSlider;
 {
     [super viewDidLoad];
     
+    [self.view addSubview:self.daysLate];
+    [self.daysLate setTitleColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1] forState:UIControlStateNormal];
     self.daysLate.userInteractionEnabled=NO;
     
-    CGRect minuteSliderFrame = CGRectMake(30, 185, 260, 260);
+    float y=0;
+    
+    if ([UIScreen mainScreen].bounds.size.height < 568) {
+        y=25;
+    } else {
+        y=0;
+    }
+    
+    
+    CGRect minuteSliderFrame = CGRectMake(30+y/2., 185+y/3., 260-y, 260-y);
     minuteSlider = [[EFCircularSlider alloc] initWithFrame:minuteSliderFrame];
     minuteSlider.unfilledColor = [UIColor colorWithRed:23/255.0f
                                                  green:47/255.0f
@@ -157,6 +168,24 @@ EFCircularSlider* hourSlider;
             }
         }
     }];
+    
+    if ([UIScreen mainScreen].bounds.size.height < 568) {
+        self.taskName.frame = CGRectMake(self.taskName.frame.origin.x, self.taskName.frame.origin.y - 30, self.taskName.frame.size.width, self.taskName.frame.size.height);
+       
+         self.karma.frame = CGRectMake(self.karma.frame.origin.x, self.karma.frame.origin.y - 30, self.karma.frame.size.width, self.karma.frame.size.height);
+        
+         self.timeLeft.frame = CGRectMake(self.timeLeft.frame.origin.x, self.timeLeft.frame.origin.y - 50, self.timeLeft.frame.size.width, self.timeLeft.frame.size.height);
+        
+        self.daysLate.frame = CGRectMake(self.daysLate.frame.origin.x, self.daysLate.frame.origin.y - 65, self.daysLate.frame.size.width, self.daysLate.frame.size.height);
+        
+         minuteSlider.frame = CGRectMake(minuteSlider.frame.origin.x, minuteSlider.frame.origin.y - 65, minuteSlider.frame.size.width, minuteSlider.frame.size.height);
+        hourSlider.frame = CGRectMake(hourSlider.frame.origin.x, hourSlider.frame.origin.y - 65, hourSlider.frame.size.width,hourSlider.frame.size.height);
+        
+        self.buttonDelay.frame = CGRectMake(self.buttonDelay.frame.origin.x, self.buttonDelay.frame.origin.y - 88, self.buttonDelay.frame.size.width, self.buttonDelay.frame.size.height);
+        
+        self.buttonComplete.frame = CGRectMake(self.buttonComplete.frame.origin.x, self.buttonComplete.frame.origin.y - 88, self.buttonComplete.frame.size.width, self.buttonComplete.frame.size.height);
+    }
+    
 }
 
 -(void)hoursValueChanged:(EFCircularSlider*)slider {
@@ -210,14 +239,16 @@ EFCircularSlider* hourSlider;
     
     self.daysLate.userInteractionEnabled = YES;
     [self.daysLate setTitle:[NSString stringWithFormat:@"%i", self.delayDay] forState:UIControlStateNormal];
-//    CALayer *mainViewLayer = self.view.layer;
-//    [mainViewLayer addSublayer:self.daysLate.layer];
-    //[self.view insertSubview:self.daysLate aboveSubview:minuteSlider];
-    self.daysLate.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+    [self.view addSubview:self.daysLate];
+    [self.daysLate setTitleColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1] forState:UIControlStateNormal];
     
     self.timeLeft.hidden = YES;
-        
-    UIButton *confirm = [[UIButton alloc]initWithFrame:CGRectMake(20, 134, 280, 42)];
+    
+    float y=0;
+    if ([UIScreen mainScreen].bounds.size.height < 568) y=65;
+    UIButton *confirm = [[UIButton alloc]initWithFrame:CGRectMake(20, 134-y, 280, 42)];
+    
+    
     [confirm setTitle:@"Confirm" forState:UIControlStateNormal];
     [confirm setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
     [confirm setTitleColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1] forState:UIControlStateNormal];
