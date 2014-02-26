@@ -27,6 +27,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+    [reach startNotifier];
+    
     [self.logInView setBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
     [self.logInView setTintColor:[UIColor whiteColor]];
 
@@ -71,6 +81,34 @@
     
     self.logInView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:attrsDictionary];
     self.logInView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attrsDictionary];
+}
+
+-(void)reachabilityChanged:(NSNotification*)note
+{
+    Reachability * reach = [note object];
+    
+    if(![reach isReachable]) {
+        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                       message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
+                                                      delegate:self
+                                             cancelButtonTitle:@"I'll be back !"
+                                             otherButtonTitles:nil];
+        
+        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor = [UIColor cloudsColor];
+        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor = [UIColor clearColor];
+        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius = 5;
+        al.alertContainer.layer.masksToBounds = YES;
+        [al show];
+    }
+    
 }
 
 /*

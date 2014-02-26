@@ -7,7 +7,9 @@
 //
 
 #import <Parse/Parse.h>
+#import "Reachability.h"
+#import "FlatUIKit.h"
 
-@interface LoginViewController : PFLogInViewController
+@interface LoginViewController : PFLogInViewController <FUIAlertViewDelegate>
 
 @end

@@ -58,7 +58,7 @@
         
         [reach startNotifier];
         
-        [self loadObjects];
+        
         
         PFUser *user = [PFUser currentUser];
         // Do any additional setup after loading the view.
@@ -72,7 +72,6 @@
             } else {
                 
                 self.roommateArray = [object objectForKey:@"roommates"];
-                self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                 
                 if ([[object objectForKey:@"karma"] intValue] > 0) {
                     self.karmaLabel.textColor = [UIColor colorWithRed:150./255
@@ -88,9 +87,14 @@
                                                                 green:157./255
                                                                  blue:25./255
                                                                 alpha:1];
+                    self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
+
                 }
                 
-                else self.karmaLabel.textColor = [UIColor grayColor];
+                else {
+                    self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
+                    self.karmaLabel.textColor = [UIColor grayColor];
+                }
             }
         }];
         
