@@ -56,6 +56,7 @@
     self.taskText.delegate = self;
     [self.taskAssign setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
     [self.taskText setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -239,8 +240,7 @@
 }
 
 
-- (IBAction)stepper:(UISlider*)sender {
-    self.karmaValue.text = [NSString stringWithFormat:@"%i", (int)sender.value];
+- (IBAction)stepper:(UIStepper*)sender {
     if (sender.value > 0) {
         self.karmaValue.textColor = [UIColor colorWithRed:150./255
                                                     green:210./255
@@ -249,7 +249,11 @@
         self.karmaValue.text = [NSString stringWithFormat:@"+%i", (int)sender.value];
     }
     
-    else self.karmaValue.textColor = [UIColor darkGrayColor];
+    else
+    {
+        self.karmaValue.textColor = [UIColor darkGrayColor];
+        self.karmaValue.text = [NSString stringWithFormat:@"%i", (int)sender.value];
+    }
 }
 
 - (IBAction)hoursSelection:(id)sender {

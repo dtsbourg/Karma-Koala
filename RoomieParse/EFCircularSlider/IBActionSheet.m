@@ -19,6 +19,11 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+//
+//
+// Modified by Dylan Bourgeois on 27/02/14.
+
+
 
 
 #import "IBActionSheet.h"
@@ -147,7 +152,7 @@
             [topButton setTitle:[titles objectAtIndex:0] forState:UIControlStateAll];
             [self.buttons insertObject:topButton atIndex:0];
             
-            int whereToStop = titles.count - 1;
+            int whereToStop = (int)titles.count - 1;
             for (int i = 1; i < whereToStop; ++i) {
                 IBActionSheetButton *middleButton = [[IBActionSheetButton alloc] init];
                 [middleButton setTitle:[titles objectAtIndex:i] forState:UIControlStateAll];
@@ -223,11 +228,11 @@
             [[self.buttons lastObject] setCenter:pointOfReference];
             [[self.buttons objectAtIndex:0] setCenter:CGPointMake(pointOfReference.x, pointOfReference.y - 52)];
             pointOfReference = CGPointMake(pointOfReference.x, pointOfReference.y - 52);
-            whereToStop = self.buttons.count - 2;
+            whereToStop = (int)self.buttons.count - 2;
         } else {
             [self addSubview:[self.buttons lastObject]];
             [[self.buttons lastObject] setCenter:pointOfReference];
-            whereToStop = self.buttons.count - 1;
+            whereToStop = (int)self.buttons.count - 1;
         }
         
         for (int i = 0, j = whereToStop; i <= whereToStop; ++i, --j) {
@@ -268,11 +273,11 @@
             [[self.buttons lastObject] setCenter:pointOfReference];
             [[self.buttons objectAtIndex:0] setCenter:CGPointMake(pointOfReference.x, pointOfReference.y - 52)];
             pointOfReference = CGPointMake(pointOfReference.x, pointOfReference.y - 52);
-            whereToStop = self.buttons.count - 2;
+            whereToStop = (int)self.buttons.count - 2;
         } else {
             [self addSubview:[self.buttons lastObject]];
             [[self.buttons lastObject] setCenter:pointOfReference];
-            whereToStop = self.buttons.count - 1;
+            whereToStop = (int)self.buttons.count - 1;
         }
         
         for (int i = 0, j = whereToStop; i <= whereToStop; ++i, --j) {
@@ -347,7 +352,7 @@
 
 - (NSInteger)addButtonWithTitle:(NSString *)title {
     
-    int index = self.buttons.count;
+    int index = (int)self.buttons.count;
     
     if (self.hasCancelButton) {
         index -= 1;

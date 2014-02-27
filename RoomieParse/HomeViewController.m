@@ -47,10 +47,9 @@
     [self.array insertObject:@"All" atIndex:0];
     [self.array insertObject:[PFUser currentUser].username atIndex:1];
     self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
-    
     self.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     self.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    [self.segmentedControl setFrame:CGRectMake(0, 0 + yDelta+20, 320, 40)];
+    [self.segmentedControl setFrame:CGRectMake(0, 0 + yDelta+30, 320, 40)];
     [self.segmentedControl setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
     [self.segmentedControl setTextColor:[UIColor whiteColor]];
     [self.segmentedControl setSelectedTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];

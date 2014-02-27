@@ -168,7 +168,7 @@ EFCircularSlider* hourSlider;
                     [self.daysLate setTitle:[NSString stringWithFormat:@"%i", abs(numberOfDays)] forState:UIControlStateNormal ];
                 } else {
                     if (numberOfHours) {
-                        self.timeLeft.text = [NSString stringWithFormat:@"%i %@ and %i %@late !",abs(numberOfHours%24),(abs(numberOfHours%24) == 1) ? @"hour" : @"hours", abs(numberOfMinutes%60), (abs(numberOfMinutes%60) == 1) ? @"minute" : @"minutes"];
+                        self.timeLeft.text = [NSString stringWithFormat:@"%i %@ and %i %@ late !",abs(numberOfHours%24),(abs(numberOfHours%24) == 1) ? @"hour" : @"hours", abs(numberOfMinutes%60), (abs(numberOfMinutes%60) == 1) ? @"minute" : @"minutes"];
                     } else {
                         self.timeLeft.text = [NSString stringWithFormat:@"%i %@ late !",abs(numberOfMinutes%60), (abs(numberOfMinutes%60) == 1) ? @"minute" : @"minutes"];
                     }

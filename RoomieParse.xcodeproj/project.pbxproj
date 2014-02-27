@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC30826918BF3EC100E71EF5 /* icon-ios7-information.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826818BF3EC100E71EF5 /* icon-ios7-information.png */; };
+		FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */; };
+		FC30826D18BF3F8100E71EF5 /* icon-ios7-plus-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */; };
 		FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483018B89FED00C05E65 /* HomeViewController.m */; };
 		FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483518B8E8E000C05E65 /* EFCircularSlider.m */; };
 		FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483818B943F700C05E65 /* IBActionSheet.m */; };
@@ -40,7 +43,6 @@
 		FCF2442A18BD1F0E00AC4306 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2442918BD1F0E00AC4306 /* Reachability.m */; };
 		FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
 		FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */; };
-		FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
 		FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DC518B506820019DC9F /* InfoPlist.strings */; };
 		FCFE9DC918B506820019DC9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DC818B506820019DC9F /* main.m */; };
 		FCFE9DCD18B506820019DC9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DCC18B506820019DC9F /* AppDelegate.m */; };
@@ -48,7 +50,6 @@
 		FCFE9DD518B506820019DC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DD418B506820019DC9F /* Images.xcassets */; };
 		FCFE9DDC18B506820019DC9F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DDB18B506820019DC9F /* XCTest.framework */; };
 		FCFE9DDD18B506820019DC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DBC18B506820019DC9F /* Foundation.framework */; };
-		FCFE9DDE18B506820019DC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DC018B506820019DC9F /* UIKit.framework */; };
 		FCFE9DE618B506820019DC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCFE9DE418B506820019DC9F /* InfoPlist.strings */; };
 		FCFE9DE818B506820019DC9F /* RoomieParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9DE718B506820019DC9F /* RoomieParseTests.m */; };
 		FCFE9DFA18B506FC0019DC9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */; };
@@ -79,6 +80,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC30826818BF3EC100E71EF5 /* icon-ios7-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-information.png"; sourceTree = "<group>"; };
+		FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-information-outline.png"; sourceTree = "<group>"; };
+		FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-plus-outline.png"; sourceTree = "<group>"; };
+		FC30826E18BF421D00E71EF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UIKit.framework; sourceTree = "<group>"; };
 		FC73482F18B89FED00C05E65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		FC73483018B89FED00C05E65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		FC73483418B8E8E000C05E65 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
@@ -138,7 +143,6 @@
 		FCFE9DB918B506820019DC9F /* RoomieParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomieParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFE9DBC18B506820019DC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FCFE9DC018B506820019DC9F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FCFE9DC418B506820019DC9F /* RoomieParse-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RoomieParse-Info.plist"; sourceTree = "<group>"; };
 		FCFE9DC618B506820019DC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCFE9DC818B506820019DC9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -191,7 +195,6 @@
 				FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */,
 				FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */,
 				FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */,
-				FCFE9DC118B506820019DC9F /* UIKit.framework in Frameworks */,
 				FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +204,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCFE9DDC18B506820019DC9F /* XCTest.framework in Frameworks */,
-				FCFE9DDE18B506820019DC9F /* UIKit.framework in Frameworks */,
 				FCFE9DDD18B506820019DC9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +325,7 @@
 		FCFE9DBB18B506820019DC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC30826E18BF421D00E71EF5 /* UIKit.framework */,
 				FCF243E518BB7B9800AC4306 /* Parse.framework */,
 				FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */,
 				FCFE9DF418B506FC0019DC9F /* libz.dylib */,
@@ -333,7 +336,6 @@
 				FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */,
 				FCFE9DBC18B506820019DC9F /* Foundation.framework */,
 				FCFE9DBE18B506820019DC9F /* CoreGraphics.framework */,
-				FCFE9DC018B506820019DC9F /* UIKit.framework */,
 				FCFE9DDB18B506820019DC9F /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -366,6 +368,9 @@
 		FCFE9DC318B506820019DC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */,
+				FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */,
+				FC30826818BF3EC100E71EF5 /* icon-ios7-information.png */,
 				FCF243EB18BBBDB800AC4306 /* karma.png */,
 				FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */,
 				FC73484D18BA76BB00C05E65 /* icon-home.png */,
@@ -556,8 +561,11 @@
 				FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */,
 				FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */,
 				FCF243EC18BBBDB800AC4306 /* karma.png in Resources */,
+				FC30826918BF3EC100E71EF5 /* icon-ios7-information.png in Resources */,
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
+				FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
+				FC30826D18BF3F8100E71EF5 /* icon-ios7-plus-outline.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

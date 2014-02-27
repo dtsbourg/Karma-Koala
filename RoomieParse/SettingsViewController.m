@@ -122,7 +122,8 @@
         self.tx.returnKeyType = UIReturnKeyDone;
         self.tx.adjustsFontSizeToFitWidth = YES;
         self.tx.textColor = [UIColor whiteColor];
-        self.tx.placeholder = @"Add a roommate !";
+        UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
+        self.tx.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add a roommate !" attributes:@{NSForegroundColorAttributeName: color}];
         self.tx.font = [UIFont fontWithName:@"Futura" size:24];
         self.tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
         self.tx.autocorrectionType = UITextAutocorrectionTypeNo;
