@@ -43,6 +43,15 @@
 {
     [super viewDidLoad];
     if ([PFUser currentUser]) self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+    [reach startNotifier];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -50,13 +59,6 @@
     
     if ([PFUser currentUser]) {
         Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(reachabilityChanged:)
-                                                     name:kReachabilityChangedNotification
-                                                   object:nil];
-        
-        [reach startNotifier];
         
         PFUser *user = [PFUser currentUser];
         // Do any additional setup after loading the view.
@@ -121,6 +123,7 @@
     }
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -316,8 +319,6 @@
     Reachability * reach = [note object];
     
     if(![reach isReachable]) {
-    
-        
     FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
                                                    message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
                                                   delegate:self
