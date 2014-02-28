@@ -130,12 +130,14 @@ EFCircularSlider* hourSlider;
     PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
     [query whereKey:@"user" equalTo:[PFUser currentUser].username];
     [query whereKey:@"taskId" equalTo:self.taskText];
+    if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+    else query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
         } else {
-            // The find succeeded.
+            
             self.dueDate = [object objectForKey:@"dateLimit"];
             NSDate *now = [NSDate date];
             NSTimeInterval secondsBetween = [self.dueDate timeIntervalSinceDate:now];
@@ -144,10 +146,9 @@ EFCircularSlider* hourSlider;
             int numberOfHours = secondsBetween / 3600;
             int numberOfMinutes = secondsBetween / 60;
             
-            
-           [minuteSlider setCurrentValue:abs(numberOfMinutes%60) ];
+        [minuteSlider setCurrentValue:abs(numberOfMinutes%60) ];
     
-            [hourSlider setCurrentValue:abs(numberOfHours%24)];
+        [hourSlider setCurrentValue:abs(numberOfHours%24)];
             
         if (secondsBetween > 0) {
             if (numberOfDays) {
@@ -182,13 +183,13 @@ EFCircularSlider* hourSlider;
     if ([UIScreen mainScreen].bounds.size.height < 568) {
         self.taskName.frame = CGRectMake(self.taskName.frame.origin.x, self.taskName.frame.origin.y - 30, self.taskName.frame.size.width, self.taskName.frame.size.height);
        
-         self.karma.frame = CGRectMake(self.karma.frame.origin.x, self.karma.frame.origin.y - 30, self.karma.frame.size.width, self.karma.frame.size.height);
+        self.karma.frame = CGRectMake(self.karma.frame.origin.x, self.karma.frame.origin.y - 30, self.karma.frame.size.width, self.karma.frame.size.height);
         
-         self.timeLeft.frame = CGRectMake(self.timeLeft.frame.origin.x, self.timeLeft.frame.origin.y - 50, self.timeLeft.frame.size.width, self.timeLeft.frame.size.height);
+        self.timeLeft.frame = CGRectMake(self.timeLeft.frame.origin.x, self.timeLeft.frame.origin.y - 50, self.timeLeft.frame.size.width, self.timeLeft.frame.size.height);
         
         self.daysLate.frame = CGRectMake(self.daysLate.frame.origin.x, self.daysLate.frame.origin.y - 65, self.daysLate.frame.size.width, self.daysLate.frame.size.height);
         
-         minuteSlider.frame = CGRectMake(minuteSlider.frame.origin.x, minuteSlider.frame.origin.y - 65, minuteSlider.frame.size.width, minuteSlider.frame.size.height);
+        minuteSlider.frame = CGRectMake(minuteSlider.frame.origin.x, minuteSlider.frame.origin.y - 65, minuteSlider.frame.size.width, minuteSlider.frame.size.height);
         hourSlider.frame = CGRectMake(hourSlider.frame.origin.x, hourSlider.frame.origin.y - 65, hourSlider.frame.size.width,hourSlider.frame.size.height);
         
         self.buttonDelay.frame = CGRectMake(self.buttonDelay.frame.origin.x, self.buttonDelay.frame.origin.y - 88, self.buttonDelay.frame.size.width, self.buttonDelay.frame.size.height);
@@ -220,20 +221,31 @@ EFCircularSlider* hourSlider;
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
     
+    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (object) {
             [object incrementKey:@"karma"
                         byAmount:[NSNumber numberWithInt:[self.taskKarma intValue]]];
-            [object saveInBackground];
+
+            if([reach isReachable]) [object saveInBackground];
+            else [object saveEventually];
         }
     }];
     
     PFQuery *queryTask = [PFQuery queryWithClassName:@"Tasks"];
+    if(![reach isReachable]) queryTask.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+    else queryTask.cachePolicy = kPFCachePolicyCacheThenNetwork ;
     [queryTask whereKey:@"user" equalTo:[PFUser currentUser].username];
     [queryTask whereKey:@"taskId" equalTo:self.taskText];
     
+
     [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (object) [object deleteInBackground];
+        
+        if (object) {
+            if([reach isReachable]) [object deleteInBackground];
+            else [object deleteEventually];
+        }
     }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -281,25 +293,33 @@ EFCircularSlider* hourSlider;
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
-    
+    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
         } else {
-            // The find succeeded.
+            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            
             int karmaDelay = (int) - [self.taskKarma intValue]/2. ;
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:karmaDelay]];
-            [object saveInBackground];
+            
+            if([reach isReachable]) [object saveInBackground];
+            else [object saveEventually];
         }
     }];
     
     PFQuery *queryTask = [PFQuery queryWithClassName:@"Tasks"];
     [queryTask whereKey:@"user" equalTo:[PFUser currentUser].username];
     [queryTask whereKey:@"taskId" equalTo:self.taskText];
-    
+    if(![reach isReachable]) queryTask.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
         } else {
+            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
             [object setObject:[self.dueDate dateByAddingTimeInterval:(self.delayDay*24 + delayHour*3600 + delayMinute*60)] forKey:@"dateLimit"];
+            
+            if([reach isReachable]) [object saveInBackground];
+            else [object saveEventually];
         }
     }];
     

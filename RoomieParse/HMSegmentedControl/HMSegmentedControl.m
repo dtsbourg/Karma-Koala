@@ -107,7 +107,7 @@
         [self commonInit];
 		
 		if (sectionImages.count != sectiontitles.count)
-			[NSException raise:NSRangeException format:@"***%s: Images bounds (%d) Dont match Title bounds (%d)", sel_getName(_cmd), sectionImages.count, sectiontitles.count];
+			[NSException raise:NSRangeException format:@"***%s: Images bounds (%lu) Dont match Title bounds (%lu)", sel_getName(_cmd), (unsigned long)sectionImages.count, (unsigned long)sectiontitles.count];
 		
         self.sectionImages = sectionImages;
         self.sectionSelectedImages = sectionSelectedImages;

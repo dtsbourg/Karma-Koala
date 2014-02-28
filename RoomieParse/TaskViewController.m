@@ -58,14 +58,14 @@
         
         [reach startNotifier];
         
-        
-        
         PFUser *user = [PFUser currentUser];
         // Do any additional setup after loading the view.
         
         PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:user.username];
+        if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+        else query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
         
+        [query whereKey:@"username" equalTo:user.username];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
@@ -94,6 +94,7 @@
                 else {
                     self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                     self.karmaLabel.textColor = [UIColor grayColor];
+                
                 }
             }
         }];
@@ -153,27 +154,38 @@
         HomeViewController *destvc = [segue destinationViewController];
         destvc.array = self.roommateArray;
     }
-    
-    
 }
 
- // Override to customize what kind of query to perform on the class. The default is to query for
- // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
      
     if ([PFUser currentUser]) {
-        
         PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
         [query whereKey:@"user" equalTo:[PFUser currentUser].username];
- 
-        // If Pull To Refresh is enabled, query against the network by default.
-        if (self.pullToRefreshEnabled) {
-            query.cachePolicy = kPFCachePolicyNetworkOnly;
+        
+        Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+        
+        if(![reach isReachable]) {
+            if (self.pullToRefreshEnabled) {
+                query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+            }
+
+            if (self.objects.count == 0) {
+                query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+            }
+            
+            query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
         }
-         // If no objects are loaded in memory, we look to the cache first to fill the table
-         // and then subsequently do a query against the network.
-        if (self.objects.count == 0) {
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        
+        else {
+            if (self.pullToRefreshEnabled) {
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+            }
+
+            if (self.objects.count == 0) {
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+            }
+            
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
         }
         
         [query orderByDescending:self.priority];
@@ -183,10 +195,6 @@
      
      else return nil;
  }
-
- // Override to customize the look of a cell representing an object. The default is to display
- // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
- // and the imageView being the imageKey in the object.
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
      
@@ -198,7 +206,6 @@
  }
      self.tableView.separatorColor = [UIColor clearColor];
     
-    // Configure the cell
      cell.textLabel.text = [object objectForKey:@"taskId"];
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
@@ -227,13 +234,17 @@
         
         if (numberOfHoursSinceUpdate >= 12) {
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
-            [object saveInBackground];
+            
+            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            if([reach isReachable]) [object saveInBackground];
+            else [object saveEventually];
         }
     }
     
     else {
         cell.textLabel.textColor = [UIColor whiteColor];
     }
+
     
     return cell;
 }
@@ -305,6 +316,8 @@
     Reachability * reach = [note object];
     
     if(![reach isReachable]) {
+    
+        
     FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
                                                    message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
                                                   delegate:self

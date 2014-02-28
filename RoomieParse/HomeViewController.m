@@ -63,6 +63,7 @@
     
 }
 
+
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
     switch (segmentedControl.selectedSegmentIndex) {
         case 0:
@@ -124,33 +125,39 @@
     
     self.tableView.separatorColor = [UIColor clearColor];
     
-    // Configure the cell
     cell.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-    cell.textLabel.text = [object objectForKey:@"taskId"];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
-    if ([[object objectForKey:@"karma"] intValue] > 0) {
+        cell.textLabel.text = [object objectForKey:@"taskId"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
+        
+        if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
+        {
+            cell.textLabel.textColor = [UIColor colorWithRed:244./255
+                                                       green:157./255
+                                                        blue:25./255
+                                                       alpha:1];
+        }
+        
+        if ([cell.detailTextLabel.text intValue] > 0) {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
+        }
+    
+    cell.textLabel.textColor = [UIColor whiteColor];
+    
+    if ([cell.detailTextLabel.text intValue] > 0) {
         cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255
                                                          green:210./255
                                                           blue:149./255
                                                          alpha:1];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
     
-    else if ([[object objectForKey:@"karma"] intValue] < 0) {
+    else if ([cell.detailTextLabel.text intValue] < 0) {
         cell.detailTextLabel.textColor = [UIColor whiteColor];
     }
     
     else cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     
-    if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
-    {
-        cell.textLabel.textColor = [UIColor colorWithRed:244./255
-                                               green:157./255
-                                                blue:25./255
-                                               alpha:1];
-    }
+    
     
     [cell.textLabel setFont:[UIFont fontWithName:@"Futura" size:24]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"Futura" size:20]];
@@ -162,12 +169,12 @@
 - (PFQuery *)queryForTable {
     
     if ([PFUser currentUser]) {
-        
+    
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
+        Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
         
         if ([self.displayUser isEqualToString:@"All"])
         {
-            // Finds scores from any of Jonathan, Dario, or Shawn
             NSMutableArray *names = [self.array mutableCopy];
             [names removeObjectAtIndex:0];
             [query whereKey:@"user" containedIn:names];
@@ -175,19 +182,31 @@
         
         else if (self.displayUser) [query whereKey:@"user" equalTo:self.displayUser];
         
-        // If Pull To Refresh is enabled, query against the network by default.
-        if (self.pullToRefreshEnabled) {
-            query.cachePolicy = kPFCachePolicyNetworkOnly;
+        if(![reach isReachable]) {
+            if (self.pullToRefreshEnabled) {
+                query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+            }
+            // If no objects are loaded in memory, we look to the cache first to fill the table
+            // and then subsequently do a query against the network.
+            if (self.objects.count == 0) {
+                query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+            }
         }
-        // If no objects are loaded in memory, we look to the cache first to fill the table
-        // and then subsequently do a query against the network.
-        if (self.objects.count == 0) {
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        
+        else {
+            if (self.pullToRefreshEnabled) {
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+            }
+            // If no objects are loaded in memory, we look to the cache first to fill the table
+            // and then subsequently do a query against the network.
+            if (self.objects.count == 0) {
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+            }
         }
         
         return query;
     }
-    
+
     else return nil;
 }
 
@@ -216,7 +235,7 @@
 -(void)reachabilityChanged:(NSNotification*)note
 {
     Reachability * reach = [note object];
-    
+        
     if(![reach isReachable]) {
         FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
                                                        message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
@@ -237,6 +256,7 @@
         al.alertContainer.layer.cornerRadius = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
+        
     }
     
 }

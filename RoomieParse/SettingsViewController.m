@@ -42,8 +42,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -81,8 +79,6 @@
         self.buttonInvite.frame = CGRectMake(self.buttonInvite.frame.origin.x, self.buttonInvite.frame.origin.y - 88, self.buttonInvite.frame.size.width, self.buttonInvite.frame.size.height);
         self.buttonDisconnect.frame = CGRectMake(self.buttonDisconnect.frame.origin.x, self.buttonDisconnect.frame.origin.y - 88, self.buttonDisconnect.frame.size.width, self.buttonDisconnect.frame.size.height);
     }
-
-    
     
     [self.tableView reloadData];
 }
@@ -156,9 +152,7 @@
         [super setEditing:editing animated:animated];
         [self.tableView setEditing:editing animated:animated];
         
-        NSArray *indexes =
-        [NSArray arrayWithObject:
-         [NSIndexPath indexPathForRow:self.roomies.count inSection:0]];
+        NSArray *indexes =[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.roomies.count inSection:0]];
         if (editing == YES ) {
             [self.tableView insertRowsAtIndexPaths:indexes
                              withRowAnimation:UITableViewRowAnimationLeft];
@@ -172,24 +166,27 @@
 - (void) tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editing forRowAtIndexPath:(NSIndexPath *)indexPath {
     if( editing == UITableViewCellEditingStyleDelete ) {        
         PFUser *user = [PFUser currentUser];
-        // Do any additional setup after loading the view.
-        
+
+        Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"username" equalTo:user.username];
-        
+        if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
                 
             } else {
+                
                 [object removeObject:[[self.roomies objectAtIndex:indexPath.row] lowercaseString] forKey:@"roommates"];
-                [object saveInBackground];
+                Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+                if([reach isReachable]) [object saveInBackground];
+                else [object saveEventually];
             }
-            self.tableView.editing = NO;
             [self.roomies removeObjectAtIndex:indexPath.row];
-            
+            self.tableView.editing = NO;
             [self.tableView reloadData];
         }];
+        
     }
 }
 
@@ -199,20 +196,23 @@
     [self.roomies addObject:textField.text];
     self.tableView.editing = NO;
     PFUser *user = [PFUser currentUser];
-    // Do any additional setup after loading the view.
-    
+
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
-    
+    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
         } else {
             [object addObject:[textField.text lowercaseString] forKey:@"roommates"];
-            [object saveInBackground];
+            
+            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            if([reach isReachable]) [object saveInBackground];
+            else [object saveEventually];
         }
     }];
-
+    
     [self.tableView reloadData];
     return NO;
 }

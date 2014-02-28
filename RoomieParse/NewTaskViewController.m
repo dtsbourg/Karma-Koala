@@ -39,18 +39,15 @@
     [reach startNotifier];
     
     PFUser *user = [PFUser currentUser];
-    // Do any additional setup after loading the view.
+
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
+    if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+    else query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-        } else {
-            self.array = [object objectForKey:@"roommates"];
-        }
+        self.array = [object objectForKey:@"roommates"];
     }];
-    
     
     self.taskAssign.delegate = self;
     self.taskText.delegate = self;
@@ -69,7 +66,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 3;
 }
 - (IBAction)cancel:(id)sender {
@@ -96,7 +92,6 @@
 }
 
 - (IBAction)save:(id)sender {
-    //TODO Data is complete verifications
     BOOL err= NO;
     // Trim comment and save it in a dictionary for use later in our callback block
     NSString *trimmedTask = [self.taskText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -230,8 +225,10 @@
         newTask[@"user"]=trimmedUser;
         newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
         newTask[@"dateLimit"]=self.datePick.date;
-    
-        [newTask saveInBackground];
+        
+        Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];        
+        if([reach isReachable]) [newTask saveInBackground];
+        else [newTask saveEventually];
          [self dismissViewControllerAnimated:YES completion:nil];
     }
     

@@ -59,8 +59,6 @@
 		FCFE9DFE18B506FC0019DC9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF718B506FC0019DC9F /* Security.framework */; };
 		FCFE9DFF18B506FC0019DC9F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF818B506FC0019DC9F /* StoreKit.framework */; };
 		FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */; };
-		FCFE9E0518B507610019DC9F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0218B507610019DC9F /* Task.m */; };
-		FCFE9E0618B507610019DC9F /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0418B507610019DC9F /* Roommate.m */; };
 		FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */; };
 		FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E0F18B51F5B0019DC9F /* LoginViewController.m */; };
 		FCFE9E1718B53DE40019DC9F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFE9E1618B53DE40019DC9F /* SignUpViewController.m */; };
@@ -163,10 +161,6 @@
 		FCFE9DF718B506FC0019DC9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FCFE9DF818B506FC0019DC9F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		FCFE9DF918B506FC0019DC9F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		FCFE9E0118B507610019DC9F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		FCFE9E0218B507610019DC9F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
-		FCFE9E0318B507610019DC9F /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roommate.h; sourceTree = "<group>"; };
-		FCFE9E0418B507610019DC9F /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Roommate.m; sourceTree = "<group>"; };
 		FCFE9E0B18B50CD20019DC9F /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		FCFE9E0E18B51F5B0019DC9F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -351,7 +345,6 @@
 				FCFE9E8618B89EF10019DC9F /* HMSegmentedControl */,
 				FCFE9E1818B53DEB0019DC9F /* Sign Up */,
 				FCFE9E1118B51F620019DC9F /* Login */,
-				FCFE9E1318B51F760019DC9F /* Model */,
 				FCFE9E1218B51F6A0019DC9F /* Tasks */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
@@ -419,17 +412,6 @@
 				FCFE9E0C18B50CD20019DC9F /* TaskViewController.m */,
 			);
 			name = Tasks;
-			sourceTree = "<group>";
-		};
-		FCFE9E1318B51F760019DC9F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				FCFE9E0118B507610019DC9F /* Task.h */,
-				FCFE9E0218B507610019DC9F /* Task.m */,
-				FCFE9E0318B507610019DC9F /* Roommate.h */,
-				FCFE9E0418B507610019DC9F /* Roommate.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		FCFE9E1418B51F900019DC9F /* Delegate */ = {
@@ -585,7 +567,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF2441A18BD0F5F00AC4306 /* FUISwitch.m in Sources */,
-				FCFE9E0518B507610019DC9F /* Task.m in Sources */,
 				FCF2441D18BD0F5F00AC4306 /* UIColor+FlatUI.m in Sources */,
 				FCFE9DCD18B506820019DC9F /* AppDelegate.m in Sources */,
 				FCF2442618BD0F5F00AC4306 /* UITableViewCell+FlatUI.m in Sources */,
@@ -610,7 +591,6 @@
 				FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */,
 				FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */,
 				FCFE9E2A18B5DE480019DC9F /* TaskDetailViewController.m in Sources */,
-				FCFE9E0618B507610019DC9F /* Roommate.m in Sources */,
 				FCFE9E8918B89EF10019DC9F /* HMSegmentedControl.m in Sources */,
 				FCF2442018BD0F5F00AC4306 /* UINavigationBar+FlatUI.m in Sources */,
 				FCF2441F18BD0F5F00AC4306 /* UIImage+FlatUI.m in Sources */,
@@ -749,6 +729,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -767,6 +748,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
