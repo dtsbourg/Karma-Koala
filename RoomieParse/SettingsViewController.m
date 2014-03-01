@@ -26,6 +26,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.tableView.userInteractionEnabled = NO;
 }
 
 - (IBAction)dismiss:(id)sender {
@@ -36,7 +37,7 @@
 }
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
-    
+    [PFQuery clearAllCachedResults];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
@@ -75,8 +76,8 @@
     [self.tableView reloadData];
 }
 - (IBAction)edit:(id)sender {
-   
     [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
+    self.tableView.userInteractionEnabled = YES;
     [self.tableView reloadData];
 
 }
@@ -89,8 +90,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tableView.isEditing ? [self.roomies count]+1 : [self.roomies count];
-    
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -128,13 +129,16 @@
     
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tv
-           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < self.roomies.count ) {
-        return UITableViewCellEditingStyleDelete;
-    } else {
-        return UITableViewCellEditingStyleInsert;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.tableView.isEditing) {
+        if (indexPath.row < self.roomies.count ) {
+            return UITableViewCellEditingStyleDelete;
+        } else {
+            return UITableViewCellEditingStyleInsert;
+        }
     }
+    
+    else return UITableViewCellEditingStyleNone;
     
 }
 
@@ -145,6 +149,7 @@
         [self.tableView setEditing:editing animated:animated];
         
         NSArray *indexes =[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.roomies.count inSection:0]];
+        
         if (editing == YES ) {
             [self.tableView insertRowsAtIndexPaths:indexes
                              withRowAnimation:UITableViewRowAnimationLeft];
@@ -156,13 +161,15 @@
 }
 
 - (void) tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editing forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if( editing == UITableViewCellEditingStyleDelete ) {        
+    
+    if( editing == UITableViewCellEditingStyleDelete ) {
         PFUser *user = [PFUser currentUser];
 
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         PFQuery *query = [PFUser query];
         [query whereKey:@"username" equalTo:user.username];
         if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+        else query.cachePolicy = kPFCachePolicyNetworkElseCache;
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
@@ -174,8 +181,10 @@
                 if([reach isReachable]) [object saveInBackground];
                 else [object saveEventually];
             }
+            [query clearCachedResult];
             [self.roomies removeObjectAtIndex:indexPath.row];
-            self.tableView.editing = NO;
+            [self.tableView setEditing:NO];
+            self.tableView.userInteractionEnabled = NO;
             [self.tableView reloadData];
         }];
         
@@ -191,8 +200,12 @@
 
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
+    
     Reachability* reach = [Reachability reachabilityForInternetConnection];
-    if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+    if(![reach isReachable]) {
+        query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+
+    }
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"The getFirstObject request failed.");

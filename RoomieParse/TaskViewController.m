@@ -42,7 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([PFUser currentUser]) self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     Reachability* reach = [Reachability reachabilityForInternetConnection];
     
@@ -57,6 +58,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
+    
     if ([PFUser currentUser]) {
         
         if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
@@ -67,7 +70,7 @@
                     NSDictionary *userData = (NSDictionary *)result;
                     NSString *name = userData[@"name"];
                     [[PFUser currentUser] setUsername:[[name componentsSeparatedByString:@" "] firstObject]];
-                    self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
+//                    self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
                     [[PFUser currentUser] saveInBackground];
                 }
             }];
@@ -77,9 +80,14 @@
         {
             NSString *twitterUsername = [PFTwitterUtils twitter].screenName;
             [[PFUser currentUser] setUsername:twitterUsername];
-            self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
+//            self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
             [[PFUser currentUser] saveInBackground];
         }
+        
+//        else {
+//            self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
+//        }
+        self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
         
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         PFUser *user = [PFUser currentUser];
@@ -87,7 +95,7 @@
         
         PFQuery *query = [PFUser query];
         if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
-        else query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+        else query.cachePolicy = kPFCachePolicyNetworkElseCache ;
         
         [query whereKey:@"username" equalTo:user.username];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
@@ -129,6 +137,8 @@
     }
     
     else {
+        
+        [PFQuery clearAllCachedResults];
         // Create the log in view controller
         LoginViewController *logInViewController = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate

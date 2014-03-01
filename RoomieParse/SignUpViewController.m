@@ -57,7 +57,7 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [user setObject:@0 forKey:@"karma"];
+    [user setObject:[NSNumber numberWithInt:0] forKey:@"karma"];
     [user setObject:self.signUpView.usernameField.text forKey:@"user"];
     [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
 }

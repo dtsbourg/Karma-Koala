@@ -40,6 +40,7 @@
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         self.array = [object objectForKey:@"roommates"];
+        [self.array addObject:user.username];
     }];
     
     self.taskAssign.delegate = self;

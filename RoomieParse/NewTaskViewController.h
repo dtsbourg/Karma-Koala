@@ -21,7 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIStepper *karmaStepper;
 @property (strong, nonatomic) IBOutlet UISwitch *hoursSelector;
 
-@property (strong, nonatomic) NSArray *array;
+@property (strong, nonatomic) NSMutableArray *array;
 
 
 @end
