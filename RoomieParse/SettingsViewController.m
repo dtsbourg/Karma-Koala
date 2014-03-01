@@ -158,7 +158,7 @@
     if( editing == UITableViewCellEditingStyleDelete ) {        
         PFUser *user = [PFUser currentUser];
 
-        Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+        Reachability* reach = [Reachability reachabilityForInternetConnection];
         PFQuery *query = [PFUser query];
         [query whereKey:@"username" equalTo:user.username];
         if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
@@ -169,7 +169,7 @@
             } else {
                 
                 [object removeObject:[[self.roomies objectAtIndex:indexPath.row] lowercaseString] forKey:@"roommates"];
-                Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+                Reachability* reach = [Reachability reachabilityForInternetConnection];
                 if([reach isReachable]) [object saveInBackground];
                 else [object saveEventually];
             }
@@ -190,7 +190,7 @@
 
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
-    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
     if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
@@ -198,7 +198,7 @@
         } else {
             [object addObject:[textField.text lowercaseString] forKey:@"roommates"];
             
-            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            Reachability* reach = [Reachability reachabilityForInternetConnection];
             if([reach isReachable]) [object saveInBackground];
             else [object saveEventually];
         }

@@ -29,7 +29,7 @@
     self.navigationController.navigationBar.hidden = YES;
     self.hoursSelector.on = YES;
     
-    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
     
     PFUser *user = [PFUser currentUser];
 
@@ -168,7 +168,7 @@
     {
         [self.view endEditing:YES];
         FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                     message:@"Sorry, the karma value must be superior to 0"
+                                                     message:@"Must. Not. Divide. By. Zero."
                                                     delegate:self
                                            cancelButtonTitle:@"Try again"
                                            otherButtonTitles:nil];
@@ -219,7 +219,7 @@
         newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
         newTask[@"dateLimit"]=self.datePick.date;
         
-        Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];        
+        Reachability* reach = [Reachability reachabilityForInternetConnection];
         if([reach isReachable]) [newTask saveInBackground];
         else [newTask saveEventually];
          [self dismissViewControllerAnimated:YES completion:nil];

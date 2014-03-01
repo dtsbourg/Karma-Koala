@@ -157,7 +157,7 @@
     if ([PFUser currentUser]) {
     
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
-        Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+        Reachability* reach = [Reachability reachabilityForInternetConnection];
         
         if ([self.displayUser isEqualToString:@"All"])
         {

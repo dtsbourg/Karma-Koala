@@ -44,7 +44,7 @@
     [super viewDidLoad];
     if ([PFUser currentUser]) self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
@@ -58,8 +58,7 @@
     [super viewDidAppear:animated];
     
     if ([PFUser currentUser]) {
-        Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-        
+        Reachability* reach = [Reachability reachabilityForInternetConnection];
         PFUser *user = [PFUser currentUser];
         // Do any additional setup after loading the view.
         
@@ -165,7 +164,7 @@
         PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
         [query whereKey:@"user" equalTo:[PFUser currentUser].username];
         
-        Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+        Reachability* reach = [Reachability reachabilityForInternetConnection];
         
         if(![reach isReachable]) {
             if (self.pullToRefreshEnabled) {
@@ -238,7 +237,7 @@
         if (numberOfHoursSinceUpdate >= 12) {
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
             
-            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            Reachability* reach = [Reachability reachabilityForInternetConnection];
             if([reach isReachable]) [object saveInBackground];
             else [object saveEventually];
         }

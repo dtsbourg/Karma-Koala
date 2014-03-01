@@ -41,7 +41,7 @@ EFCircularSlider* hourSlider;
 {
     [super viewDidLoad];
     
-    Reachability* reach = [Reachability reachabilityWithHostname:@"www.google.com"];    
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
     
     [self.view addSubview:self.daysLate];
     [self.daysLate setTitleColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1] forState:UIControlStateNormal];
@@ -213,7 +213,7 @@ EFCircularSlider* hourSlider;
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
     
-    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
     if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (object) {
@@ -285,12 +285,12 @@ EFCircularSlider* hourSlider;
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:user.username];
-    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
     if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
         } else {
-            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            Reachability* reach = [Reachability reachabilityForInternetConnection];
             
             int karmaDelay = (int) - [self.taskKarma intValue]/2. ;
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:karmaDelay]];
@@ -307,7 +307,7 @@ EFCircularSlider* hourSlider;
     [queryTask getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
         } else {
-            Reachability * reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+            Reachability* reach = [Reachability reachabilityForInternetConnection];
             [object setObject:[self.dueDate dateByAddingTimeInterval:(self.delayDay*24 + delayHour*3600 + delayMinute*60)] forKey:@"dateLimit"];
             
             if([reach isReachable]) [object saveInBackground];
