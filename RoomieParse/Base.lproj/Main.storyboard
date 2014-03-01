@@ -43,7 +43,7 @@
                                     <rect key="frame" x="8" y="96" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <state key="normal" image="icon-ios7-plus-outline.png"/>
+                                    <state key="normal" image="plus.png"/>
                                     <connections>
                                         <segue destination="QTR-rC-jIg" kind="modal" id="EUh-fs-NrJ"/>
                                     </connections>
@@ -52,7 +52,7 @@
                                     <rect key="frame" x="8" y="43" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <state key="normal" image="icon-ios7-information-outline.png"/>
+                                    <state key="normal" image="LeftSideMenu_Tag.png"/>
                                     <connections>
                                         <action selector="orderFeed:" destination="ArI-RG-xMQ" eventType="touchUpInside" id="x3P-kV-dUg"/>
                                     </connections>
@@ -677,10 +677,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
+        <image name="LeftSideMenu_Tag.png" width="40" height="40"/>
         <image name="icon-home.png" width="600" height="600"/>
         <image name="icon-ios7-gear-outline.png" width="600" height="601"/>
-        <image name="icon-ios7-information-outline.png" width="600" height="600"/>
-        <image name="icon-ios7-plus-outline.png" width="600" height="600"/>
+        <image name="plus.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
