@@ -34,8 +34,8 @@
     } else {
         yDelta = 0.0f;
     }
-    
-    [self.array insertObject:@"All" atIndex:0];
+    if(self.array ==nil) self.array =[[NSMutableArray alloc] initWithObjects:@"All", nil];
+    else [self.array insertObject:@"All" atIndex:0];
     [self.array insertObject:[PFUser currentUser].username atIndex:1];
     self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
     self.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
@@ -50,10 +50,9 @@
     self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.segmentedControl];
     
-    self.displayUser = @"All";
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
 }
-
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
     switch (segmentedControl.selectedSegmentIndex) {
@@ -159,9 +158,11 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         
+        NSLog(@"%@",self.displayUser);
         if ([self.displayUser isEqualToString:@"All"])
         {
             NSMutableArray *names = [self.array mutableCopy];
+            NSLog(@"%@", names);
             [names removeObjectAtIndex:0];
             [query whereKey:@"user" containedIn:names];
         }
@@ -181,13 +182,15 @@
         
         else {
             if (self.pullToRefreshEnabled) {
-                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+                query.cachePolicy = kPFCachePolicyNetworkElseCache ;
             }
             // If no objects are loaded in memory, we look to the cache first to fill the table
             // and then subsequently do a query against the network.
             if (self.objects.count == 0) {
-                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+                query.cachePolicy = kPFCachePolicyNetworkElseCache ;
             }
+            
+            query.cachePolicy = kPFCachePolicyNetworkElseCache ;
         }
         
         return query;

@@ -19,6 +19,7 @@
 		FC73484C18BA5C8300C05E65 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484B18BA5C8300C05E65 /* close.png */; };
 		FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484D18BA76BB00C05E65 /* icon-home.png */; };
 		FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */; };
+		FCBC9F9D18C1EBCD00744065 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9F9C18C1EBCD00744065 /* FacebookSDK.framework */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF243EC18BBBDB800AC4306 /* karma.png in Resources */ = {isa = PBXBuildFile; fileRef = FCF243EB18BBBDB800AC4306 /* karma.png */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
@@ -95,6 +96,7 @@
 		FC73484B18BA5C8300C05E65 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		FC73484D18BA76BB00C05E65 /* icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home.png"; sourceTree = "<group>"; };
 		FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline.png"; sourceTree = "<group>"; };
+		FCBC9F9C18C1EBCD00744065 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EB18BBBDB800AC4306 /* karma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karma.png; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				FCFE9DFF18B506FC0019DC9F /* StoreKit.framework in Frameworks */,
 				FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */,
 				FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */,
+				FCBC9F9D18C1EBCD00744065 /* FacebookSDK.framework in Frameworks */,
 				FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */,
 				FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */,
 			);
@@ -319,6 +322,7 @@
 		FCFE9DBB18B506820019DC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC9F9C18C1EBCD00744065 /* FacebookSDK.framework */,
 				FC30826E18BF421D00E71EF5 /* UIKit.framework */,
 				FCF243E518BB7B9800AC4306 /* Parse.framework */,
 				FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */,

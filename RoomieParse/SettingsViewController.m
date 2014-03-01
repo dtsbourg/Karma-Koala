@@ -36,13 +36,14 @@
 }
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
+    
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [PFQuery clearAllCachedResults];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.userName.text = [self.userText uppercaseString];
