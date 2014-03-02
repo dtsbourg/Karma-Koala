@@ -162,7 +162,6 @@
         if ([self.displayUser isEqualToString:@"All"])
         {
             NSMutableArray *names = [self.array mutableCopy];
-            NSLog(@"%@", names);
             [names removeObjectAtIndex:0];
             [query whereKey:@"user" containedIn:names];
         }

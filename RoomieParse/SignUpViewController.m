@@ -49,6 +49,8 @@
     [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
     [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
     
+    self.signUpView.usernameField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
     if ([UIScreen mainScreen].bounds.size.height < 568)
         [self.signUpView.logo setFrame:CGRectMake(self.signUpView.logo.frame.origin.x, self.signUpView.logo.frame.origin.y, self.signUpView.logo.frame.size.width -80, self.signUpView.logo.frame.size.height -80)];
@@ -57,8 +59,8 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [user setObject:[NSNumber numberWithInt:0] forKey:@"karma"];
-    [user setObject:self.signUpView.usernameField.text forKey:@"user"];
+    [user setObject:[NSNumber numberWithInt:1] forKey:@"karma"];
+    [user setObject:[self.signUpView.usernameField.text uppercaseString] forKey:@"user"];
     [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
 }
 

@@ -202,7 +202,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="gYW-0I-6c7">
-                                                <rect key="frame" x="257" y="18" width="43" height="33"/>
+                                                <rect key="frame" x="238" y="18" width="62" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
@@ -256,6 +256,7 @@
                     <connections>
                         <outlet property="buttonDisconnect" destination="Wlx-bx-gIq" id="aqb-wk-psR"/>
                         <outlet property="buttonInvite" destination="Szt-tN-FzH" id="ovz-CU-96v"/>
+                        <outlet property="editButton" destination="gYW-0I-6c7" id="RT8-99-Zkm"/>
                         <outlet property="karma" destination="Dhd-15-th8" id="THN-hb-Sd5"/>
                         <outlet property="tableView" destination="jCt-Nm-7AX" id="JEy-Vh-AnO"/>
                         <outlet property="userName" destination="6dz-YZ-FE6" id="Ysg-HL-sLO"/>

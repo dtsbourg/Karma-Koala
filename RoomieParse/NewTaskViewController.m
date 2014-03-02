@@ -38,16 +38,17 @@
     PFUser *user = [PFUser currentUser];
 
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
+    [query whereKey:@"username" equalTo:[user.username uppercaseString]];
     if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     else query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         self.array = [object objectForKey:@"roommates"];
-        [self.array addObject:user.username];
+        [self.array addObject:[user.username uppercaseString]];
     }];
     
     self.taskAssign.delegate = self;
+    self.taskAssign.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     self.taskText.delegate = self;
     [self.taskAssign setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
     [self.taskText setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
@@ -284,11 +285,7 @@
 - (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 {
     // This is a simple example of how to provide DOAutocomleteTextField with completions
-    NSArray *autocompleteArray = [NSArray arrayWithObjects:
-                                  @"dylan",
-                                  @"Tristan",
-                                  @"Jacky",
-                                  nil];
+    NSArray *autocompleteArray = self.array;
     
     for (NSString *string in autocompleteArray)
     {

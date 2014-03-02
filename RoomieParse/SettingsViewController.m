@@ -44,7 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [PFQuery clearAllCachedResults];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.userName.text = [self.userText uppercaseString];
@@ -77,7 +76,16 @@
 }
 - (IBAction)edit:(id)sender {
     [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
-    self.tableView.userInteractionEnabled = YES;
+    
+    if (self.tableView.isEditing) {
+        self.tableView.userInteractionEnabled = YES;
+        [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Done"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        self.tableView.userInteractionEnabled = NO;
+        [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
+    }
     [self.tableView reloadData];
 
 }
@@ -99,25 +107,28 @@
         cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] ;
     }
     
-    if (indexPath.row < [self.roomies count])
+    if (indexPath.row < [tableView numberOfRowsInSection:0]-1)
     {
         cell.textLabel.text = [[self.roomies objectAtIndex:indexPath.row] uppercaseString];
     }
     
-    else {
-        self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, cell.frame.origin.y+10, 185, 30)];
-        self.tx.delegate = self;
-        self.tx.keyboardAppearance = UIKeyboardAppearanceDark;
-        self.tx.returnKeyType = UIReturnKeyDone;
-        self.tx.adjustsFontSizeToFitWidth = YES;
-        self.tx.textColor = [UIColor whiteColor];
-        UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
-        self.tx.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add a roommate !" attributes:@{NSForegroundColorAttributeName: color}];
-        self.tx.font = [UIFont fontWithName:@"Futura" size:24];
-        self.tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-        self.tx.autocorrectionType = UITextAutocorrectionTypeNo;
+    else if (indexPath.row == [self.roomies count]) {
+        if (!self.tx) {
+            self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, cell.frame.origin.y+10, 185, 30)];
+            self.tx.delegate = self;
+            self.tx.keyboardAppearance = UIKeyboardAppearanceDark;
+            self.tx.returnKeyType = UIReturnKeyDone;
+            self.tx.adjustsFontSizeToFitWidth = YES;
+            self.tx.textColor = [UIColor whiteColor];
+            UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
+            self.tx.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add a roommate here !" attributes:@{NSForegroundColorAttributeName: color}];
+            self.tx.font = [UIFont fontWithName:@"Futura" size:24];
+            self.tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+            self.tx.autocorrectionType = UITextAutocorrectionTypeNo;
+            [self.tx setEnabled:YES];
+            [cell.contentView addSubview:self.tx];
+        }
         [self.tx setEnabled:YES];
-        [cell.contentView addSubview:self.tx];
     }
     
     cell.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
@@ -142,24 +153,6 @@
     
 }
 
--(void)setEditing:(BOOL)editing animated:(BOOL) animated {
-    if( editing != self.editing ) {
-        
-        [super setEditing:editing animated:animated];
-        [self.tableView setEditing:editing animated:animated];
-        
-        NSArray *indexes =[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.roomies.count inSection:0]];
-        
-        if (editing == YES ) {
-            [self.tableView insertRowsAtIndexPaths:indexes
-                             withRowAnimation:UITableViewRowAnimationLeft];
-        } else {
-            [self.tableView deleteRowsAtIndexPaths:indexes
-                             withRowAnimation:UITableViewRowAnimationLeft];
-        }
-    }
-}
-
 - (void) tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editing forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if( editing == UITableViewCellEditingStyleDelete ) {
@@ -167,7 +160,7 @@
 
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"username" equalTo:user.username];
+        [query whereKey:@"username" equalTo:[user.username uppercaseString]];
         if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
         else query.cachePolicy = kPFCachePolicyNetworkElseCache;
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
@@ -176,18 +169,15 @@
                 
             } else {
                 
-                [object removeObject:[[self.roomies objectAtIndex:indexPath.row] lowercaseString] forKey:@"roommates"];
+                [object removeObject:[[self.roomies objectAtIndex:indexPath.row] uppercaseString] forKey:@"roommates"];
                 Reachability* reach = [Reachability reachabilityForInternetConnection];
                 if([reach isReachable]) [object saveInBackground];
                 else [object saveEventually];
             }
-            [query clearCachedResult];
             [self.roomies removeObjectAtIndex:indexPath.row];
-            [self.tableView setEditing:NO];
-            self.tableView.userInteractionEnabled = NO;
-            [self.tableView reloadData];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
-        
+        [self.tableView reloadData];
     }
 }
 
@@ -195,11 +185,11 @@
     
     [textField resignFirstResponder];
     [self.roomies addObject:textField.text];
-    self.tableView.editing = NO;
+    [self.tableView setEditing:NO];
     PFUser *user = [PFUser currentUser];
 
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
+    [query whereKey:@"username" equalTo:[user.username uppercaseString]];
     
     Reachability* reach = [Reachability reachabilityForInternetConnection];
     if(![reach isReachable]) {
@@ -210,7 +200,7 @@
         if (!object) {
             NSLog(@"The getFirstObject request failed.");
         } else {
-            [object addObject:[textField.text lowercaseString] forKey:@"roommates"];
+            [object addObject:[textField.text uppercaseString] forKey:@"roommates"];
             
             Reachability* reach = [Reachability reachabilityForInternetConnection];
             if([reach isReachable]) [object saveInBackground];

@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITextField * tx;
 
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
+
 @property (strong, nonatomic) IBOutlet UIButton *buttonDisconnect;
 @property (strong, nonatomic) IBOutlet UIButton *buttonInvite;
 @property (strong, nonatomic) NSString *userText;

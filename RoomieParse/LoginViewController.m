@@ -46,6 +46,8 @@
     [self.logInView.usernameField setTextColor:[UIColor whiteColor]];
     [self.logInView.passwordField setTextColor:[UIColor whiteColor]];
     
+    self.logInView.usernameField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+
     CALayer *layer = self.logInView.usernameField.layer;
     layer.shadowOpacity = 0.0;
     layer = self.logInView.passwordField.layer;

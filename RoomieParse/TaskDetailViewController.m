@@ -211,7 +211,7 @@ EFCircularSlider* hourSlider;
     // Do any additional setup after loading the view.
     
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
+    [query whereKey:@"username" equalTo:[user.username uppercaseString]];
     
     Reachability* reach = [Reachability reachabilityForInternetConnection];
     if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
@@ -285,7 +285,7 @@ EFCircularSlider* hourSlider;
     // Do any additional setup after loading the view.
     
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:user.username];
+    [query whereKey:@"username" equalTo:[user.username uppercaseString]];
     Reachability* reach = [Reachability reachabilityForInternetConnection];
     if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {

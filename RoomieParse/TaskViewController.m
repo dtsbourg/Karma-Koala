@@ -70,7 +70,7 @@
         if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
         else query.cachePolicy = kPFCachePolicyNetworkElseCache ;
         
-        [query whereKey:@"username" equalTo:user.username];
+        [query whereKey:@"username" equalTo:[user.username uppercaseString]];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!object) {
                 NSLog(@"The getFirstObject request failed.");
