@@ -58,35 +58,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
-    
     if ([PFUser currentUser]) {
         
-        if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-            FBRequest *request = [FBRequest requestForMe];
-            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                if (!error) {
-                    // result is a dictionary with the user's Facebook data
-                    NSDictionary *userData = (NSDictionary *)result;
-                    NSString *name = userData[@"name"];
-                    [[PFUser currentUser] setUsername:[[name componentsSeparatedByString:@" "] firstObject]];
-//                    self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
-                    [[PFUser currentUser] saveInBackground];
-                }
-            }];
-        }
-        
-        else if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])
-        {
-            NSString *twitterUsername = [PFTwitterUtils twitter].screenName;
-            [[PFUser currentUser] setUsername:twitterUsername];
-//            self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
-            [[PFUser currentUser] saveInBackground];
-        }
-        
-//        else {
-//            self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
-//        }
         self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
         
         Reachability* reach = [Reachability reachabilityForInternetConnection];
@@ -142,7 +115,7 @@
         // Create the log in view controller
         LoginViewController *logInViewController = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton | PFLogInFieldsFacebook | PFLogInFieldsTwitter ;
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
         
         // Create the sign up view controller
         SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];

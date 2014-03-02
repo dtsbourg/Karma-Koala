@@ -21,10 +21,7 @@
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [PFTwitterUtils initializeWithConsumerKey:@"7hY7RWZkHbdBOGXgzrLUyQ"
-                               consumerSecret:@"bvpf2eMpI8DRW3bp7FQsqpdcmPmppNOs8xqXhTrzY"];
-    
-    [PFFacebookUtils initializeFacebook];
+
     
     return YES;
 }
@@ -51,12 +48,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
-}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
 @end
