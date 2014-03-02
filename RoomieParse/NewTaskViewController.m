@@ -8,7 +8,7 @@
 
 #import "NewTaskViewController.h"
 
-@interface NewTaskViewController ()
+@interface NewTaskViewController () 
 
 @end
 
@@ -26,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.topView addSubview:self.saveButton];
+    [self.topView addSubview:self.cancelButton];
+    
     self.navigationController.navigationBar.hidden = YES;
     self.hoursSelector.on = YES;
     
@@ -255,6 +259,10 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     if (textField == self.taskAssign) {
+        if (self.stringReplace) {
+            self.taskAssign.text = self.stringReplace;
+        }
+        
         [self.taskText becomeFirstResponder];
         return YES;
     }
@@ -266,6 +274,34 @@
     
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect fixedFrame = self.topView.frame;
+    fixedFrame.origin.y = 0 + scrollView.contentOffset.y;
+    self.topView.frame = fixedFrame;
+}
+
+- (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
+{
+    // This is a simple example of how to provide DOAutocomleteTextField with completions
+    NSArray *autocompleteArray = [NSArray arrayWithObjects:
+                                  @"dylan",
+                                  @"Tristan",
+                                  @"Jacky",
+                                  nil];
+    
+    for (NSString *string in autocompleteArray)
+    {
+        if([string hasPrefix:prefix])
+        {
+            self.stringReplace = string;
+            return [string stringByReplacingCharactersInRange:[prefix rangeOfString:prefix] withString:@""];
+        }
+        
+    }
+    
+    return @"";
+}
 
 
 @end

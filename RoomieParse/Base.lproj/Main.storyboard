@@ -394,11 +394,11 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" id="LTu-ee-TJI">
-                                    <rect key="frame" x="0.0" y="-39" width="320" height="83"/>
+                                    <rect key="frame" x="0.0" y="-9" width="320" height="53"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="xp6-MU-MCc">
-                                            <rect key="frame" x="20" y="46" width="71" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="kpT-zp-AGW">
+                                            <rect key="frame" x="10" y="20" width="71" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <attributedString key="attributedTitle">
@@ -411,11 +411,11 @@
                                                 </attributedString>
                                             </state>
                                             <connections>
-                                                <action selector="cancel:" destination="Kq4-vZ-Tnk" eventType="touchUpInside" id="UI2-5h-5g9"/>
+                                                <action selector="cancel:" destination="Kq4-vZ-Tnk" eventType="touchUpInside" id="EE2-6Y-xD6"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Y4r-EQ-O7I">
-                                            <rect key="frame" x="251" y="46" width="49" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="A0b-ml-qgp">
+                                            <rect key="frame" x="251" y="20" width="49" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal">
@@ -429,14 +429,14 @@
                                                 </attributedString>
                                             </state>
                                             <connections>
-                                                <action selector="save:" destination="Kq4-vZ-Tnk" eventType="touchUpInside" id="55H-oa-i3I"/>
+                                                <action selector="save:" destination="Kq4-vZ-Tnk" eventType="touchUpInside" id="Ewg-JD-73r"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.20784313730000001" green="0.098039215690000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.20784313730000001" green="0.098039215690000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.32497336650000003" green="0.15054598720000001" blue="0.24993341620000001" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <datePicker key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" id="7I6-7U-WcV">
                             <rect key="frame" x="0.0" y="270" width="320" height="216"/>
@@ -485,7 +485,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Why not Zoidberg ?" minimumFontSize="17" clearButtonMode="whileEditing" id="7vc-n1-Ues">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Why not Zoidberg ?" minimumFontSize="17" clearButtonMode="whileEditing" id="7vc-n1-Ues" customClass="DOAutocompleteTextField">
                                                     <rect key="frame" x="108" y="7" width="192" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -621,12 +621,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="kpT-zp-AGW" id="QMw-lV-zOV"/>
                         <outlet property="datePick" destination="7I6-7U-WcV" id="mt5-Yj-aiE"/>
                         <outlet property="hoursSelector" destination="X2X-YO-fdA" id="Ign-tl-HYZ"/>
                         <outlet property="karmaStepper" destination="hoF-HH-4g2" id="Cok-6k-8S7"/>
                         <outlet property="karmaValue" destination="b4h-Ey-T4x" id="cq0-KJ-S2H"/>
+                        <outlet property="saveButton" destination="A0b-ml-qgp" id="NPB-Xq-ISL"/>
                         <outlet property="taskAssign" destination="7vc-n1-Ues" id="cy5-aL-jIT"/>
                         <outlet property="taskText" destination="kSx-uB-Zzk" id="iqz-pf-18f"/>
+                        <outlet property="topView" destination="LTu-ee-TJI" id="EYb-6U-twd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obT-72-3iY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -697,6 +700,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="icon-ios7-gear-outline.png" width="600" height="601"/>
         <image name="plus.png" width="50" height="50"/>
     </resources>
+    <color key="tintColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

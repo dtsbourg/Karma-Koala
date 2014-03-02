@@ -277,6 +277,7 @@ EFCircularSlider* hourSlider;
 -(IBAction)dayValueIncr:(UIButton*)sender{
     self.delayDay = self.delayDay + 1;
     [self.daysLate setTitle:[NSString stringWithFormat:@"%i", self.delayDay] forState:UIControlStateNormal ];
+    if (self.delayDay > 9) [self.daysLate.titleLabel setFont:[UIFont fontWithName:@"Futura" size:40]];
 }
 
 -(void)confirm:(UIButton*)sender {

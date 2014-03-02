@@ -21,6 +21,7 @@
 		FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */; };
 		FCBC9FA118C2038B00744065 /* LeftSideMenu_Tag.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */; };
 		FCBC9FA518C2040F00744065 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA418C2040F00744065 /* plus.png */; };
+		FCBC9FAC18C3613F00744065 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF243EC18BBBDB800AC4306 /* karma.png in Resources */ = {isa = PBXBuildFile; fileRef = FCF243EB18BBBDB800AC4306 /* karma.png */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
@@ -99,6 +100,8 @@
 		FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline.png"; sourceTree = "<group>"; };
 		FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftSideMenu_Tag.png; sourceTree = "<group>"; };
 		FCBC9FA418C2040F00744065 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		FCBC9FAA18C3613F00744065 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOAutocompleteTextField.h; sourceTree = "<group>"; };
+		FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOAutocompleteTextField.m; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EB18BBBDB800AC4306 /* karma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karma.png; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -246,6 +249,15 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		FCBC9FA918C3613F00744065 /* DOAutocompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				FCBC9FAA18C3613F00744065 /* DOAutocompleteTextField.h */,
+				FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */,
+			);
+			path = DOAutocompleteTextField;
+			sourceTree = "<group>";
+		};
 		FCF243ED18BD0F5F00AC4306 /* FlatUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +354,7 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC9FA918C3613F00744065 /* DOAutocompleteTextField */,
 				FCF2442B18BD1F1500AC4306 /* Reachability */,
 				FCF243ED18BD0F5F00AC4306 /* FlatUIKit */,
 				FC73483A18B9440100C05E65 /* IBActionSheet */,
@@ -585,6 +598,7 @@
 				FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */,
 				FCFE9DC918B506820019DC9F /* main.m in Sources */,
 				FCF2441918BD0F5F00AC4306 /* FUISegmentedControl.m in Sources */,
+				FCBC9FAC18C3613F00744065 /* DOAutocompleteTextField.m in Sources */,
 				FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */,
 				FCF2441618BD0F5F00AC4306 /* FUIButton.m in Sources */,
 				FCF2441C18BD0F5F00AC4306 /* UIBarButtonItem+FlatUI.m in Sources */,
