@@ -45,7 +45,6 @@
 {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
     self.userName.text = [self.userText uppercaseString];
     self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
 
@@ -74,6 +73,7 @@
     
     [self.tableView reloadData];
 }
+
 - (IBAction)edit:(id)sender {
     [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
     
@@ -107,14 +107,14 @@
         cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] ;
     }
     
-    if (indexPath.row < [tableView numberOfRowsInSection:0]-1)
+    if (indexPath.row < [self.roomies count])
     {
         cell.textLabel.text = [[self.roomies objectAtIndex:indexPath.row] uppercaseString];
     }
     
     else if (indexPath.row == [self.roomies count]) {
         if (!self.tx) {
-            self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, cell.frame.origin.y+10, 185, 30)];
+            self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, 5*indexPath.row, 185, 30)];
             self.tx.delegate = self;
             self.tx.keyboardAppearance = UIKeyboardAppearanceDark;
             self.tx.returnKeyType = UIReturnKeyDone;
@@ -126,10 +126,25 @@
             self.tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
             self.tx.autocorrectionType = UITextAutocorrectionTypeNo;
             [self.tx setEnabled:YES];
+            [self.tx setHidden:NO];
             [cell.contentView addSubview:self.tx];
+            
+            [cell.textLabel setText:@""];
+            
         }
-        [self.tx setEnabled:YES];
+        else {
+            [self.tx setEnabled:YES];
+            [self.tx setHidden:NO];
+            self.tx.frame = CGRectMake(15, 5*indexPath.row, 185, 30);
+            UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
+            self.tx.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add a roommate here !" attributes:@{NSForegroundColorAttributeName:color }];
+            [cell.contentView addSubview:self.tx];
+            [cell.textLabel setText:@""];
+            
+        }
+        
     }
+    
     
     cell.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -177,14 +192,15 @@
             [self.roomies removeObjectAtIndex:indexPath.row];
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
-        [self.tableView reloadData];
     }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
-    [self.roomies addObject:textField.text];
+    if (![textField.text isEqualToString:@""""] && ![textField.text isEqualToString:@" "] && ![textField.text isEqualToString:@""])
+    {
+    [self.roomies addObject:[textField.text uppercaseString]];
     [self.tableView setEditing:NO];
     PFUser *user = [PFUser currentUser];
 
@@ -207,8 +223,15 @@
             else [object saveEventually];
         }
     }];
+    }
     
+    [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
+    self.tx.hidden=YES;
+    self.tx.enabled=NO;
+    [self.tableView setEditing:NO];
+    self.tx.text = @"";
     [self.tableView reloadData];
+
     return NO;
 }
 
