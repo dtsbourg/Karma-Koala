@@ -68,7 +68,7 @@
         
         PFQuery *query = [PFUser query];
         if(![reach isReachable]) query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
-        else query.cachePolicy = kPFCachePolicyNetworkElseCache ;
+        else query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
         
         [query whereKey:@"username" equalTo:[user.username uppercaseString]];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
@@ -160,7 +160,7 @@
     else if ([segue.identifier isEqualToString:@"homeSegue"]) {
         HomeViewController *destvc = [segue destinationViewController];
         destvc.array = self.roommateArray;
-        destvc.displayUser = @"All";
+        destvc.displayUser = @"ALL";
     }
 }
 
@@ -168,7 +168,7 @@
      
     if ([PFUser currentUser]) {
         PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-        [query whereKey:@"user" equalTo:[PFUser currentUser].username];
+        [query whereKey:@"user" equalTo:[[PFUser currentUser].username uppercaseString]];
         
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         

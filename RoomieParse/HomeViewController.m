@@ -34,9 +34,9 @@
     } else {
         yDelta = 0.0f;
     }
-    if(self.array ==nil) self.array =[[NSMutableArray alloc] initWithObjects:@"All", nil];
-    else [self.array insertObject:@"All" atIndex:0];
-    [self.array insertObject:[PFUser currentUser].username atIndex:1];
+    if(self.array ==nil) self.array =[[NSMutableArray alloc] initWithObjects:@"ALL", nil];
+    else [self.array insertObject:@"ALL" atIndex:0];
+    [self.array insertObject:[[PFUser currentUser].username uppercaseString] atIndex:1];
     self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
     self.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     self.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
@@ -158,11 +158,12 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         
-        NSLog(@"%@",self.displayUser);
-        if ([self.displayUser isEqualToString:@"All"])
+        NSLog(@"%@", self.array);
+        if ([self.displayUser isEqualToString:@"ALL"])
         {
             NSMutableArray *names = [self.array mutableCopy];
-            [names removeObjectAtIndex:0];
+            [names addObject:[[PFUser currentUser].username uppercaseString]];
+
             [query whereKey:@"user" containedIn:names];
         }
         
@@ -181,7 +182,7 @@
         
         else {
             if (self.pullToRefreshEnabled) {
-                query.cachePolicy = kPFCachePolicyNetworkElseCache ;
+                query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
             }
             // If no objects are loaded in memory, we look to the cache first to fill the table
             // and then subsequently do a query against the network.
@@ -189,7 +190,7 @@
                 query.cachePolicy = kPFCachePolicyNetworkElseCache ;
             }
             
-            query.cachePolicy = kPFCachePolicyNetworkElseCache ;
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
         }
         
         return query;
