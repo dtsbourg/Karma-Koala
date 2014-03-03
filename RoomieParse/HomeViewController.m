@@ -158,7 +158,6 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         
-        NSLog(@"%@", self.array);
         if ([self.displayUser isEqualToString:@"ALL"])
         {
             NSMutableArray *names = [self.array mutableCopy];

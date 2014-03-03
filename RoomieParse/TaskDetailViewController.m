@@ -245,6 +245,8 @@ EFCircularSlider* hourSlider;
 
 - (IBAction)delayTask:(id)sender {
     
+    self.buttonDelay.userInteractionEnabled = NO;
+    self.buttonDelay.hidden = YES;
     hourSlider.snapToLabels = YES;
     minuteSlider.userInteractionEnabled = YES;
     hourSlider.userInteractionEnabled = YES;
@@ -315,6 +317,9 @@ EFCircularSlider* hourSlider;
             else [object saveEventually];
         }
     }];
+    
+    self.buttonDelay.userInteractionEnabled = YES;
+    self.buttonDelay.hidden = NO;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
