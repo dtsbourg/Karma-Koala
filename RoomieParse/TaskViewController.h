@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *toDoNumberLabel;
 
+@property (strong, nonatomic) IBOutlet UIImageView *koala;
 @property (strong,nonatomic) NSString *priority;
 
 @property (nonatomic, strong) NSMutableArray *roommateArray;

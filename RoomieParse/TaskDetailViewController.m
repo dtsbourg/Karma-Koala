@@ -167,8 +167,8 @@ EFCircularSlider* hourSlider;
                     }
                     
                 }
-
             }
+            if (abs(numberOfDays) > 9) [self.daysLate.titleLabel setFont:[UIFont fontWithName:@"Futura" size:40]];
         }
     }];
     

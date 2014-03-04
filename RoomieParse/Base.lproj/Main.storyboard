@@ -95,7 +95,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="koala3.png" id="JHN-2d-rsm">
-                                    <rect key="frame" x="126" y="20" width="68" height="77"/>
+                                    <rect key="frame" x="126" y="-4" width="68" height="77"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </subviews>
@@ -140,6 +140,7 @@
                     <connections>
                         <outlet property="firstNameLabel" destination="fve-xN-LKw" id="B4z-Ge-FcU"/>
                         <outlet property="karmaLabel" destination="ivc-o4-8cp" id="Bkh-CK-jJq"/>
+                        <outlet property="koala" destination="JHN-2d-rsm" id="emm-BP-p5n"/>
                         <outlet property="toDoNumberLabel" destination="gZa-vT-KTd" id="h8g-7l-WDE"/>
                     </connections>
                 </tableViewController>

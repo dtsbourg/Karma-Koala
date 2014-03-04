@@ -58,6 +58,17 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    CGRect topFrame = CGRectMake(self.koala.frame.origin.x, 20, self.koala.frame.size.width, self.koala.frame.size.height);
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelay:1.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    
+    self.koala.frame = topFrame;
+    
+    [UIView commitAnimations];
+    
     if ([PFUser currentUser]) {
         
         self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
@@ -197,7 +208,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
-[self.toDoNumberLabel setText:[NSString stringWithFormat:@"%i", [tableView numberOfRowsInSection:0]]];
+[self.toDoNumberLabel setText:[NSString stringWithFormat:@"%li", (long)[tableView numberOfRowsInSection:0]]];
  static NSString *CellIdentifier = @"Cell";
  
  PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -210,10 +221,7 @@
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255
-                                                         green:210./255
-                                                          blue:149./255
-                                                         alpha:1];
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
     
@@ -221,10 +229,7 @@
     
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.textLabel.textColor = [UIColor colorWithRed:244./255
-                                                   green:150./255
-                                                    blue:68./255
-                                                   alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1];
 
         NSDate *now = [NSDate date];
         NSTimeInterval secondsBetween = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
