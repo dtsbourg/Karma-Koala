@@ -79,19 +79,12 @@
                 self.roommateArray = [object objectForKey:@"roommates"];
                 
                 if ([[object objectForKey:@"karma"] intValue] > 0) {
-                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255
-                                                                green:210./255
-                                                                 blue:149./255
-                                                                alpha:1];
-                    
+                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
                     self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
                 }
                 
                 else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255
-                                                                green:157./255
-                                                                 blue:25./255
-                                                                alpha:1];
+                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
                     self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
 
                 }
@@ -115,7 +108,7 @@
         // Create the log in view controller
         LoginViewController *logInViewController = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton ;
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten ;
         
         // Create the sign up view controller
         SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];

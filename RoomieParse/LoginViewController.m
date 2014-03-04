@@ -61,6 +61,7 @@
     
     [self.logInView.signUpButton setTitleColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]
                                      forState:UIControlStateNormal];
+    
 }
 
 -(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews
@@ -75,7 +76,7 @@
 }
 
 -(void)viewDidLayoutSubviews {
-[self.logInView.logInButton setImage:[UIImage imageNamed:@"purple.png"] forState:UIControlStateNormal];
+    [self.logInView.logInButton setImage:[UIImage imageNamed:@"purple.png"] forState:UIControlStateNormal];
     
     UIColor *color = [UIColor colorWithWhite:1 alpha:0.7];
     UIFont *font = [UIFont fontWithName:@"Futura" size:20];
@@ -83,6 +84,9 @@
     
     self.logInView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:attrsDictionary];
     self.logInView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attrsDictionary];
+    
+    [self.logInView.passwordForgottenButton setBackgroundImage:[UIImage imageNamed:@"forgot.png"] forState:UIControlStateNormal];
+
 }
 
 -(void)reachabilityChanged:(NSNotification*)note
