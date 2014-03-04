@@ -49,22 +49,15 @@
     self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
 
     if ([self.userKarma intValue] > 0) {
-        self.karma.textColor = [UIColor colorWithRed:150./255
-                                                         green:210./255
-                                                          blue:149./255
-                                                         alpha:1];
+        self.karma.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
     }
     
     else if ([self.userKarma intValue] < 0) {
-        self.karma.textColor = [UIColor colorWithRed:254./255
-                                               green:150./255
-                                                blue:68./255
-                                               alpha:1];
+        self.karma.textColor = [UIColor colorWithRed:254./255 green:150./255 blue:68./255 alpha:1];
     }
     else {
         self.karma.textColor = [UIColor grayColor];
     }
-    
     
     if ([UIScreen mainScreen].bounds.size.height < 568) {
         self.buttonInvite.frame = CGRectMake(self.buttonInvite.frame.origin.x, self.buttonInvite.frame.origin.y - 88, self.buttonInvite.frame.size.width, self.buttonInvite.frame.size.height);
@@ -128,7 +121,7 @@
             [self.tx setEnabled:YES];
             [self.tx setHidden:NO];
             [cell.contentView addSubview:self.tx];
-            
+            self.tx.text = @"";
             [cell.textLabel setText:@""];
             
         }
@@ -140,11 +133,11 @@
             self.tx.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add a roommate here !" attributes:@{NSForegroundColorAttributeName:color }];
             [cell.contentView addSubview:self.tx];
             [cell.textLabel setText:@""];
+            self.tx.text = @"";
             
         }
         
     }
-    
     
     cell.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -197,8 +190,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    
-    if (![textField.text isEqualToString:@""""] && ![textField.text isEqualToString:@" "] && ![textField.text isEqualToString:@""])
+    if ([textField.text length] != 0)
     {
         if (![self.roomies containsObject:textField.text])
         {
@@ -213,7 +205,6 @@
             Reachability* reach = [Reachability reachabilityForInternetConnection];
             if(![reach isReachable]) {
                 query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
-
             }
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
                 if (!object) {
@@ -231,7 +222,6 @@
             self.tx.hidden=YES;
             self.tx.enabled=NO;
             [self.tableView setEditing:NO];
-            self.tx.text = @"";
             [self.tableView reloadData];
         }
         
@@ -278,7 +268,6 @@
         [al show];
     }
     
-
     return NO;
 }
 

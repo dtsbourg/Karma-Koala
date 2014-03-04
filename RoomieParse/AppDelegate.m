@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -21,6 +22,11 @@
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"d77409b00e724effff5f11a2858a4dcf" delegate:self];
+    [[BITHockeyManager sharedHockeyManager].authenticator setAuthenticationSecret:@"92c567f7ebd679d572c672e4fb3c9ef3"];
+    [[BITHockeyManager sharedHockeyManager].authenticator setIdentificationType:BITAuthenticatorIdentificationTypeHockeyAppEmail];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 
     
     return YES;

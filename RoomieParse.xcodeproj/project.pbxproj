@@ -25,6 +25,11 @@
 		FCBC9FB018C527A400744065 /* koala3.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FAF18C527A400744065 /* koala3.png */; };
 		FCBC9FBA18C63BF200744065 /* forgot.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FB918C63BF200744065 /* forgot.png */; };
 		FCBC9FBC18C63C6D00744065 /* koala.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FBB18C63C6D00744065 /* koala.png */; };
+		FCBC9FC118C643C800744065 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FBF18C643C800744065 /* CoreText.framework */; };
+		FCBC9FC218C643C800744065 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC018C643C800744065 /* UIKit.framework */; };
+		FCBC9FC818C6444400744065 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC418C6444400744065 /* HockeySDK.framework */; };
+		FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */; };
+		FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF243EC18BBBDB800AC4306 /* karma.png in Resources */ = {isa = PBXBuildFile; fileRef = FCF243EB18BBBDB800AC4306 /* karma.png */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
@@ -108,6 +113,11 @@
 		FCBC9FAF18C527A400744065 /* koala3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala3.png; sourceTree = "<group>"; };
 		FCBC9FB918C63BF200744065 /* forgot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgot.png; sourceTree = "<group>"; };
 		FCBC9FBB18C63C6D00744065 /* koala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala.png; sourceTree = "<group>"; };
+		FCBC9FBF18C643C800744065 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FCBC9FC018C643C800744065 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FCBC9FC418C6444400744065 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
+		FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EB18BBBDB800AC4306 /* karma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karma.png; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -193,16 +203,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBC9FC118C643C800744065 /* CoreText.framework in Frameworks */,
+				FCBC9FC218C643C800744065 /* UIKit.framework in Frameworks */,
+				FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */,
+				FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */,
+				FCFE9DFD18B506FC0019DC9F /* QuartzCore.framework in Frameworks */,
+				FCFE9DFE18B506FC0019DC9F /* Security.framework in Frameworks */,
+				FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */,
 				FCFE9DFA18B506FC0019DC9F /* AudioToolbox.framework in Frameworks */,
 				FCFE9DFB18B506FC0019DC9F /* libz.dylib in Frameworks */,
 				FCFE9DFC18B506FC0019DC9F /* MobileCoreServices.framework in Frameworks */,
-				FCFE9DFD18B506FC0019DC9F /* QuartzCore.framework in Frameworks */,
-				FCFE9DFE18B506FC0019DC9F /* Security.framework in Frameworks */,
 				FCFE9DFF18B506FC0019DC9F /* StoreKit.framework in Frameworks */,
 				FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */,
-				FCFE9E0018B506FC0019DC9F /* SystemConfiguration.framework in Frameworks */,
-				FCFE9DBF18B506820019DC9F /* CoreGraphics.framework in Frameworks */,
-				FCFE9DBD18B506820019DC9F /* Foundation.framework in Frameworks */,
+				FCBC9FC818C6444400744065 /* HockeySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +275,25 @@
 				FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */,
 			);
 			path = DOAutocompleteTextField;
+			sourceTree = "<group>";
+		};
+		FCBC9FC318C6444400744065 /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				FCBC9FC418C6444400744065 /* HockeySDK.framework */,
+				FCBC9FC518C6444400744065 /* Resources */,
+			);
+			name = HockeySDK.embeddedframework;
+			path = "HockeySDK-iOS/HockeySDK.embeddedframework";
+			sourceTree = "<group>";
+		};
+		FCBC9FC518C6444400744065 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */,
+				FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FCF243ED18BD0F5F00AC4306 /* FlatUIKit */ = {
@@ -341,6 +373,9 @@
 		FCFE9DBB18B506820019DC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC9FC318C6444400744065 /* HockeySDK.embeddedframework */,
+				FCBC9FBF18C643C800744065 /* CoreText.framework */,
+				FCBC9FC018C643C800744065 /* UIKit.framework */,
 				FC30826E18BF421D00E71EF5 /* UIKit.framework */,
 				FCF243E518BB7B9800AC4306 /* Parse.framework */,
 				FCFE9DF318B506FC0019DC9F /* AudioToolbox.framework */,
@@ -576,6 +611,8 @@
 				FCF243EC18BBBDB800AC4306 /* karma.png in Resources */,
 				FC30826918BF3EC100E71EF5 /* icon-ios7-information.png in Resources */,
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
+				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
+				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,
 				FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
 				FCBC9FBC18C63C6D00744065 /* koala.png in Resources */,
@@ -697,8 +734,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -720,10 +757,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/HockeySDK-iOS-3.5.4/Vendor",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";
@@ -769,8 +808,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -808,8 +847,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -831,10 +870,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/HockeySDK-iOS-3.5.4/Vendor",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";
@@ -852,10 +893,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/HockeySDK-iOS-3.5.4/Vendor",
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RoomieParse/RoomieParse-Prefix.pch";

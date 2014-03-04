@@ -14,6 +14,7 @@
 @interface TaskViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, IBActionSheetDelegate,FUIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *karmaLabel;
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *toDoNumberLabel;
 
 @property (strong,nonatomic) NSString *priority;
 

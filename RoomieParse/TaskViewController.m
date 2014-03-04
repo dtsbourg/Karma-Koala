@@ -86,13 +86,11 @@
                 else if ([[object objectForKey:@"karma"] intValue] < 0) {
                     self.karmaLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
                     self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
-
                 }
                 
                 else {
                     self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                     self.karmaLabel.textColor = [UIColor grayColor];
-                
                 }
             }
         }];
@@ -246,7 +244,6 @@
         cell.textLabel.textColor = [UIColor whiteColor];
     }
 
-    
     return cell;
 }
 
