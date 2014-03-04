@@ -18,25 +18,39 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="142"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="fve-xN-LKw">
-                                    <rect key="frame" x="46" y="92" width="224" height="38"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DYLAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="fve-xN-LKw">
+                                    <rect key="frame" x="46" y="92" width="224" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecO-I7-YVM">
-                                    <rect key="frame" x="128" y="18" width="64" height="38"/>
+                                    <rect key="frame" x="70" y="63" width="48" height="15"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ivc-o4-8cp">
-                                    <rect key="frame" x="107" y="40" width="107" height="53"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aIx-Ev-AR9">
+                                    <rect key="frame" x="206" y="62" width="41" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ivc-o4-8cp">
+                                    <rect key="frame" x="30" y="32" width="97" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
                                     <color key="textColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZa-vT-KTd">
+                                    <rect key="frame" x="193" y="27" width="67" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
+                                    <color key="textColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="uds-FU-mQI">
@@ -66,20 +80,24 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="8Je-Hw-MHj">
-                                    <rect key="frame" x="278" y="42" width="30" height="30"/>
+                                    <rect key="frame" x="278" y="43" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="icon-ios7-gear-outline.png"/>
                                     <connections>
                                         <segue destination="nwW-q0-hZ8" kind="modal" identifier="settingsSegue" id="hGe-K7-XHE"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v0.1.6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZQj-5g-ByS">
-                                    <rect key="frame" x="192" y="26" width="47" height="21"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v0.1.7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZQj-5g-ByS">
+                                    <rect key="frame" x="5" y="16" width="59" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="koala3.png" id="JHN-2d-rsm">
+                                    <rect key="frame" x="126" y="20" width="68" height="77"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.20784313725490194" green="0.098039215686274508" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -126,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZa-EA-kCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="146"/>
+            <point key="canvasLocation" x="527" y="152"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Brc-fb-2Hy">
@@ -151,16 +169,6 @@
                                         <rect key="frame" x="0.0" y="173" width="320" height="270"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.32497336650000003" green="0.15054598720000001" blue="0.24993341620000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <prototypes>
-                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jfX-dk-Uzy">
-                                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jfX-dk-Uzy" id="KUK-Gb-13H">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="nwW-q0-hZ8" id="2cV-Sz-xJk"/>
                                             <outlet property="delegate" destination="nwW-q0-hZ8" id="TaQ-0T-Gh4"/>
@@ -630,7 +638,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="saveButton" destination="A0b-ml-qgp" id="NPB-Xq-ISL"/>
                         <outlet property="taskAssign" destination="7vc-n1-Ues" id="cy5-aL-jIT"/>
                         <outlet property="taskText" destination="kSx-uB-Zzk" id="iqz-pf-18f"/>
-                        <outlet property="topView" destination="LTu-ee-TJI" id="EYb-6U-twd"/>
+                        <outlet property="topView" destination="LTu-ee-TJI" id="waD-W1-vHE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obT-72-3iY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -667,21 +675,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AWs-2O-ARC">
-                                    <rect key="frame" x="12" y="20" width="46" height="30"/>
+                                <view contentMode="scaleToFill" id="y7u-cO-vhb">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iQa-JZ-AKe">
+                                            <rect key="frame" x="10" y="20" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.20784313730000001" green="0.098039215690000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                            <state key="normal" title="Back">
+                                                <color key="titleColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="dismiss:" destination="djz-xU-tRk" eventType="touchUpInside" id="DSo-eu-kiV"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" red="0.20784313730000001" green="0.098039215690000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
-                                    <state key="normal" title="Back">
-                                        <color key="titleColor" red="0.95686274510000002" green="0.61568627450000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="dismiss:" destination="djz-xU-tRk" eventType="touchUpInside" id="bfx-rS-Hbk"/>
-                                    </connections>
-                                </button>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.20784313730000001" green="0.098039215690000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.32497336650000003" green="0.15054598720000001" blue="0.24993341620000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <connections>
@@ -689,6 +704,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="djz-xU-tRk" id="34Z-qJ-kCL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="cancelButton" destination="iQa-JZ-AKe" id="iYR-FI-WoC"/>
+                        <outlet property="topView" destination="y7u-cO-vhb" id="Asu-th-4Ay"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6K-VC-oM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,6 +718,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="LeftSideMenu_Tag.png" width="40" height="40"/>
         <image name="icon-home.png" width="600" height="600"/>
         <image name="icon-ios7-gear-outline.png" width="600" height="601"/>
+        <image name="koala3.png" width="313" height="384"/>
         <image name="plus.png" width="50" height="50"/>
     </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>

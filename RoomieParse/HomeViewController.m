@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.topView addSubview:self.cancelButton];
         
     CGFloat yDelta;
     
@@ -218,6 +219,17 @@
 }
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect fixedFrame = self.topView.frame;
+    fixedFrame.origin.y = 0 + scrollView.contentOffset.y;
+    self.topView.frame = fixedFrame;
+    
+    CGRect fixedFrame1 = self.segmentedControl.frame;
+    fixedFrame1.origin.y = 50 + scrollView.contentOffset.y;
+    self.segmentedControl.frame = fixedFrame1;
 }
 
 

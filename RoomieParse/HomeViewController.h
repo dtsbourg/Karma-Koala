@@ -15,4 +15,7 @@
 @property (strong, nonatomic) NSString * displayUser;
 @property (strong, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
 @property (strong, nonatomic) NSMutableArray * array;
+@property (strong, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+
 @end
