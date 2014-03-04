@@ -197,40 +197,87 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [textField resignFirstResponder];
+    
     if (![textField.text isEqualToString:@""""] && ![textField.text isEqualToString:@" "] && ![textField.text isEqualToString:@""])
     {
-    [self.roomies addObject:[textField.text uppercaseString]];
-    [self.tableView setEditing:NO];
-    PFUser *user = [PFUser currentUser];
+        if (![self.roomies containsObject:textField.text])
+        {
+            [textField resignFirstResponder];
+            [self.roomies addObject:[textField.text uppercaseString]];
+            [self.tableView setEditing:NO];
+            PFUser *user = [PFUser currentUser];
 
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:[user.username uppercaseString]];
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"username" equalTo:[user.username uppercaseString]];
     
-    Reachability* reach = [Reachability reachabilityForInternetConnection];
-    if(![reach isReachable]) {
-        query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
-
-    }
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!object) {
-            NSLog(@"The getFirstObject request failed.");
-        } else {
-            [object addObject:[textField.text uppercaseString] forKey:@"roommates"];
-            
             Reachability* reach = [Reachability reachabilityForInternetConnection];
-            if([reach isReachable]) [object saveInBackground];
-            else [object saveEventually];
+            if(![reach isReachable]) {
+                query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
+
+            }
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                if (!object) {
+                    NSLog(@"The getFirstObject request failed.");
+                } else {
+                    [object addObject:[textField.text uppercaseString] forKey:@"roommates"];
+            
+                    Reachability* reach = [Reachability reachabilityForInternetConnection];
+                    if([reach isReachable]) [object saveInBackground];
+                    else [object saveEventually];
+                }
+            }];
+            
+            [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
+            self.tx.hidden=YES;
+            self.tx.enabled=NO;
+            [self.tableView setEditing:NO];
+            self.tx.text = @"";
+            [self.tableView reloadData];
         }
-    }];
+        
+        else {
+            FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                           message:@"Sorry, you have already added this roommate ! Cloning humans is forbidden !"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Try again"
+                                                 otherButtonTitles:nil];
+            al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
+            al.messageLabel.textColor = [UIColor cloudsColor];
+            al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
+            al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+            al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+            al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+            al.defaultButtonShadowColor = [UIColor clearColor];
+            al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
+            al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.alertContainer.layer.cornerRadius = 5;
+            al.alertContainer.layer.masksToBounds = YES;
+            [al show];
+        }
     }
     
-    [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
-    self.tx.hidden=YES;
-    self.tx.enabled=NO;
-    [self.tableView setEditing:NO];
-    self.tx.text = @"";
-    [self.tableView reloadData];
+    else {
+        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                       message:@"Sorry, this roommate name isn't valid. Try harder !"
+                                                      delegate:self
+                                             cancelButtonTitle:@"Try again"
+                                             otherButtonTitles:nil];
+        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor = [UIColor cloudsColor];
+        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor = [UIColor clearColor];
+        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius = 5;
+        al.alertContainer.layer.masksToBounds = YES;
+        [al show];
+    }
+    
 
     return NO;
 }
