@@ -52,10 +52,13 @@
     layer.shadowOpacity = 0.0;
     layer = self.logInView.passwordField.layer;
     layer.shadowOpacity = 0.0;
-    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"koala.png"]]];
+    
     
     if ([UIScreen mainScreen].bounds.size.height < 568)
-    [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x, self.logInView.logo.frame.origin.y, self.logInView.logo.frame.size.width -80, self.logInView.logo.frame.size.height -80)];
+        [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x, self.logInView.logo.frame.origin.y, self.logInView.logo.frame.size.width -190, self.logInView.logo.frame.size.height -190)];
+    
+    else [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x, self.logInView.logo.frame.origin.y, self.logInView.logo.frame.size.width -120, self.logInView.logo.frame.size.height -120)];
     
     [self.logInView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
     
