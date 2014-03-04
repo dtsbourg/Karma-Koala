@@ -46,7 +46,7 @@
                                     <color key="textColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZa-vT-KTd">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZa-vT-KTd">
                                     <rect key="frame" x="193" y="27" width="67" height="46"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
@@ -140,6 +140,7 @@
                     <connections>
                         <outlet property="firstNameLabel" destination="fve-xN-LKw" id="B4z-Ge-FcU"/>
                         <outlet property="karmaLabel" destination="ivc-o4-8cp" id="Bkh-CK-jJq"/>
+                        <outlet property="toDoNumberLabel" destination="gZa-vT-KTd" id="h8g-7l-WDE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZa-EA-kCK" userLabel="First Responder" sceneMemberID="firstResponder"/>

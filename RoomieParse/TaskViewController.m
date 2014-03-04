@@ -196,7 +196,8 @@
  }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-     
+    
+[self.toDoNumberLabel setText:[NSString stringWithFormat:@"%i", [tableView numberOfRowsInSection:0]]];
  static NSString *CellIdentifier = @"Cell";
  
  PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
