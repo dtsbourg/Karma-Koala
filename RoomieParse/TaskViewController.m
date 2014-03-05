@@ -89,6 +89,31 @@
                 
                 self.roommateArray = [object objectForKey:@"roommates"];
                 
+                if ([self.roommateArray count]==0)
+                {
+                    FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Hey!"
+                                                                   message:[NSString stringWithFormat:@"You don't seem to have any roommates ! Add one to get started !"]
+                                                                  delegate:self
+                                                         cancelButtonTitle:@"I want to stay alone"
+                                                         otherButtonTitles:@"Add a roommate",nil];
+                
+                    al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                    al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
+                    al.messageLabel.textColor = [UIColor cloudsColor];
+                    al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
+                    al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                    al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+                    al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                    al.defaultButtonShadowColor = [UIColor clearColor];
+                    al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
+                    al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                    al.alertContainer.layer.cornerRadius = 5;
+                    al.alertContainer.layer.masksToBounds = YES;
+                    [al show];
+                
+
+                }
+            
                 if ([[object objectForKey:@"karma"] intValue] > 0) {
                     self.karmaLabel.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
                     self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
@@ -341,6 +366,15 @@
     [al show];
   }
 
+}
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        [self performSegueWithIdentifier:@"settingsSegue" sender:nil];
+    }else{
+        //reset clicked
+    }
 }
 
 /*
