@@ -110,8 +110,6 @@
                     al.alertContainer.layer.cornerRadius = 5;
                     al.alertContainer.layer.masksToBounds = YES;
                     [al show];
-                
-
                 }
             
                 if ([[object objectForKey:@"karma"] intValue] > 0) {
@@ -233,13 +231,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
-[self.toDoNumberLabel setText:[NSString stringWithFormat:@"%li", (long)[tableView numberOfRowsInSection:0]]];
- static NSString *CellIdentifier = @"Cell";
+    [self.toDoNumberLabel setText:[NSString stringWithFormat:@"%li", (long)[tableView numberOfRowsInSection:0]]];
+    
+    static NSString *CellIdentifier = @"Cell";
  
- PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- if (cell == nil) {
-     cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
- }
+    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    
      self.tableView.separatorColor = [UIColor clearColor];
     
      cell.textLabel.text = [object objectForKey:@"taskId"];
@@ -368,12 +368,12 @@
 
 }
 
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1){
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+ 
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Add a roommate"]){
         [self performSegueWithIdentifier:@"settingsSegue" sender:nil];
-    }else{
-        //reset clicked
+    } else {
+        
     }
 }
 

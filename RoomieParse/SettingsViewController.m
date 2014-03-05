@@ -106,7 +106,7 @@
     
     else if (indexPath.row == [self.roomies count]) {
         if (!self.tx) {
-            self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, 5*indexPath.row, 185, 30)];
+            self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, indexPath.row+10, 185, 30)];
             self.tx.delegate = self;
             self.tx.keyboardAppearance = UIKeyboardAppearanceDark;
             self.tx.returnKeyType = UIReturnKeyDone;

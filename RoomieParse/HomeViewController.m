@@ -49,6 +49,8 @@
     [self.segmentedControl setFont:[UIFont fontWithName:@"Futura" size:18]];
     [self.segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+    self.
+    segmentedControl.scrollEnabled = YES;
     [self.view addSubview:self.segmentedControl];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

@@ -46,7 +46,7 @@
                                     <color key="textColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZa-vT-KTd">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZa-vT-KTd">
                                     <rect key="frame" x="193" y="27" width="67" height="46"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
@@ -59,7 +59,7 @@
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" image="plus.png"/>
                                     <connections>
-                                        <segue destination="QTR-rC-jIg" kind="modal" id="EUh-fs-NrJ"/>
+                                        <segue destination="QTR-rC-jIg" kind="modal" identifier="newSegue" id="EUh-fs-NrJ"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="XKm-TJ-IfS">
