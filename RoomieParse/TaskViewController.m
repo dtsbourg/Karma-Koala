@@ -58,16 +58,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    CGRect topFrame = CGRectMake(self.koala.frame.origin.x, 20, self.koala.frame.size.width, self.koala.frame.size.height);
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationDelay:1.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    
-    self.koala.frame = topFrame;
-    
-    [UIView commitAnimations];
     
     if ([PFUser currentUser]) {
         
@@ -126,6 +116,34 @@
                     self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                     self.karmaLabel.textColor = [UIColor grayColor];
                 }
+                
+                CGRect topFrame = CGRectMake(self.koala.frame.origin.x, 20, self.koala.frame.size.width, self.koala.frame.size.height);
+                
+                int karma=[[object objectForKey:@"karma"]intValue];
+                
+                if (karma < 10){
+                    [self.koala setImage:[UIImage imageNamed:@"koala3.png"]];
+                }
+                
+                else if (karma < 20){
+                    [self.koala setImage:[UIImage imageNamed:@"koala_peace.png"]];
+                }
+                
+                else if (karma < 30){
+                    [self.koala setImage:[UIImage imageNamed:@"koala_lightsaber.png"]];
+                }
+                
+                else if (karma < 40){
+                    [self.koala setImage:[UIImage imageNamed:@"koala_cane.png"]];
+                }
+                
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.5];
+                [UIView setAnimationDelay:1.0];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+                
+                self.koala.frame = topFrame;
+                [UIView commitAnimations];
             }
         }];
         

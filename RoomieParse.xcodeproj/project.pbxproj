@@ -30,6 +30,9 @@
 		FCBC9FC818C6444400744065 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC418C6444400744065 /* HockeySDK.framework */; };
 		FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */; };
 		FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */; };
+		FCBC9FCE18C8A0EB00744065 /* koala_lightsaber.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCB18C8A0EB00744065 /* koala_lightsaber.png */; };
+		FCBC9FCF18C8A0EB00744065 /* koala_cane.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCC18C8A0EB00744065 /* koala_cane.png */; };
+		FCBC9FD018C8A0EB00744065 /* koala_peace.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCD18C8A0EB00744065 /* koala_peace.png */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF243EC18BBBDB800AC4306 /* karma.png in Resources */ = {isa = PBXBuildFile; fileRef = FCF243EB18BBBDB800AC4306 /* karma.png */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
@@ -118,6 +121,9 @@
 		FCBC9FC418C6444400744065 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
 		FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
+		FCBC9FCB18C8A0EB00744065 /* koala_lightsaber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_lightsaber.png; sourceTree = "<group>"; };
+		FCBC9FCC18C8A0EB00744065 /* koala_cane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_cane.png; sourceTree = "<group>"; };
+		FCBC9FCD18C8A0EB00744065 /* koala_peace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_peace.png; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EB18BBBDB800AC4306 /* karma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karma.png; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -419,6 +425,9 @@
 		FCFE9DC318B506820019DC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC9FCB18C8A0EB00744065 /* koala_lightsaber.png */,
+				FCBC9FCC18C8A0EB00744065 /* koala_cane.png */,
+				FCBC9FCD18C8A0EB00744065 /* koala_peace.png */,
 				FCBC9FBB18C63C6D00744065 /* koala.png */,
 				FCBC9FB918C63BF200744065 /* forgot.png */,
 				FCBC9FAF18C527A400744065 /* koala3.png */,
@@ -610,6 +619,9 @@
 				FCBC9FB018C527A400744065 /* koala3.png in Resources */,
 				FCF243EC18BBBDB800AC4306 /* karma.png in Resources */,
 				FC30826918BF3EC100E71EF5 /* icon-ios7-information.png in Resources */,
+				FCBC9FCE18C8A0EB00744065 /* koala_lightsaber.png in Resources */,
+				FCBC9FCF18C8A0EB00744065 /* koala_cane.png in Resources */,
+				FCBC9FD018C8A0EB00744065 /* koala_peace.png in Resources */,
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
 				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
 				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,
