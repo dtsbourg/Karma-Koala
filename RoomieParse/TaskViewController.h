@@ -11,6 +11,7 @@
 #import "Reachability.h"
 #import "FlatUIKit.h"
 
+
 @interface TaskViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, IBActionSheetDelegate,FUIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *karmaLabel;
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;

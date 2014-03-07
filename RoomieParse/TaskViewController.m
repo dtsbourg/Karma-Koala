@@ -13,6 +13,8 @@
 #import "TaskDetailViewController.h"
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
+#import "MarginTableViewCell.h"
+
 
 @interface TaskViewController ()
 @end
@@ -247,17 +249,17 @@
      else return nil;
  }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+- (MarginTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
     [self.toDoNumberLabel setText:[NSString stringWithFormat:@"%li", (long)[tableView numberOfRowsInSection:0]]];
     
     static NSString *CellIdentifier = @"Cell";
  
-    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MarginTableViewCell *cell = (MarginTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[MarginTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
+        
      self.tableView.separatorColor = [UIColor clearColor];
     
      cell.textLabel.text = [object objectForKey:@"taskId"];
@@ -269,7 +271,7 @@
     }
     
     else cell.detailTextLabel.textColor = [UIColor darkGrayColor];
-    
+        
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
         cell.textLabel.textColor = [UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1];
