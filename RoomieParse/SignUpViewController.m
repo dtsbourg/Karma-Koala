@@ -52,8 +52,12 @@
     self.signUpView.usernameField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
+    
     if ([UIScreen mainScreen].bounds.size.height < 568)
-        [self.signUpView.logo setFrame:CGRectMake(self.signUpView.logo.frame.origin.x, self.signUpView.logo.frame.origin.y, self.signUpView.logo.frame.size.width -80, self.signUpView.logo.frame.size.height -80)];
+        [self.signUpView.logo setFrame:CGRectMake(self.signUpView.logo.frame.origin.x,
+                                                  self.signUpView.logo.frame.origin.y,
+                                                  self.signUpView.logo.frame.size.width -80,
+                                                  self.signUpView.logo.frame.size.height-80)];
     
 }
 
@@ -71,17 +75,22 @@
 
 -(void)viewDidLayoutSubviews {
     [self.signUpView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
-    [self.signUpView.dismissButton setFrame:CGRectMake(self.signUpView.dismissButton.frame.origin.x +10, 30, self.signUpView.dismissButton.frame.size.width, self.signUpView.dismissButton.frame.size.height)];
+    
+    [self.signUpView.dismissButton setFrame:CGRectMake(self.signUpView.dismissButton.frame.origin.x +10,
+                                                       30,
+                                                       self.signUpView.dismissButton.frame.size.width,
+                                                       self.signUpView.dismissButton.frame.size.height)];
+    
     [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     
-    
-    UIColor *color = [UIColor colorWithWhite:1 alpha:0.7];
-    UIFont *font = [UIFont fontWithName:@"Futura" size:20];
+
+    UIColor *color                = [UIColor colorWithWhite:1 alpha:0.7];
+    UIFont *font                  = [UIFont fontWithName:@"Futura" size:20];
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:color, NSForegroundColorAttributeName, font, NSFontAttributeName, nil];
     
     self.signUpView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:attrsDictionary];
     self.signUpView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attrsDictionary];
-    self.signUpView.emailField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:attrsDictionary];
+    self.signUpView.emailField.attributedPlaceholder    = [[NSAttributedString alloc] initWithString:@"Email" attributes:attrsDictionary];
 
 }
 
@@ -90,23 +99,23 @@
     Reachability * reach = [note object];
     
     if(![reach isReachable]) {
-        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                       message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
-                                                      delegate:self
-                                             cancelButtonTitle:@"I'll be back !"
-                                             otherButtonTitles:nil];
-        
-        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.messageLabel.textColor = [UIColor cloudsColor];
-        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.defaultButtonShadowColor = [UIColor clearColor];
-        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.alertContainer.layer.cornerRadius = 5;
+        FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                            message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"I'll be back !"
+                                                                  otherButtonTitles:nil];
+
+        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor             = [UIColor cloudsColor];
+        al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor           = [UIColor clearColor];
+        al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
     }

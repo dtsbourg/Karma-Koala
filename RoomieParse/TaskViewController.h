@@ -12,15 +12,15 @@
 @interface TaskViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, IBActionSheetDelegate,FUIAlertViewDelegate>
 
 /* ========== IBOutlets ==========*/
-@property (strong, nonatomic) IBOutlet UILabel *karmaLabel;
-@property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *toDoNumberLabel;
+@property (strong, nonatomic) IBOutlet UILabel     * karmaLabel;
+@property (strong, nonatomic) IBOutlet UILabel     * firstNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel     * toDoNumberLabel;
 
-@property (strong, nonatomic) IBOutlet UIImageView *koala;
+@property (strong, nonatomic) IBOutlet UIImageView * koala;
 
 /* ========== Class properties ==========*/
-@property (strong,nonatomic) NSString *priority;
+@property (strong,nonatomic)  NSString       * priority;
 
-@property (nonatomic, strong) NSMutableArray *roommateArray;
+@property (nonatomic, strong) NSMutableArray * roommateArray;
 
 @end

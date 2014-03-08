@@ -8,8 +8,10 @@
 
 
 #import "TaskViewController.h"
+
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
+
 #import "TaskDetailViewController.h"
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
@@ -36,7 +38,7 @@
         // The className to query on
         self.parseClassName = @"Tasks";
         self.objectsPerPage = 10;
-        self.priority = @"dateLimit";
+        self.priority       = @"dateLimit";
     }
     return self;
 }
@@ -46,7 +48,7 @@
     [super viewDidLoad];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+
     Reachability* reach = [Reachability reachabilityForInternetConnection];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -83,43 +85,54 @@
                 
                 if ([self.roommateArray count]==0)
                 {
-                    FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Hey!"
-                                                                   message:[NSString stringWithFormat:@"You don't seem to have any roommates ! Add one to get started !"]
-                                                                  delegate:self
-                                                         cancelButtonTitle:@"I want to stay alone"
-                                                         otherButtonTitles:@"Add a roommate",nil];
-                
-                    al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-                    al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-                    al.messageLabel.textColor = [UIColor cloudsColor];
-                    al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-                    al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-                    al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-                    al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-                    al.defaultButtonShadowColor = [UIColor clearColor];
-                    al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-                    al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-                    al.alertContainer.layer.cornerRadius = 5;
+                    FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Hey!"
+                                                                                        message:[NSString stringWithFormat:@"You don't seem to have any roommates ! Add one to get started !"]
+                                                                                       delegate:self
+                                                                              cancelButtonTitle:@"I want to stay alone"
+                                                                              otherButtonTitles:@"Add a roommate",nil];
+
+                    al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                    al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+                    al.messageLabel.textColor             = [UIColor cloudsColor];
+                    al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+                    al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                    al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+                    al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                    al.defaultButtonShadowColor           = [UIColor clearColor];
+                    al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+                    al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                    al.alertContainer.layer.cornerRadius  = 5;
                     al.alertContainer.layer.masksToBounds = YES;
                     [al show];
                 }
             
                 if ([[object objectForKey:@"karma"] intValue] > 0) {
-                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
-                    self.karmaLabel.text = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
+                    self.karmaLabel.textColor = [UIColor colorWithRed:150./255
+                                                                green:210./255
+                                                                 blue:149./255
+                                                                alpha:1];
+                    
+                    self.karmaLabel.text      = [NSString stringWithFormat:@"+%i", [[object objectForKey:@"karma"] intValue]];
                 }
                 
                 else if ([[object objectForKey:@"karma"] intValue] < 0) {
-                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-                    self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
+                    self.karmaLabel.textColor = [UIColor colorWithRed:244./255
+                                                                green:157./255
+                                                                 blue:25./255
+                                                                alpha:1];
+                    
+                    self.karmaLabel.text      = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                 }
                 
                 else {
-                    self.karmaLabel.text = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
+                    self.karmaLabel.text      = [NSString stringWithFormat:@"%i", [[object objectForKey:@"karma"] intValue]];
                     self.karmaLabel.textColor = [UIColor grayColor];
                 }
                 
-                CGRect topFrame = CGRectMake(self.koala.frame.origin.x, 20, self.koala.frame.size.width, self.koala.frame.size.height);
+                CGRect topFrame = CGRectMake(self.koala.frame.origin.x,
+                                             20,
+                                             self.koala.frame.size.width,
+                                             self.koala.frame.size.height);
                 
                 int karma=[[object objectForKey:@"karma"]intValue];
                 
@@ -158,14 +171,14 @@
         
         [PFQuery clearAllCachedResults];
         // Create the log in view controller
-        LoginViewController *logInViewController = [[LoginViewController alloc] init];
+        LoginViewController *logInViewController   = [[LoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten ;
-        
+        logInViewController.fields                 = PFLogInFieldsUsernameAndPassword | PFLogInFieldsSignUpButton | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten ;
+
         // Create the sign up view controller
         SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        
+
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
         [self presentViewController:logInViewController animated:NO completion:NULL];
@@ -188,24 +201,24 @@
 {
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         TaskDetailViewController *destvc = [segue destinationViewController];
-        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-        destvc.taskText = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
-        destvc.taskKarma = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
+        NSIndexPath *selectedRowIndex    = [self.tableView indexPathForSelectedRow];
+        destvc.taskText                  = [self.tableView cellForRowAtIndexPath:selectedRowIndex].textLabel.text;
+        destvc.taskKarma                 = [self.tableView cellForRowAtIndexPath:selectedRowIndex].detailTextLabel.text;
     }
     
     else if ([segue.identifier isEqualToString:@"settingsSegue"]) {
         SettingsViewController *destvc = [segue destinationViewController];
-        
-        destvc.roomies = self.roommateArray;
-        destvc.userKarma = self.karmaLabel.text;
-        destvc.userText = [PFUser currentUser].username;
+
+        destvc.roomies                 = self.roommateArray;
+        destvc.userKarma               = self.karmaLabel.text;
+        destvc.userText                = [PFUser currentUser].username;
         
     }
     
     else if ([segue.identifier isEqualToString:@"homeSegue"]) {
         HomeViewController *destvc = [segue destinationViewController];
-        destvc.array = self.roommateArray;
-        destvc.displayUser = @"ALL";
+        destvc.array               = self.roommateArray;
+        destvc.displayUser         = @"ALL";
     }
 }
 
@@ -261,30 +274,31 @@
  
     MarginTableViewCell *cell = (MarginTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[MarginTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[MarginTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+                                          reuseIdentifier:CellIdentifier];
     }
         
      self.tableView.separatorColor = [UIColor clearColor];
     
-     cell.textLabel.text = [object objectForKey:@"taskId"];
+     cell.textLabel.text       = [object objectForKey:@"taskId"];
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
         cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
+        cell.detailTextLabel.text      = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
     
     else cell.detailTextLabel.textColor = [UIColor darkGrayColor];
         
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.textLabel.textColor = [UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1];
+        cell.textLabel.textColor          = [UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1];
 
-        NSDate *now = [NSDate date];
-        NSTimeInterval secondsBetween = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
+        NSDate *now                       = [NSDate date];
+        NSTimeInterval secondsBetween     = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
         NSTimeInterval secondsSinceUpdate = [[object updatedAt] timeIntervalSinceDate:now];
-        
-        int numberOfHours = secondsBetween / 3600, numberOfHoursSinceUpdate = secondsSinceUpdate / 3600;
+
+        int numberOfHours                 = secondsBetween / 3600, numberOfHoursSinceUpdate = secondsSinceUpdate / 3600;
         
         if (numberOfHoursSinceUpdate >= 12) {
             [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
@@ -331,10 +345,26 @@
                                                     otherButtonTitles:@"Karma points", @"Date", nil, nil];
     
     [actionSheet setFont:[UIFont fontWithName:@"Futura" size:16]];
-    [actionSheet setButtonBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
-    [actionSheet setButtonTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
-    [actionSheet setTitleTextColor:[UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1]];
-    [actionSheet setButtonTextColor:[UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1] forButtonAtIndex:2];
+    [actionSheet setButtonBackgroundColor:[UIColor colorWithRed:83./255
+                                                          green:38./255
+                                                           blue:64./255
+                                                          alpha:1]];
+    
+    [actionSheet setButtonTextColor:[UIColor colorWithRed:150./255
+                                                    green:210./255
+                                                     blue:149./255
+                                                    alpha:1]];
+    
+    [actionSheet setTitleTextColor:[UIColor colorWithRed:244./255
+                                                   green:150./255
+                                                    blue:68./255
+                                                   alpha:1]];
+    
+    [actionSheet setButtonTextColor:[UIColor colorWithRed:244./255
+                                                    green:150./255
+                                                     blue:68./255
+                                                    alpha:1]
+                   forButtonAtIndex:2];
     
     [actionSheet showInView:self.view];
 }
@@ -368,23 +398,23 @@
     Reachability * reach = [note object];
     
     if(![reach isReachable]) {
-    FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                   message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
-                                                  delegate:self
-                                         cancelButtonTitle:@"I'll be back !"
-                                         otherButtonTitles:nil];
-    
-    al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-    al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-    al.messageLabel.textColor = [UIColor cloudsColor];
-    al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-    al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-    al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-    al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-    al.defaultButtonShadowColor = [UIColor clearColor];
-    al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-    al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-    al.alertContainer.layer.cornerRadius = 5;
+    FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                        message:[NSString stringWithFormat:@"You aren't connected to Internet at the moment. Get a life, go outside !"]
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"I'll be back !"
+                                                              otherButtonTitles:nil];
+
+    al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+    al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+    al.messageLabel.textColor             = [UIColor cloudsColor];
+    al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+    al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+    al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+    al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+    al.defaultButtonShadowColor           = [UIColor clearColor];
+    al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+    al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+    al.alertContainer.layer.cornerRadius  = 5;
     al.alertContainer.layer.masksToBounds = YES;
     [al show];
   }
@@ -426,9 +456,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
-
-
-
-
 
 @end

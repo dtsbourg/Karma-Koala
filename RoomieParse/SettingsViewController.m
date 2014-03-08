@@ -33,23 +33,36 @@
 {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.userName.text = [self.userText uppercaseString];
-    self.karma.text = [NSString stringWithFormat:@"%@",self.userKarma];
+    self.userName.text             = [self.userText uppercaseString];
+    self.karma.text                = [NSString stringWithFormat:@"%@",self.userKarma];
 
     if ([self.userKarma intValue] > 0) {
-        self.karma.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
+        self.karma.textColor = [UIColor colorWithRed:150./255
+                                               green:210./255
+                                                blue:149./255
+                                               alpha:1];
     }
     
     else if ([self.userKarma intValue] < 0) {
-        self.karma.textColor = [UIColor colorWithRed:254./255 green:150./255 blue:68./255 alpha:1];
+        self.karma.textColor = [UIColor colorWithRed:254./255
+                                               green:150./255
+                                                blue:68./255
+                                               alpha:1];
     }
     else {
         self.karma.textColor = [UIColor grayColor];
     }
     
     if ([UIScreen mainScreen].bounds.size.height < 568) {
-        self.buttonInvite.frame = CGRectMake(self.buttonInvite.frame.origin.x, self.buttonInvite.frame.origin.y - 88, self.buttonInvite.frame.size.width, self.buttonInvite.frame.size.height);
-        self.buttonDisconnect.frame = CGRectMake(self.buttonDisconnect.frame.origin.x, self.buttonDisconnect.frame.origin.y - 88, self.buttonDisconnect.frame.size.width, self.buttonDisconnect.frame.size.height);
+        self.buttonInvite.frame     = CGRectMake(self.buttonInvite.frame.origin.x,
+                                                 self.buttonInvite.frame.origin.y - 88,
+                                                 self.buttonInvite.frame.size.width,
+                                                 self.buttonInvite.frame.size.height);
+        
+        self.buttonDisconnect.frame = CGRectMake(self.buttonDisconnect.frame.origin.x,
+                                                 self.buttonDisconnect.frame.origin.y - 88,
+                                                 self.buttonDisconnect.frame.size.width,
+                                                 self.buttonDisconnect.frame.size.height);
     }
     
     [self.tableView reloadData];
@@ -80,19 +93,20 @@
     
     else if (indexPath.row == [self.roomies count]) {
         if (!self.tx) {
-            self.tx= [[UITextField alloc] initWithFrame:CGRectMake(15, indexPath.row+10, 185, 30)];
-            self.tx.delegate = self;
-            self.tx.keyboardAppearance = UIKeyboardAppearanceDark;
-            self.tx.returnKeyType = UIReturnKeyDone;
+            self.tx                           = [[UITextField alloc] initWithFrame:CGRectMake(15, indexPath.row+10, 185, 30)];
+            self.tx.delegate                  = self;
+            self.tx.keyboardAppearance        = UIKeyboardAppearanceDark;
+            self.tx.returnKeyType             = UIReturnKeyDone;
             self.tx.adjustsFontSizeToFitWidth = YES;
-            self.tx.textColor = [UIColor whiteColor];
-            UIColor *color = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
-            self.tx.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add a roommate here !" attributes:@{NSForegroundColorAttributeName: color}];
-            self.tx.font = [UIFont fontWithName:@"Futura" size:24];
-            self.tx.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-            self.tx.autocorrectionType = UITextAutocorrectionTypeNo;
-            [self.tx setEnabled:YES];
-            [self.tx setHidden:NO];
+            self.tx.textColor                 = [UIColor whiteColor];
+            UIColor *color                    = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
+            self.tx.attributedPlaceholder     = [[NSAttributedString alloc] initWithString:@"Add a roommate here !" attributes:@{NSForegroundColorAttributeName: color}];
+            self.tx.font                      = [UIFont fontWithName:@"Futura" size:24];
+            self.tx.autocapitalizationType    = UITextAutocapitalizationTypeAllCharacters;
+            self.tx.autocorrectionType        = UITextAutocorrectionTypeNo;
+            self.tx.enabled                   = YES;
+            self.tx.Hidden                    = NO;
+            
             [cell.contentView addSubview:self.tx];
             self.tx.text = @"";
             [cell.textLabel setText:@""];
@@ -194,51 +208,51 @@
             }];
             
             [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
-            self.tx.hidden=YES;
-            self.tx.enabled=NO;
+            self.tx.hidden  = YES;
+            self.tx.enabled = NO;
             [self.tableView setEditing:NO];
             [self.tableView reloadData];
         }
         
         else {
-            FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                           message:@"Sorry, you have already added this roommate ! Cloning humans is forbidden !"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Try again"
-                                                 otherButtonTitles:nil];
-            al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-            al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-            al.messageLabel.textColor = [UIColor cloudsColor];
-            al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-            al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-            al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-            al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-            al.defaultButtonShadowColor = [UIColor clearColor];
-            al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-            al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-            al.alertContainer.layer.cornerRadius = 5;
+            FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                                message:@"Sorry, you have already added this roommate ! Cloning humans is forbidden !"
+                                                                               delegate:self
+                                                                      cancelButtonTitle:@"Try again"
+                                                                      otherButtonTitles:nil];
+            al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+            al.messageLabel.textColor             = [UIColor cloudsColor];
+            al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+            al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+            al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+            al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+            al.defaultButtonShadowColor           = [UIColor clearColor];
+            al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+            al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.alertContainer.layer.cornerRadius  = 5;
             al.alertContainer.layer.masksToBounds = YES;
             [al show];
         }
     }
     
     else {
-        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                       message:@"Sorry, this roommate name isn't valid. Try harder !"
-                                                      delegate:self
-                                             cancelButtonTitle:@"Try again"
-                                             otherButtonTitles:nil];
-        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.messageLabel.textColor = [UIColor cloudsColor];
-        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.defaultButtonShadowColor = [UIColor clearColor];
-        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.alertContainer.layer.cornerRadius = 5;
+        FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                            message:@"Sorry, this roommate name isn't valid. Try harder !"
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Try again"
+                                                                  otherButtonTitles:nil];
+        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor             = [UIColor cloudsColor];
+        al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor           = [UIColor clearColor];
+        al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
     }

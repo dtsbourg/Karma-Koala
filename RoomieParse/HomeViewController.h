@@ -11,14 +11,14 @@
 
 @interface HomeViewController : PFQueryTableViewController <FUIAlertViewDelegate>
 /* ========== IBOutlets ==========*/
-@property (strong, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet HMSegmentedControl * segmentedControl;
 
-@property (strong, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) IBOutlet UIView             * topView;
 
-@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+@property (strong, nonatomic) IBOutlet UIButton           * cancelButton;
 
 /* ========== Class Properties ==========*/
 @property (strong, nonatomic) NSMutableArray * array;
 
-@property (strong, nonatomic) NSString * displayUser;
+@property (strong, nonatomic) NSString       * displayUser;
 @end

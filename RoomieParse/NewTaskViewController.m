@@ -31,7 +31,7 @@
     [self.topView addSubview:self.cancelButton];
     
     self.navigationController.navigationBar.hidden = YES;
-    self.hoursSelector.on = YES;
+    self.hoursSelector.on                          = YES;
     
     Reachability* reach = [Reachability reachabilityForInternetConnection];
     
@@ -47,9 +47,9 @@
         [self.array addObject:[user.username uppercaseString]];
     }];
     
-    self.taskAssign.delegate = self;
+    self.taskAssign.delegate               = self;
     self.taskAssign.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-    self.taskText.delegate = self;
+    self.taskText.delegate                 = self;
     [self.taskAssign setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
     [self.taskText setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
     
@@ -104,45 +104,45 @@
     {
         if ([trimmedUser length] > 0) {
             [self.view endEditing:YES];
-            FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                         message:[NSString stringWithFormat:@"Sorry, %@ is not part of your home ! Add him and try again !", trimmedUser]
-                                                        delegate:self
-                                               cancelButtonTitle:@"Try again"
-                                               otherButtonTitles:nil];
-            
-            al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-            al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-            al.messageLabel.textColor = [UIColor cloudsColor];
-            al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-            al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-            al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-            al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-            al.defaultButtonShadowColor = [UIColor clearColor];
-            al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-            al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-            al.alertContainer.layer.cornerRadius = 5;
+            FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                                message:[NSString stringWithFormat:@"Sorry, %@ is not part of your home ! Add him and try again !", trimmedUser]
+                                                                               delegate:self
+                                                                      cancelButtonTitle:@"Try again"
+                                                                      otherButtonTitles:nil];
+
+            al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+            al.messageLabel.textColor             = [UIColor cloudsColor];
+            al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+            al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+            al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+            al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+            al.defaultButtonShadowColor           = [UIColor clearColor];
+            al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+            al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.alertContainer.layer.cornerRadius  = 5;
             al.alertContainer.layer.masksToBounds = YES;
             [al show];
         }
         
         else {
             [self.view endEditing:YES];
-            FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                         message:@"The roomate field is empty !"
-                                                        delegate:self
-                                               cancelButtonTitle:@"Try again"
-                                               otherButtonTitles:nil];
-            al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-            al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-            al.messageLabel.textColor = [UIColor cloudsColor];
-            al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-            al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-            al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-            al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-            al.defaultButtonShadowColor = [UIColor clearColor];
-            al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-            al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-            al.alertContainer.layer.cornerRadius = 5;
+            FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                                message:@"The roomate field is empty !"
+                                                                               delegate:self
+                                                                      cancelButtonTitle:@"Try again"
+                                                                      otherButtonTitles:nil];
+            al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+            al.messageLabel.textColor             = [UIColor cloudsColor];
+            al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+            al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+            al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+            al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+            al.defaultButtonShadowColor           = [UIColor clearColor];
+            al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+            al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+            al.alertContainer.layer.cornerRadius  = 5;
             al.alertContainer.layer.masksToBounds = YES;
             
             [al show];
@@ -152,22 +152,22 @@
     
     else if ([trimmedTask length] == 0) {
         [self.view endEditing:YES];
-        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                     message:@"The task field is empty !"
-                                                    delegate:self
-                                           cancelButtonTitle:@"Try again"
-                                           otherButtonTitles:nil];
-        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.messageLabel.textColor = [UIColor cloudsColor];
-        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.defaultButtonShadowColor = [UIColor clearColor];
-        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.alertContainer.layer.cornerRadius = 5;
+        FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                            message:@"The task field is empty !"
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Try again"
+                                                                  otherButtonTitles:nil];
+        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor             = [UIColor cloudsColor];
+        al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor           = [UIColor clearColor];
+        al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
         err=YES;
@@ -177,22 +177,22 @@
     else if ([NSNumber numberWithInt:(int)self.karmaStepper.value] < 0)
     {
         [self.view endEditing:YES];
-        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                     message:@"Must. Not. Divide. By. Zero."
-                                                    delegate:self
-                                           cancelButtonTitle:@"Try again"
-                                           otherButtonTitles:nil];
-        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.messageLabel.textColor = [UIColor cloudsColor];
-        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.defaultButtonShadowColor = [UIColor clearColor];
-        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.alertContainer.layer.cornerRadius = 5;
+        FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                            message:@"Must. Not. Divide. By. Zero."
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Try again"
+                                                                  otherButtonTitles:nil];
+        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor             = [UIColor cloudsColor];
+        al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor           = [UIColor clearColor];
+        al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
         err=YES;
@@ -200,22 +200,22 @@
     else if ([self.datePick.date compare:[NSDate date]] == NSOrderedAscending)
     {
         [self.view endEditing:YES];
-        FUIAlertView *al = [[FUIAlertView alloc] initWithTitle:@"Oops!"
-                                                     message:@"Great Scott ! Please enter a date in the future !"
-                                                    delegate:self
-                                           cancelButtonTitle:@"Try again"
-                                           otherButtonTitles:nil];
-        al.titleLabel.textColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.titleLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.messageLabel.textColor = [UIColor cloudsColor];
-        al.messageLabel.font = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-        al.alertContainer.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.defaultButtonShadowColor = [UIColor clearColor];
-        al.defaultButtonFont = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.alertContainer.layer.cornerRadius = 5;
+        FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                            message:@"Great Scott ! Please enter a date in the future !"
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Try again"
+                                                                  otherButtonTitles:nil];
+        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+        al.messageLabel.textColor             = [UIColor cloudsColor];
+        al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
+        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonShadowColor           = [UIColor clearColor];
+        al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
         err=YES;
@@ -223,11 +223,11 @@
     
     
     if (!err) {
-        PFObject*newTask = [PFObject objectWithClassName:@"Tasks"];
-        newTask[@"taskId"]= trimmedTask;
-        newTask[@"user"]=trimmedUser;
-        newTask[@"karma"]=[NSNumber numberWithInt:(int)self.karmaStepper.value];
-        newTask[@"dateLimit"]=self.datePick.date;
+        PFObject*newTask        = [PFObject objectWithClassName:@"Tasks"];
+        newTask[@"taskId"]      = trimmedTask;
+        newTask[@"user"]        =trimmedUser;
+        newTask[@"karma"]       =[NSNumber numberWithInt:(int)self.karmaStepper.value];
+        newTask[@"dateLimit"]   =self.datePick.date;
         
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         if([reach isReachable]) [newTask saveInBackground];
@@ -246,19 +246,19 @@
                                                     green:210./255
                                                      blue:149./255
                                                     alpha:1];
-        self.karmaValue.text = [NSString stringWithFormat:@"+%i", (int)sender.value];
+        self.karmaValue.text      = [NSString stringWithFormat:@"+%i", (int)sender.value];
     }
     
     else
     {
         self.karmaValue.textColor = [UIColor darkGrayColor];
-        self.karmaValue.text = [NSString stringWithFormat:@"%i", (int)sender.value];
+        self.karmaValue.text      = [NSString stringWithFormat:@"%i", (int)sender.value];
     }
 }
 
 - (IBAction)hoursSelection:(id)sender {
     if (self.hoursSelector.isOn) self.datePick.datePickerMode = UIDatePickerModeDateAndTime;
-    else self.datePick.datePickerMode = UIDatePickerModeDate;
+    else                         self.datePick.datePickerMode = UIDatePickerModeDate;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

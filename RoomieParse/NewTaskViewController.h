@@ -14,26 +14,26 @@
 @interface NewTaskViewController : UITableViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, FUIAlertViewDelegate>
 /* ========== IBOutlets ==========*/
 
-@property (strong, nonatomic) IBOutlet DOAutocompleteTextField *taskAssign;
+@property (strong, nonatomic) IBOutlet DOAutocompleteTextField * taskAssign;
 
-@property (strong, nonatomic) IBOutlet UILabel *karmaValue;
+@property (strong, nonatomic) IBOutlet UILabel                 * karmaValue;
 
-@property (strong, nonatomic) IBOutlet UITextField *taskText;
+@property (strong, nonatomic) IBOutlet UITextField             * taskText;
 
-@property (strong, nonatomic) IBOutlet UIDatePicker *datePick;
+@property (strong, nonatomic) IBOutlet UIDatePicker            * datePick;
 
-@property (strong, nonatomic) IBOutlet UIStepper *karmaStepper;
+@property (strong, nonatomic) IBOutlet UIStepper               * karmaStepper;
 
-@property (strong, nonatomic) IBOutlet UISwitch *hoursSelector;
+@property (strong, nonatomic) IBOutlet UISwitch                * hoursSelector;
 
-@property (strong, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) IBOutlet UIView                  * topView;
 
-@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
-@property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UIButton                * cancelButton;
+@property (strong, nonatomic) IBOutlet UIButton                * saveButton;
 
 /* ========== Class Properties ==========*/
-@property (strong, nonatomic) NSMutableArray *array;
+@property (strong, nonatomic) NSMutableArray * array;
 
-@property (strong, nonatomic) NSString*stringReplace;
+@property (strong, nonatomic) NSString*     stringReplace;
 
 @end

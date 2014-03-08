@@ -37,23 +37,38 @@
     }
     if(self.array ==nil) self.array =[[NSMutableArray alloc] initWithObjects:@"ALL", nil];
     else [self.array insertObject:@"ALL" atIndex:0];
-    [self.array insertObject:[[PFUser currentUser].username uppercaseString] atIndex:1];
-    self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
-    self.segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-    self.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    [self.segmentedControl setFrame:CGRectMake(0, 0 + yDelta+30, 320, 40)];
-    [self.segmentedControl setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
-    [self.segmentedControl setTextColor:[UIColor whiteColor]];
-    [self.segmentedControl setSelectedTextColor:[UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1]];
-    self.segmentedControl.selectionIndicatorColor= [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
-    [self.segmentedControl setFont:[UIFont fontWithName:@"Futura" size:18]];
-    [self.segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-    self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-    self.
-    segmentedControl.scrollEnabled = YES;
-    [self.view addSubview:self.segmentedControl];
     
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.array insertObject:[[PFUser currentUser].username uppercaseString] atIndex:1];
+    
+    self.segmentedControl                            = [[HMSegmentedControl alloc] initWithSectionTitles:self.array];
+    self.segmentedControl.selectionStyle             = HMSegmentedControlSelectionStyleFullWidthStripe;
+    self.segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    self.segmentedControl.frame                      = CGRectMake(0, 0 + yDelta+30, 320, 40);
+    self.segmentedControl.backgroundColor            =[UIColor colorWithRed:53./255
+                                                                      green:25./255
+                                                                       blue:55./255
+                                                                      alpha:1];
+
+    self.segmentedControl.textColor                 =[UIColor whiteColor];
+    self.segmentedControl.selectedTextColor         =[UIColor colorWithRed:150./255
+                                                                     green:210./255
+                                                                      blue:149./255
+                                                                     alpha:1];
+
+    self.segmentedControl.selectionIndicatorColor   = [UIColor colorWithRed:150./255
+                                                                      green:210./255
+                                                                       blue:149./255
+                                                                      alpha:1];
+
+    self.segmentedControl.font                       =[UIFont fontWithName:@"Futura" size:18];
+    self.segmentedControl.autoresizingMask           = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+    self.segmentedControl.scrollEnabled              = YES;
+    
+    [self.segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+
+    [self.view addSubview:self.segmentedControl];
+
+    self.tableView.tableFooterView                   = [[UIView alloc] initWithFrame:CGRectZero];
     
 }
 
@@ -88,10 +103,10 @@
     
     self.tableView.separatorColor = [UIColor clearColor];
     
-    cell.backgroundColor = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-    
-        cell.textLabel.text = [object objectForKey:@"taskId"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
+    cell.backgroundColor      = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+
+    cell.textLabel.text       = [object objectForKey:@"taskId"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
         
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
@@ -108,7 +123,8 @@
                                                          green:210./255
                                                           blue:149./255
                                                          alpha:1];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
+
+        cell.detailTextLabel.text      = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
     
     else if ([cell.detailTextLabel.text intValue] < 0) {
@@ -127,12 +143,12 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGRect fixedFrame = self.topView.frame;
-    fixedFrame.origin.y = 0 + scrollView.contentOffset.y;
-    self.topView.frame = fixedFrame;
-    
-    CGRect fixedFrame1 = self.segmentedControl.frame;
-    fixedFrame1.origin.y = 50 + scrollView.contentOffset.y;
+    CGRect fixedFrame           = self.topView.frame;
+    fixedFrame.origin.y         = 0 + scrollView.contentOffset.y;
+    self.topView.frame          = fixedFrame;
+
+    CGRect fixedFrame1          = self.segmentedControl.frame;
+    fixedFrame1.origin.y        = 50 + scrollView.contentOffset.y;
     self.segmentedControl.frame = fixedFrame1;
 }
 
