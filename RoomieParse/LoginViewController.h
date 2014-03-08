@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Dylan Bourgeois. All rights reserved.
 //
 
-#import <Parse/Parse.h>
-#import "Reachability.h"
-#import "FlatUIKit.h"
+#import "RoomieHeader.h"
 
 @interface LoginViewController : PFLogInViewController <FUIAlertViewDelegate>
 

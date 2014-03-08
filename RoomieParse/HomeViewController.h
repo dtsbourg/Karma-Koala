@@ -6,16 +6,19 @@
 //  Copyright (c) 2014 Dylan Bourgeois. All rights reserved.
 //
 
-#import <Parse/Parse.h>
 #import "HMSegmentedControl/HMSegmentedControl.h"
-#import "FlatUIKit.h"
-#import "Reachability.h"
+#import "RoomieHeader.h"
 
 @interface HomeViewController : PFQueryTableViewController <FUIAlertViewDelegate>
-@property (strong, nonatomic) NSString * displayUser;
+/* ========== IBOutlets ==========*/
 @property (strong, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
-@property (strong, nonatomic) NSMutableArray * array;
+
 @property (strong, nonatomic) IBOutlet UIView *topView;
+
 @property (strong, nonatomic) IBOutlet UIButton *cancelButton;
 
+/* ========== Class Properties ==========*/
+@property (strong, nonatomic) NSMutableArray * array;
+
+@property (strong, nonatomic) NSString * displayUser;
 @end

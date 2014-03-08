@@ -209,6 +209,8 @@
     }
 }
 
+#pragma mark - Table View Controller Data Source
+
  - (PFQuery *)queryForTable {
      
     if ([PFUser currentUser]) {
@@ -248,6 +250,8 @@
      
      else return nil;
  }
+
+#pragma mark - Table View Controller Delegate
 
 - (MarginTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
@@ -298,37 +302,26 @@
     return cell;
 }
 
+/*
+ // Override to customize the look of the cell that allows the user to load the next page of objects.
+ // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+ static NSString *CellIdentifier = @"NextPage";
+ 
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+ 
+ if (cell == nil) {
+ cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+ }
+ 
+ cell.selectionStyle = UITableViewCellSelectionStyleNone;
+ cell.textLabel.text = @"Load more...";
+ 
+ return cell;
+ }
+ */
 
-// Sent to the delegate when a PFUser is signed up.
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-// Sent to the delegate when the sign up attempt fails.
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
-    NSLog(@"Failed to sign up...");
-}
-
-// Sent to the delegate when the sign up screen is dismissed.
-- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
-    NSLog(@"User dismissed the signUpViewController");
-}
-
-// Sent to the delegate when the log in attempt fails.
-- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-    NSLog(@"Failed to log in...");
-}
-
-// Sent to the delegate when the log in screen is dismissed.
-- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-// Sent to the delegate when a PFUser is logged in.
-- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
+#pragma mark - Actions
 
 - (IBAction)orderFeed:(id)sender {
     IBActionSheet *actionSheet = [[IBActionSheet alloc] initWithTitle:@"Order your task Feed by :"
@@ -360,6 +353,16 @@
     [self loadObjects];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Add a roommate"]){
+        [self performSegueWithIdentifier:@"settingsSegue" sender:nil];
+    } else {
+        
+    }
+}
+
+#pragma mark - Reachability
 -(void)reachabilityChanged:(NSNotification*)note
 {
     Reachability * reach = [note object];
@@ -388,32 +391,44 @@
 
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
- 
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Add a roommate"]){
-        [self performSegueWithIdentifier:@"settingsSegue" sender:nil];
-    } else {
-        
-    }
+#pragma mark - Signup
+
+// Sent to the delegate when a PFUser is signed up.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [user setObject:[NSNumber numberWithInt:1] forKey:@"karma"];
+    [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
 }
 
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
- 
- return cell;
- }
- */
+// Sent to the delegate when the sign up attempt fails.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+// Sent to the delegate when the sign up screen is dismissed.
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
+}
+
+#pragma mark - Login
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// Sent to the delegate when the log in screen is dismissed.
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+// Sent to the delegate when a PFUser is logged in.
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+
+
 
 @end

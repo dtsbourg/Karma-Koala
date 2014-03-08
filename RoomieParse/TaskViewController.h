@@ -6,18 +6,19 @@
 //  Copyright (c) 2014 Dylan Bourgeois. All rights reserved.
 //
 
-#import <Parse/Parse.h>
+#import "RoomieHeader.h"
 #import "IBActionSheet.h"
-#import "Reachability.h"
-#import "FlatUIKit.h"
-
 
 @interface TaskViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, IBActionSheetDelegate,FUIAlertViewDelegate>
+
+/* ========== IBOutlets ==========*/
 @property (strong, nonatomic) IBOutlet UILabel *karmaLabel;
 @property (strong, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *toDoNumberLabel;
 
 @property (strong, nonatomic) IBOutlet UIImageView *koala;
+
+/* ========== Class properties ==========*/
 @property (strong,nonatomic) NSString *priority;
 
 @property (nonatomic, strong) NSMutableArray *roommateArray;

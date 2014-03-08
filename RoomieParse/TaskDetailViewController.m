@@ -193,6 +193,16 @@ EFCircularSlider* hourSlider;
     
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+#pragma mark - EFCircularSlider
+
 -(void)hoursValueChanged:(EFCircularSlider*)slider {
     delayHour = slider.currentValue;
 }
@@ -201,12 +211,7 @@ EFCircularSlider* hourSlider;
     delayMinute = slider.currentValue;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+#pragma mark - Actions
 - (IBAction)taskIsCompleted:(id)sender {
     
     PFUser *user = [PFUser currentUser];

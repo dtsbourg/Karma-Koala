@@ -29,18 +29,6 @@
     self.tableView.userInteractionEnabled = NO;
 }
 
-- (IBAction)dismiss:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)inviteFriends:(id)sender {
-}
-- (IBAction)logout:(id)sender {
-    [PFUser logOut];
-    [PFQuery clearAllCachedResults];
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,27 +55,13 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)edit:(id)sender {
-    [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
-    
-    if (self.tableView.isEditing) {
-        self.tableView.userInteractionEnabled = YES;
-        [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Done"] forState:UIControlStateNormal];
-    }
-    else
-    {
-        self.tableView.userInteractionEnabled = NO;
-        [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
-    }
-    [self.tableView reloadData];
-
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table View data Source & Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tableView.isEditing ? [self.roomies count]+1 : [self.roomies count];
@@ -187,6 +161,8 @@
     }
 }
 
+#pragma mark - Actions
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     if ([textField.text length] != 0)
@@ -269,6 +245,36 @@
     
     return NO;
 }
+
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)inviteFriends:(id)sender {
+}
+
+- (IBAction)logout:(id)sender {
+    [PFUser logOut];
+    [PFQuery clearAllCachedResults];
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (IBAction)edit:(id)sender {
+    [self.tableView setEditing:(self.tableView.isEditing ? NO : YES) ];
+    
+    if (self.tableView.isEditing) {
+        self.tableView.userInteractionEnabled = YES;
+        [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Done"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        self.tableView.userInteractionEnabled = NO;
+        [self.editButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Edit"] forState:UIControlStateNormal];
+    }
+    [self.tableView reloadData];
+    
+}
+
 
 
 @end

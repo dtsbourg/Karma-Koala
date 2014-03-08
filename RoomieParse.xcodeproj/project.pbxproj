@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC30826918BF3EC100E71EF5 /* icon-ios7-information.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826818BF3EC100E71EF5 /* icon-ios7-information.png */; };
 		FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */; };
 		FC30826D18BF3F8100E71EF5 /* icon-ios7-plus-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */; };
 		FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483018B89FED00C05E65 /* HomeViewController.m */; };
@@ -36,7 +35,6 @@
 		FCBC9FD218CA348900744065 /* yoda.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FD118CA348900744065 /* yoda.gif */; };
 		FCBC9FDB18CA384B00744065 /* MarginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC9FDA18CA384B00744065 /* MarginTableViewCell.m */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
-		FCF243EC18BBBDB800AC4306 /* karma.png in Resources */ = {isa = PBXBuildFile; fileRef = FCF243EB18BBBDB800AC4306 /* karma.png */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
 		FCF2441618BD0F5F00AC4306 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F218BD0F5F00AC4306 /* FUIButton.m */; };
 		FCF2441718BD0F5F00AC4306 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F418BD0F5F00AC4306 /* FUICellBackgroundView.m */; };
@@ -94,7 +92,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC30826818BF3EC100E71EF5 /* icon-ios7-information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-information.png"; sourceTree = "<group>"; };
 		FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-information-outline.png"; sourceTree = "<group>"; };
 		FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-plus-outline.png"; sourceTree = "<group>"; };
 		FC30826E18BF421D00E71EF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UIKit.framework; sourceTree = "<group>"; };
@@ -129,8 +126,8 @@
 		FCBC9FD118CA348900744065 /* yoda.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoda.gif; sourceTree = "<group>"; };
 		FCBC9FD918CA384B00744065 /* MarginTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarginTableViewCell.h; path = ../MarginTableViewCell.h; sourceTree = "<group>"; };
 		FCBC9FDA18CA384B00744065 /* MarginTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarginTableViewCell.m; path = ../MarginTableViewCell.m; sourceTree = "<group>"; };
+		FCBC9FDD18CB465600744065 /* RoomieHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomieHeader.h; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		FCF243EB18BBBDB800AC4306 /* karma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = karma.png; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		FCF243EF18BD0F5F00AC4306 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
 		FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
@@ -437,6 +434,7 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC9FDD18CB465600744065 /* RoomieHeader.h */,
 				FCBC9FDC18CA39F600744065 /* Cell */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
@@ -467,8 +465,6 @@
 				FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */,
 				FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */,
 				FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */,
-				FC30826818BF3EC100E71EF5 /* icon-ios7-information.png */,
-				FCF243EB18BBBDB800AC4306 /* karma.png */,
 				FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */,
 				FC73484D18BA76BB00C05E65 /* icon-home.png */,
 				FC73484B18BA5C8300C05E65 /* close.png */,
@@ -649,8 +645,6 @@
 				FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */,
 				FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */,
 				FCBC9FB018C527A400744065 /* koala3.png in Resources */,
-				FCF243EC18BBBDB800AC4306 /* karma.png in Resources */,
-				FC30826918BF3EC100E71EF5 /* icon-ios7-information.png in Resources */,
 				FCBC9FCE18C8A0EB00744065 /* koala_lightsaber.png in Resources */,
 				FCBC9FCF18C8A0EB00744065 /* koala_cane.png in Resources */,
 				FCBC9FD018C8A0EB00744065 /* koala_peace.png in Resources */,

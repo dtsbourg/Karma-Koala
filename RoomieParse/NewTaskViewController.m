@@ -61,15 +61,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
 }
-- (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -88,6 +86,12 @@
             break;
     }
     
+}
+
+#pragma mark - Actions
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)save:(id)sender {

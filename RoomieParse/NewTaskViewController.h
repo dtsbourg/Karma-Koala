@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import <Parse/Parse.h>
-#import "FlatUIKit.h"
-#import "Reachability.h"
+#import "RoomieHeader.h"
 #import "DOAutocompleteTextField.h"
 
 
 @interface NewTaskViewController : UITableViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, FUIAlertViewDelegate>
+/* ========== IBOutlets ==========*/
+
 @property (strong, nonatomic) IBOutlet DOAutocompleteTextField *taskAssign;
 
 @property (strong, nonatomic) IBOutlet UILabel *karmaValue;
@@ -30,9 +29,9 @@
 @property (strong, nonatomic) IBOutlet UIView *topView;
 
 @property (strong, nonatomic) IBOutlet UIButton *cancelButton;
-
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 
+/* ========== Class Properties ==========*/
 @property (strong, nonatomic) NSMutableArray *array;
 
 @property (strong, nonatomic) NSString*stringReplace;

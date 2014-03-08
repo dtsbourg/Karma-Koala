@@ -57,55 +57,25 @@
     
 }
 
-- (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
-    switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
-            self.displayUser = [self.array objectAtIndex:0];
-            [self loadObjects];
-            break;
-        case 1:
-            self.displayUser = [self.array objectAtIndex:1];
-            [self loadObjects];
-            break;
-            
-        case 2:
-            self.displayUser = [self.array objectAtIndex:2];
-            [self loadObjects];
-            break;
-        case 3:
-            self.displayUser = [self.array objectAtIndex:3];
-            [self loadObjects];
-            break;
-        case 4:
-            self.displayUser = [self.array objectAtIndex:4];
-            [self loadObjects];
-            break;
-        case 5:
-            self.displayUser = [self.array objectAtIndex:5];
-            [self loadObjects];
-            break;
-        case 6:
-            self.displayUser = [self.array objectAtIndex:6];
-            [self loadObjects];
-            break;
-        case 7:
-            self.displayUser = [self.array objectAtIndex:7];
-            [self loadObjects];
-            break;
-        case 8:
-            self.displayUser = [self.array objectAtIndex:8];
-            [self loadObjects];
-            break;
-        case 9:
-            self.displayUser = [self.array objectAtIndex:9];
-            [self loadObjects];
-            break;
-            
-        default:
-            break;
-    }
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+- (id)initWithCoder:(NSCoder *)aCoder {
+    self = [super initWithCoder:aCoder];
+    if (self) {
+        // The className to query on
+        self.parseClassName = @"Tasks";
+        // The number of objects to show per page
+        self.objectsPerPage = 15;
+        
+    }
+    return self;
+}
+
+#pragma mark - Table View delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
@@ -154,10 +124,23 @@
     return cell;
 }
 
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect fixedFrame = self.topView.frame;
+    fixedFrame.origin.y = 0 + scrollView.contentOffset.y;
+    self.topView.frame = fixedFrame;
+    
+    CGRect fixedFrame1 = self.segmentedControl.frame;
+    fixedFrame1.origin.y = 50 + scrollView.contentOffset.y;
+    self.segmentedControl.frame = fixedFrame1;
+}
+
+#pragma mark - Table View Data Source
 - (PFQuery *)queryForTable {
     
     if ([PFUser currentUser]) {
-    
+        
         PFQuery *query = [PFQuery queryWithClassName:@"Tasks"];
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         
@@ -165,7 +148,7 @@
         {
             NSMutableArray *names = [self.array mutableCopy];
             [names addObject:[[PFUser currentUser].username uppercaseString]];
-
+            
             [query whereKey:@"user" containedIn:names];
         }
         
@@ -197,43 +180,64 @@
         
         return query;
     }
-
+    
     else return nil;
 }
 
+#pragma mark - Actions
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (id)initWithCoder:(NSCoder *)aCoder {
-    self = [super initWithCoder:aCoder];
-    if (self) {
-        // The className to query on
-        self.parseClassName = @"Tasks";
-        // The number of objects to show per page
-        self.objectsPerPage = 15;
-        
-    }
-    return self;
-}
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGRect fixedFrame = self.topView.frame;
-    fixedFrame.origin.y = 0 + scrollView.contentOffset.y;
-    self.topView.frame = fixedFrame;
-    
-    CGRect fixedFrame1 = self.segmentedControl.frame;
-    fixedFrame1.origin.y = 50 + scrollView.contentOffset.y;
-    self.segmentedControl.frame = fixedFrame1;
+- (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            self.displayUser = [self.array objectAtIndex:0];
+            [self loadObjects];
+            break;
+        case 1:
+            self.displayUser = [self.array objectAtIndex:1];
+            [self loadObjects];
+            break;
+            
+        case 2:
+            self.displayUser = [self.array objectAtIndex:2];
+            [self loadObjects];
+            break;
+        case 3:
+            self.displayUser = [self.array objectAtIndex:3];
+            [self loadObjects];
+            break;
+        case 4:
+            self.displayUser = [self.array objectAtIndex:4];
+            [self loadObjects];
+            break;
+        case 5:
+            self.displayUser = [self.array objectAtIndex:5];
+            [self loadObjects];
+            break;
+        case 6:
+            self.displayUser = [self.array objectAtIndex:6];
+            [self loadObjects];
+            break;
+        case 7:
+            self.displayUser = [self.array objectAtIndex:7];
+            [self loadObjects];
+            break;
+        case 8:
+            self.displayUser = [self.array objectAtIndex:8];
+            [self loadObjects];
+            break;
+        case 9:
+            self.displayUser = [self.array objectAtIndex:9];
+            [self loadObjects];
+            break;
+            
+        default:
+            break;
+    }
 }
-
 
 
 @end
