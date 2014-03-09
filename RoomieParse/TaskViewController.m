@@ -15,7 +15,6 @@
 #import "TaskDetailViewController.h"
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
-#import "MarginTableViewCell.h"
 
 
 @interface TaskViewController ()
@@ -287,15 +286,15 @@
 
 #pragma mark - Table View Controller Delegate
 
-- (MarginTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+- (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
     [self.toDoNumberLabel setText:[NSString stringWithFormat:@"%li", (long)[tableView numberOfRowsInSection:0]]];
     
     static NSString *CellIdentifier = @"Cell";
  
-    MarginTableViewCell *cell = (MarginTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[MarginTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
+        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                           reuseIdentifier:CellIdentifier];
     }
         

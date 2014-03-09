@@ -265,6 +265,23 @@
 }
 
 - (IBAction)inviteFriends:(id)sender {
+    NSArray *activityItems = nil;
+    
+    NSArray *excludedActivities = @[UIActivityTypeAssignToContact,
+                                    UIActivityTypeSaveToCameraRoll,
+                                    UIActivityTypePostToFlickr,
+                                    UIActivityTypePostToVimeo,
+                                    UIActivityTypeAirDrop,
+                                    UIActivityTypePrint];
+    
+    UIImage *appIcon = [UIImage imageNamed:@"koala.png"];
+    NSString *postText = [[NSString alloc] initWithFormat:@"Hey check out this awesome app called Roomie ! You can get karma points by completing tasks around the house."];
+    activityItems = @[postText,appIcon];
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                                                                     applicationActivities:nil];
+    activityController.excludedActivityTypes = excludedActivities;
+    
+    [self presentViewController:activityController animated:YES completion:nil];
 }
 
 - (IBAction)logout:(id)sender {
