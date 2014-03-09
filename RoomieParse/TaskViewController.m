@@ -91,16 +91,37 @@
                                                                               cancelButtonTitle:@"I want to stay alone"
                                                                               otherButtonTitles:@"Add a roommate",nil];
 
-                    al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                    al.titleLabel.textColor               = [UIColor colorWithRed:244./255
+                                                                            green:157./255
+                                                                             blue:25./255
+                                                                            alpha:1];
+                    
                     al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
                     al.messageLabel.textColor             = [UIColor cloudsColor];
                     al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
-                    al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-                    al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-                    al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                    
+                    al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255
+                                                                            green:25./255
+                                                                             blue:55./255
+                                                                            alpha:1];
+                    
+                    al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255
+                                                                            green:38./255
+                                                                             blue:64./255
+                                                                            alpha:1];
+                    
+                    al.defaultButtonColor                 = [UIColor colorWithRed:53./255
+                                                                            green:25./255
+                                                                             blue:55./255
+                                                                            alpha:1];
+                    
                     al.defaultButtonShadowColor           = [UIColor clearColor];
                     al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
-                    al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                    
+                    al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255
+                                                                            green:157./255
+                                                                             blue:25./255
+                                                                            alpha:1];
                     al.alertContainer.layer.cornerRadius  = 5;
                     al.alertContainer.layer.masksToBounds = YES;
                     [al show];
@@ -301,7 +322,7 @@
         int numberOfHours                 = secondsBetween / 3600, numberOfHoursSinceUpdate = secondsSinceUpdate / 3600;
         
         if (numberOfHoursSinceUpdate >= 12) {
-            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.08]];
+            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.09]];
             
             Reachability* reach = [Reachability reachabilityForInternetConnection];
             if([reach isReachable]) [object saveInBackground];
@@ -345,6 +366,7 @@
                                                     otherButtonTitles:@"Karma points", @"Date", nil, nil];
     
     [actionSheet setFont:[UIFont fontWithName:@"Futura" size:16]];
+    
     [actionSheet setButtonBackgroundColor:[UIColor colorWithRed:83./255
                                                           green:38./255
                                                            blue:64./255

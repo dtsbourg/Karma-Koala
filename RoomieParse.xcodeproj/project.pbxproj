@@ -33,7 +33,6 @@
 		FCBC9FCF18C8A0EB00744065 /* koala_cane.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCC18C8A0EB00744065 /* koala_cane.png */; };
 		FCBC9FD018C8A0EB00744065 /* koala_peace.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCD18C8A0EB00744065 /* koala_peace.png */; };
 		FCBC9FD218CA348900744065 /* yoda.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FD118CA348900744065 /* yoda.gif */; };
-		FCBC9FDB18CA384B00744065 /* MarginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC9FDA18CA384B00744065 /* MarginTableViewCell.m */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
 		FCF2441618BD0F5F00AC4306 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F218BD0F5F00AC4306 /* FUIButton.m */; };
@@ -124,8 +123,6 @@
 		FCBC9FCC18C8A0EB00744065 /* koala_cane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_cane.png; sourceTree = "<group>"; };
 		FCBC9FCD18C8A0EB00744065 /* koala_peace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_peace.png; sourceTree = "<group>"; };
 		FCBC9FD118CA348900744065 /* yoda.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoda.gif; sourceTree = "<group>"; };
-		FCBC9FD918CA384B00744065 /* MarginTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarginTableViewCell.h; path = ../MarginTableViewCell.h; sourceTree = "<group>"; };
-		FCBC9FDA18CA384B00744065 /* MarginTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarginTableViewCell.m; path = ../MarginTableViewCell.m; sourceTree = "<group>"; };
 		FCBC9FDD18CB465600744065 /* RoomieHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomieHeader.h; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -326,15 +323,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		FCBC9FDC18CA39F600744065 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				FCBC9FD918CA384B00744065 /* MarginTableViewCell.h */,
-				FCBC9FDA18CA384B00744065 /* MarginTableViewCell.m */,
-			);
-			name = Cell;
-			sourceTree = "<group>";
-		};
 		FCF243ED18BD0F5F00AC4306 /* FlatUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				FCBC9FDD18CB465600744065 /* RoomieHeader.h */,
-				FCBC9FDC18CA39F600744065 /* Cell */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCBC9FD718CA379500744065 /* ext */,
@@ -684,7 +671,6 @@
 				FCFE9E1018B51F5B0019DC9F /* LoginViewController.m in Sources */,
 				FCF2441818BD0F5F00AC4306 /* FUIPopoverBackgroundView.m in Sources */,
 				FCFE9E0D18B50CD20019DC9F /* TaskViewController.m in Sources */,
-				FCBC9FDB18CA384B00744065 /* MarginTableViewCell.m in Sources */,
 				FCFE9DC918B506820019DC9F /* main.m in Sources */,
 				FCF2441918BD0F5F00AC4306 /* FUISegmentedControl.m in Sources */,
 				FCBC9FAC18C3613F00744065 /* DOAutocompleteTextField.m in Sources */,

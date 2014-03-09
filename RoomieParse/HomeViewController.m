@@ -103,7 +103,10 @@
     
     self.tableView.separatorColor = [UIColor clearColor];
     
-    cell.backgroundColor      = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+    cell.backgroundColor      = [UIColor colorWithRed:83./255
+                                                green:38./255
+                                                 blue:64./255
+                                                alpha:1];
 
     cell.textLabel.text       = [object objectForKey:@"taskId"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
