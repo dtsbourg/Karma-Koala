@@ -70,27 +70,6 @@
     
     if ([PFUser currentUser]) {
         
-        // Build a query to match users with a birthday today
-        PFQuery *innerQuery = [PFUser query];
-        
-        // Use hasPrefix: to only match against the month/date
-        [innerQuery whereKey:@"username" equalTo:@"DYLAN"];
-        
-        // Build the actual push notification target query
-        PFQuery *queryo = [PFInstallation query];
-        
-        // only return Installations that belong to a User that
-        // matches the innerQuery
-        [queryo whereKey:@"user" matchesQuery:innerQuery];
-        [queryo whereKey:@"deviceType" equalTo:@"ios"];
-        
-        // Send the notification.
-        PFPush *push = [[PFPush alloc] init];
-        [push setQuery:queryo];
-        [push setMessage:@"Happy Birthday!"];
-        [push sendPushInBackground];
-
-        
         self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
         
         Reachability* reach = [Reachability reachabilityForInternetConnection];

@@ -225,13 +225,35 @@
     if (!err) {
         PFObject*newTask        = [PFObject objectWithClassName:@"Tasks"];
         newTask[@"taskId"]      = trimmedTask;
-        newTask[@"user"]        =trimmedUser;
-        newTask[@"karma"]       =[NSNumber numberWithInt:(int)self.karmaStepper.value];
-        newTask[@"dateLimit"]   =self.datePick.date;
+        newTask[@"user"]        = trimmedUser;
+        newTask[@"karma"]       = [NSNumber numberWithInt:(int)self.karmaStepper.value];
+        newTask[@"dateLimit"]   = self.datePick.date;
         
         Reachability* reach = [Reachability reachabilityForInternetConnection];
         if([reach isReachable]) [newTask saveInBackground];
         else [newTask saveEventually];
+        
+        if([trimmedUser isEqualToString:[PFUser currentUser].username]==0) {
+        // Build a query to match user
+        PFQuery *innerQuery = [PFUser query];
+        
+        // Use hasPrefix: to only match against the month/date
+        [innerQuery whereKey:@"username" equalTo:trimmedUser];
+        
+        // Build the actual push notification target query
+        PFQuery *queryo = [PFInstallation query];
+        
+        // only return Installations that belong to a User that
+        // matches the innerQuery
+        [queryo whereKey:@"user" matchesQuery:innerQuery];
+        [queryo whereKey:@"deviceType" equalTo:@"ios"];
+        
+        // Send the notification.
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:queryo];
+        [push setMessage:[NSString stringWithFormat:@"%@ added a task for you to do : %@.",[PFUser currentUser].username, trimmedTask]];
+        [push sendPushInBackground];
+        }
          [self dismissViewControllerAnimated:YES completion:nil];
     }
     
