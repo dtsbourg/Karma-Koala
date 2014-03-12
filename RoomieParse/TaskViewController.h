@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView * koala;
 
+@property (strong, nonatomic) IBOutlet UIView      * topView;
+
 /* ========== Class properties ==========*/
 @property (strong,nonatomic)  NSString       * priority;
 

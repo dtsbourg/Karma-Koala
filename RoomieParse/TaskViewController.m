@@ -310,7 +310,11 @@
      cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[object objectForKey:@"karma"]];
     
     if ([[object objectForKey:@"karma"] intValue] > 0) {
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255 green:210./255 blue:149./255 alpha:1];
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:150./255
+                                                         green:210./255
+                                                          blue:149./255
+                                                         alpha:1];
+        
         cell.detailTextLabel.text      = [NSString stringWithFormat:@"+%@",[object objectForKey:@"karma"]];
     }
     
@@ -318,7 +322,10 @@
         
     if ([(NSDate*)[object objectForKey:@"dateLimit"] compare:[NSDate date]] == NSOrderedAscending)
     {
-        cell.textLabel.textColor          = [UIColor colorWithRed:244./255 green:150./255 blue:68./255 alpha:1];
+        cell.textLabel.textColor          = [UIColor colorWithRed:244./255
+                                                            green:150./255
+                                                             blue:68./255
+                                                            alpha:1];
 
         NSDate *now                       = [NSDate date];
         NSTimeInterval secondsBetween     = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
@@ -342,24 +349,28 @@
     return cell;
 }
 
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"NextPage";
  
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
  
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
  
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = @"Load more...";
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor colorWithRed:53./255
+                                           green:25./255
+                                            blue:55./255
+                                           alpha:1];
+    cell.textLabel.font = [UIFont fontWithName:@"Futura" size:24];
  
- return cell;
- }
- */
+    return cell;
+}
+
 
 #pragma mark - Actions
 
@@ -418,6 +429,14 @@
         
     }
 }
+#pragma mark - UI
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect fixedFrame           = self.topView.frame;
+    fixedFrame.origin.y         = 0 + scrollView.contentOffset.y;
+    self.topView.frame          = fixedFrame;
+    
+}
 
 #pragma mark - Reachability
 -(void)reachabilityChanged:(NSNotification*)note
@@ -449,7 +468,6 @@
 }
 
 #pragma mark - Signup
-
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [user setObject:[NSNumber numberWithInt:1] forKey:@"karma"];
