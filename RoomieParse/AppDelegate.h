@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <HockeySDK/HockeySDK.h>
+#import "RoomieHeader.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, BITHockeyManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, BITHockeyManagerDelegate, FUIAlertViewDelegate>
 
 
 @property (strong, nonatomic) UIWindow *window;

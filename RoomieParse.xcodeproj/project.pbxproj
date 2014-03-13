@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */; };
 		FC30826D18BF3F8100E71EF5 /* icon-ios7-plus-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */; };
+		FC51CD1918D257E80096013B /* Koala_yoda_cane.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1518D257E80096013B /* Koala_yoda_cane.gif */; };
+		FC51CD1A18D257E80096013B /* koala_seated.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1618D257E80096013B /* koala_seated.gif */; };
+		FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1718D257E80096013B /* koala_hip.gif */; };
+		FC51CD1C18D257E80096013B /* koala_yoda_swrd.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */; };
 		FC73483118B89FED00C05E65 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483018B89FED00C05E65 /* HomeViewController.m */; };
 		FC73483618B8E8E000C05E65 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483518B8E8E000C05E65 /* EFCircularSlider.m */; };
 		FC73483918B943F700C05E65 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FC73483818B943F700C05E65 /* IBActionSheet.m */; };
@@ -21,7 +25,6 @@
 		FCBC9FA118C2038B00744065 /* LeftSideMenu_Tag.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */; };
 		FCBC9FA518C2040F00744065 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA418C2040F00744065 /* plus.png */; };
 		FCBC9FAC18C3613F00744065 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */; };
-		FCBC9FB018C527A400744065 /* koala3.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FAF18C527A400744065 /* koala3.png */; };
 		FCBC9FBA18C63BF200744065 /* forgot.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FB918C63BF200744065 /* forgot.png */; };
 		FCBC9FBC18C63C6D00744065 /* koala.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FBB18C63C6D00744065 /* koala.png */; };
 		FCBC9FC118C643C800744065 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FBF18C643C800744065 /* CoreText.framework */; };
@@ -29,9 +32,6 @@
 		FCBC9FC818C6444400744065 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC418C6444400744065 /* HockeySDK.framework */; };
 		FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */; };
 		FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */; };
-		FCBC9FCE18C8A0EB00744065 /* koala_lightsaber.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCB18C8A0EB00744065 /* koala_lightsaber.png */; };
-		FCBC9FCF18C8A0EB00744065 /* koala_cane.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCC18C8A0EB00744065 /* koala_cane.png */; };
-		FCBC9FD018C8A0EB00744065 /* koala_peace.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FCD18C8A0EB00744065 /* koala_peace.png */; };
 		FCBC9FD218CA348900744065 /* yoda.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FD118CA348900744065 /* yoda.gif */; };
 		FCBC9FDF18CCDFD200744065 /* yoda.svg in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FDE18CCDFD200744065 /* yoda.svg */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
@@ -95,6 +95,10 @@
 		FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-information-outline.png"; sourceTree = "<group>"; };
 		FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-plus-outline.png"; sourceTree = "<group>"; };
 		FC30826E18BF421D00E71EF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UIKit.framework; sourceTree = "<group>"; };
+		FC51CD1518D257E80096013B /* Koala_yoda_cane.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Koala_yoda_cane.gif; sourceTree = "<group>"; };
+		FC51CD1618D257E80096013B /* koala_seated.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_seated.gif; sourceTree = "<group>"; };
+		FC51CD1718D257E80096013B /* koala_hip.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_hip.gif; sourceTree = "<group>"; };
+		FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_yoda_swrd.gif; sourceTree = "<group>"; };
 		FC73482F18B89FED00C05E65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		FC73483018B89FED00C05E65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		FC73483418B8E8E000C05E65 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
@@ -112,7 +116,6 @@
 		FCBC9FA418C2040F00744065 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		FCBC9FAA18C3613F00744065 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOAutocompleteTextField.h; sourceTree = "<group>"; };
 		FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOAutocompleteTextField.m; sourceTree = "<group>"; };
-		FCBC9FAF18C527A400744065 /* koala3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala3.png; sourceTree = "<group>"; };
 		FCBC9FB918C63BF200744065 /* forgot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgot.png; sourceTree = "<group>"; };
 		FCBC9FBB18C63C6D00744065 /* koala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala.png; sourceTree = "<group>"; };
 		FCBC9FBF18C643C800744065 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -120,9 +123,6 @@
 		FCBC9FC418C6444400744065 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
 		FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
-		FCBC9FCB18C8A0EB00744065 /* koala_lightsaber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_lightsaber.png; sourceTree = "<group>"; };
-		FCBC9FCC18C8A0EB00744065 /* koala_cane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_cane.png; sourceTree = "<group>"; };
-		FCBC9FCD18C8A0EB00744065 /* koala_peace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala_peace.png; sourceTree = "<group>"; };
 		FCBC9FD118CA348900744065 /* yoda.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoda.gif; sourceTree = "<group>"; };
 		FCBC9FDD18CB465600744065 /* RoomieHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomieHeader.h; sourceTree = "<group>"; };
 		FCBC9FDE18CCDFD200744065 /* yoda.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = yoda.svg; sourceTree = "<group>"; };
@@ -443,14 +443,14 @@
 		FCFE9DC318B506820019DC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FC51CD1518D257E80096013B /* Koala_yoda_cane.gif */,
+				FC51CD1618D257E80096013B /* koala_seated.gif */,
+				FC51CD1718D257E80096013B /* koala_hip.gif */,
+				FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */,
 				FCBC9FDE18CCDFD200744065 /* yoda.svg */,
 				FCBC9FD118CA348900744065 /* yoda.gif */,
-				FCBC9FCB18C8A0EB00744065 /* koala_lightsaber.png */,
-				FCBC9FCC18C8A0EB00744065 /* koala_cane.png */,
-				FCBC9FCD18C8A0EB00744065 /* koala_peace.png */,
 				FCBC9FBB18C63C6D00744065 /* koala.png */,
 				FCBC9FB918C63BF200744065 /* forgot.png */,
-				FCBC9FAF18C527A400744065 /* koala3.png */,
 				FCBC9FA418C2040F00744065 /* plus.png */,
 				FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */,
 				FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */,
@@ -630,6 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCBC9FA118C2038B00744065 /* LeftSideMenu_Tag.png in Resources */,
+				FC51CD1A18D257E80096013B /* koala_seated.gif in Resources */,
 				FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */,
 				FCFE9DD518B506820019DC9F /* Images.xcassets in Resources */,
 				FC73484A18BA56C900C05E65 /* purple.png in Resources */,
@@ -637,12 +638,11 @@
 				FC73484C18BA5C8300C05E65 /* close.png in Resources */,
 				FCFE9DC718B506820019DC9F /* InfoPlist.strings in Resources */,
 				FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */,
-				FCBC9FB018C527A400744065 /* koala3.png in Resources */,
-				FCBC9FCE18C8A0EB00744065 /* koala_lightsaber.png in Resources */,
-				FCBC9FCF18C8A0EB00744065 /* koala_cane.png in Resources */,
-				FCBC9FD018C8A0EB00744065 /* koala_peace.png in Resources */,
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
+				FC51CD1C18D257E80096013B /* koala_yoda_swrd.gif in Resources */,
 				FCBC9FDF18CCDFD200744065 /* yoda.svg in Resources */,
+				FC51CD1918D257E80096013B /* Koala_yoda_cane.gif in Resources */,
+				FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */,
 				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
 				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,
 				FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */,

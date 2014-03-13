@@ -62,6 +62,9 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" image="plus.png"/>
+                                            <connections>
+                                                <segue destination="QTR-rC-jIg" kind="modal" identifier="newSegue" id="Ng8-9X-vqU"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="NaB-5S-BMe">
                                             <rect key="frame" x="8" y="43" width="30" height="30"/>
@@ -76,11 +79,17 @@
                                             <rect key="frame" x="278" y="92" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="icon-home.png"/>
+                                            <connections>
+                                                <segue destination="djz-xU-tRk" kind="modal" identifier="homeSegue" id="Hr6-2I-1td"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="huV-Yr-B5t">
                                             <rect key="frame" x="278" y="43" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="icon-ios7-gear-outline.png"/>
+                                            <connections>
+                                                <segue destination="nwW-q0-hZ8" kind="modal" identifier="settingsSegue" id="rew-to-tAj"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xbd-RY-Wk9">
                                             <rect key="frame" x="5" y="16" width="59" height="25"/>
@@ -89,7 +98,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yoda.gif" id="TUc-JC-1o1">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="koala_hip.gif" id="TUc-JC-1o1">
                                             <rect key="frame" x="126" y="-4" width="68" height="77"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -719,8 +728,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="LeftSideMenu_Tag.png" width="40" height="40"/>
         <image name="icon-home.png" width="600" height="600"/>
         <image name="icon-ios7-gear-outline.png" width="600" height="601"/>
+        <image name="koala_hip.gif" width="176" height="208"/>
         <image name="plus.png" width="50" height="50"/>
-        <image name="yoda.gif" width="176" height="208"/>
     </resources>
     <color key="tintColor" red="0.58823529409999997" green="0.82352941180000006" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

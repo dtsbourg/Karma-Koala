@@ -233,7 +233,7 @@
         if([reach isReachable]) [newTask saveInBackground];
         else [newTask saveEventually];
         
-        if([trimmedUser isEqualToString:[PFUser currentUser].username]==0) {
+//        if([trimmedUser isEqualToString:[PFUser currentUser].username]==0) {
         // Build a query to match user
         PFQuery *innerQuery = [PFUser query];
         
@@ -253,7 +253,8 @@
         [push setQuery:queryo];
         [push setMessage:[NSString stringWithFormat:@"%@ added a task for you to do : %@.",[PFUser currentUser].username, trimmedTask]];
         [push sendPushInBackground];
-        }
+            
+//        }
          [self dismissViewControllerAnimated:YES completion:nil];
     }
     
@@ -310,7 +311,6 @@
 
 - (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 {
-    // This is a simple example of how to provide DOAutocomleteTextField with completions
     NSArray *autocompleteArray = self.array;
     
     for (NSString *string in autocompleteArray)

@@ -162,20 +162,20 @@
                 
                 int karma=[[object objectForKey:@"karma"]intValue];
                 
-                if (karma < 10){
-                    [self.koala setImage:[UIImage imageNamed:@"koala3.png"]];
+                if (karma < 25){
+                    [self.koala setImage:[UIImage imageNamed:@"koala_hip.gif"]];
                 }
                 
-                else if (karma < 20){
-                    [self.koala setImage:[UIImage imageNamed:@"koala_peace.png"]];
+                else if (karma < 50){
+                    [self.koala setImage:[UIImage imageNamed:@"koala_seated.gif"]];
                 }
                 
-                else if (karma < 30){
-                    [self.koala setImage:[UIImage imageNamed:@"koala_lightsaber.png"]];
+                else if (karma < 75){
+                    [self.koala setImage:[UIImage imageNamed:@"Koala_yoda_cane.gif"]];
                 }
                 
-                else if (karma < 40){
-                    [self.koala setImage:[UIImage imageNamed:@"koala_cane.png"]];
+                else if (karma < 100){
+                    [self.koala setImage:[UIImage imageNamed:@"koala_yoda_swrd.gif"]];
                 }
                 
                 [UIView beginAnimations:nil context:nil];
