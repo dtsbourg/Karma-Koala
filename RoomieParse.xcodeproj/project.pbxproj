@@ -33,7 +33,6 @@
 		FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */; };
 		FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */; };
 		FCBC9FD218CA348900744065 /* yoda.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FD118CA348900744065 /* yoda.gif */; };
-		FCBC9FDF18CCDFD200744065 /* yoda.svg in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FDE18CCDFD200744065 /* yoda.svg */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
 		FCF2441618BD0F5F00AC4306 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F218BD0F5F00AC4306 /* FUIButton.m */; };
@@ -125,7 +124,6 @@
 		FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
 		FCBC9FD118CA348900744065 /* yoda.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoda.gif; sourceTree = "<group>"; };
 		FCBC9FDD18CB465600744065 /* RoomieHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomieHeader.h; sourceTree = "<group>"; };
-		FCBC9FDE18CCDFD200744065 /* yoda.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = yoda.svg; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		FCF243EF18BD0F5F00AC4306 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
@@ -447,7 +445,6 @@
 				FC51CD1618D257E80096013B /* koala_seated.gif */,
 				FC51CD1718D257E80096013B /* koala_hip.gif */,
 				FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */,
-				FCBC9FDE18CCDFD200744065 /* yoda.svg */,
 				FCBC9FD118CA348900744065 /* yoda.gif */,
 				FCBC9FBB18C63C6D00744065 /* koala.png */,
 				FCBC9FB918C63BF200744065 /* forgot.png */,
@@ -640,7 +637,6 @@
 				FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */,
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
 				FC51CD1C18D257E80096013B /* koala_yoda_swrd.gif in Resources */,
-				FCBC9FDF18CCDFD200744065 /* yoda.svg in Resources */,
 				FC51CD1918D257E80096013B /* Koala_yoda_cane.gif in Resources */,
 				FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */,
 				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
@@ -779,6 +775,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -804,7 +801,7 @@
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Deployment;
@@ -862,6 +859,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -894,6 +892,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -919,7 +918,7 @@
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -944,7 +943,7 @@
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

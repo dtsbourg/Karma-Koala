@@ -174,7 +174,7 @@
                     [self.koala setImage:[UIImage imageNamed:@"Koala_yoda_cane.gif"]];
                 }
                 
-                else if (karma < 100){
+                else {
                     [self.koala setImage:[UIImage imageNamed:@"koala_yoda_swrd.gif"]];
                 }
                 
@@ -295,6 +295,8 @@
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     
     [self.toDoNumberLabel setText:[NSString stringWithFormat:@"%li", (long)[tableView numberOfRowsInSection:0]]];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [tableView numberOfRowsInSection:0];
+
     
     static NSString *CellIdentifier = @"Cell";
  
@@ -328,13 +330,12 @@
                                                             alpha:1];
 
         NSDate *now                       = [NSDate date];
-        NSTimeInterval secondsBetween     = [[object objectForKey:@"dateLimit"] timeIntervalSinceDate:now];
         NSTimeInterval secondsSinceUpdate = [[object updatedAt] timeIntervalSinceDate:now];
 
-        int numberOfHours                 = secondsBetween / 3600, numberOfHoursSinceUpdate = secondsSinceUpdate / 3600;
+        int numberOfHoursSinceUpdate      = secondsSinceUpdate / 3600;
         
         if (numberOfHoursSinceUpdate >= 12) {
-            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:numberOfHours*0.09]];
+            [object incrementKey:@"karma" byAmount:[NSNumber numberWithInt:-1]];
             
             Reachability* reach = [Reachability reachabilityForInternetConnection];
             if([reach isReachable]) [object saveInBackground];
