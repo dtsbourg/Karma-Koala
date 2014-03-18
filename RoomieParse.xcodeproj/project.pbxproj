@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */; };
-		FC30826D18BF3F8100E71EF5 /* icon-ios7-plus-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */; };
 		FC51CD1918D257E80096013B /* Koala_yoda_cane.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1518D257E80096013B /* Koala_yoda_cane.gif */; };
 		FC51CD1A18D257E80096013B /* koala_seated.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1618D257E80096013B /* koala_seated.gif */; };
 		FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC51CD1718D257E80096013B /* koala_hip.gif */; };
@@ -91,8 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-information-outline.png"; sourceTree = "<group>"; };
-		FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-plus-outline.png"; sourceTree = "<group>"; };
 		FC30826E18BF421D00E71EF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UIKit.framework; sourceTree = "<group>"; };
 		FC51CD1518D257E80096013B /* Koala_yoda_cane.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Koala_yoda_cane.gif; sourceTree = "<group>"; };
 		FC51CD1618D257E80096013B /* koala_seated.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_seated.gif; sourceTree = "<group>"; };
@@ -450,8 +446,6 @@
 				FCBC9FB918C63BF200744065 /* forgot.png */,
 				FCBC9FA418C2040F00744065 /* plus.png */,
 				FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */,
-				FC30826C18BF3F8100E71EF5 /* icon-ios7-plus-outline.png */,
-				FC30826A18BF3F4700E71EF5 /* icon-ios7-information-outline.png */,
 				FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */,
 				FC73484D18BA76BB00C05E65 /* icon-home.png */,
 				FC73484B18BA5C8300C05E65 /* close.png */,
@@ -641,12 +635,10 @@
 				FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */,
 				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
 				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,
-				FC30826B18BF3F4700E71EF5 /* icon-ios7-information-outline.png in Resources */,
 				FCBC9FD218CA348900744065 /* yoda.gif in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
 				FCBC9FBC18C63C6D00744065 /* koala.png in Resources */,
 				FCBC9FBA18C63BF200744065 /* forgot.png in Resources */,
-				FC30826D18BF3F8100E71EF5 /* icon-ios7-plus-outline.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
