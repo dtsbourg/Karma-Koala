@@ -94,6 +94,7 @@
 		FC51CD1618D257E80096013B /* koala_seated.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_seated.gif; sourceTree = "<group>"; };
 		FC51CD1718D257E80096013B /* koala_hip.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_hip.gif; sourceTree = "<group>"; };
 		FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koala_yoda_swrd.gif; sourceTree = "<group>"; };
+		FC51CD1D18DA434D0096013B /* ColorScheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorScheme.h; sourceTree = "<group>"; };
 		FC73482F18B89FED00C05E65 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		FC73483018B89FED00C05E65 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		FC73483418B8E8E000C05E65 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
@@ -418,6 +419,7 @@
 		FCFE9DC218B506820019DC9F /* RoomieParse */ = {
 			isa = PBXGroup;
 			children = (
+				FC51CD1D18DA434D0096013B /* ColorScheme.h */,
 				FCBC9FDD18CB465600744065 /* RoomieHeader.h */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,

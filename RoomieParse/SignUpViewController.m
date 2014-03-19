@@ -38,16 +38,16 @@
     [reach startNotifier];
     
     
-    [self.signUpView setBackgroundColor:[UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1]];
-    [self.signUpView setTintColor:[UIColor whiteColor]];
+    [self.signUpView setBackgroundColor:PURPLE_LIGHT];
+    [self.signUpView setTintColor:WHITE];
     
-    [self.signUpView.usernameField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
-    [self.signUpView.passwordField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
-    [self.signUpView.emailField setBackgroundColor:[UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1]];
+    [self.signUpView.usernameField setBackgroundColor:PURPLE_DARK];
+    [self.signUpView.passwordField setBackgroundColor:PURPLE_DARK];
+    [self.signUpView.emailField setBackgroundColor:PURPLE_DARK];
     
-    [self.signUpView.usernameField setTextColor:[UIColor whiteColor]];
-    [self.signUpView.passwordField setTextColor:[UIColor whiteColor]];
-    [self.signUpView.emailField setTextColor:[UIColor whiteColor]];
+    [self.signUpView.usernameField setTextColor:WHITE];
+    [self.signUpView.passwordField setTextColor:WHITE];
+    [self.signUpView.emailField setTextColor:WHITE];
     
     self.signUpView.usernameField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     
@@ -105,16 +105,16 @@
                                                                   cancelButtonTitle:@"I'll be back !"
                                                                   otherButtonTitles:nil];
 
-        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.textColor               = ORANGE;
         al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
         al.messageLabel.textColor             = [UIColor cloudsColor];
         al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.backgroundOverlay.backgroundColor  = PURPLE_DARK;
+        al.alertContainer.backgroundColor     = PURPLE_LIGHT;
+        al.defaultButtonColor                 = PURPLE_DARK;
         al.defaultButtonShadowColor           = [UIColor clearColor];
         al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.defaultButtonTitleColor            = ORANGE;
         al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];

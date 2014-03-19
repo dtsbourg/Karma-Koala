@@ -37,37 +37,8 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    if ([userInfo objectForKey:@"alert"]) {
-        NSString *message = [userInfo objectForKey:@"alert"];
-        
-        FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Hey !"
-                                                                            message:message
-                                                                           delegate:self
-                                                                  cancelButtonTitle:@"OK"
-                                                                  otherButtonTitles:nil];
-        
-        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
-        al.messageLabel.textColor             = [UIColor cloudsColor];
-        al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:0.7];
-        al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
-        al.defaultButtonShadowColor           = [UIColor clearColor];
-        al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
-        al.alertContainer.layer.cornerRadius  = 5;
-        al.alertContainer.layer.masksToBounds = YES;
-        [al show];
-
-    }
-//
-//    if ([userInfo objectForKey:@"badge"]) {
-//        NSInteger badgeNumber = [[userInfo objectForKey:@"badge"] integerValue];
-//        [application setApplicationIconBadgeNumber:badgeNumber];
-//    }
-    
-//    [PFPush handlePush:userInfo];
+    if ([userInfo objectForKey:@"alert"])
+    [PFPush handlePush:userInfo];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {

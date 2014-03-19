@@ -12,5 +12,6 @@
 #import <Parse/Parse.h>
 #import "Reachability.h"
 #import "FlatUIKit.h"
+#import "ColorScheme.h"
 
 #endif

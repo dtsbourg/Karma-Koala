@@ -37,25 +37,16 @@
     
     [reach startNotifier];
     
-    [self.logInView setBackgroundColor:[UIColor colorWithRed:83./255
-                                                       green:38./255
-                                                        blue:64./255
-                                                       alpha:1]];
+    [self.logInView setBackgroundColor:PURPLE_LIGHT];
     
-    [self.logInView setTintColor:[UIColor whiteColor]];
+    [self.logInView setTintColor:WHITE];
 
-    [self.logInView.usernameField setBackgroundColor:[UIColor colorWithRed:53./255
-                                                                     green:25./255
-                                                                      blue:55./255
-                                                                     alpha:1]];
+    [self.logInView.usernameField setBackgroundColor:PURPLE_DARK];
     
-    [self.logInView.passwordField setBackgroundColor:[UIColor colorWithRed:53./255
-                                                                     green:25./255
-                                                                      blue:55./255
-                                                                     alpha:1]];
+    [self.logInView.passwordField setBackgroundColor:PURPLE_DARK];
     
-    [self.logInView.usernameField setTextColor:[UIColor whiteColor]];
-    [self.logInView.passwordField setTextColor:[UIColor whiteColor]];
+    [self.logInView.usernameField setTextColor:WHITE];
+    [self.logInView.passwordField setTextColor:WHITE];
     
     self.logInView.usernameField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
 
@@ -79,10 +70,7 @@
     
     [self.logInView.signUpButton setImage:[UIImage imageNamed:@"purple_signup.png"] forState:UIControlStateNormal];
     
-    [self.logInView.signUpButton setTitleColor:[UIColor colorWithRed:150./255
-                                                               green:210./255
-                                                                blue:149./255
-                                                               alpha:1]
+    [self.logInView.signUpButton setTitleColor:GREEN
                                      forState:UIControlStateNormal];
     
 }
@@ -123,23 +111,21 @@
                                                                   cancelButtonTitle:@"I'll be back !"
                                                                   otherButtonTitles:nil];
 
-        al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.titleLabel.textColor               = ORANGE;
         al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
         al.messageLabel.textColor             = [UIColor cloudsColor];
         al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
-        al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.backgroundOverlay.backgroundColor  = PURPLE_DARK;
         al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
-        al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+        al.defaultButtonColor                 = PURPLE_DARK;
         al.defaultButtonShadowColor           = [UIColor clearColor];
         al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
-        al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+        al.defaultButtonTitleColor            = ORANGE;
         al.alertContainer.layer.cornerRadius  = 5;
         al.alertContainer.layer.masksToBounds = YES;
         [al show];
     }
     
 }
-
-
 
 @end
