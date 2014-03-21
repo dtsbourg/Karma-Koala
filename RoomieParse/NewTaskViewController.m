@@ -50,6 +50,12 @@
     self.taskAssign.delegate               = self;
     self.taskAssign.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     self.taskText.delegate                 = self;
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    self.taskText.leftView = paddingView;
+    self.taskText.leftViewMode = UITextFieldViewModeAlways;
+    UIView *paddingViewAssign = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    self.taskAssign.leftView = paddingViewAssign;
+    self.taskAssign.leftViewMode = UITextFieldViewModeAlways;
     [self.taskAssign setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
     [self.taskText setTintColor:[UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1]];
     
@@ -322,7 +328,6 @@
         }
         
     }
-    
     return @"";
 }
 
