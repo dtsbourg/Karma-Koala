@@ -20,6 +20,7 @@
 		FC73484C18BA5C8300C05E65 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484B18BA5C8300C05E65 /* close.png */; };
 		FC73484E18BA76BB00C05E65 /* icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73484D18BA76BB00C05E65 /* icon-home.png */; };
 		FC73485418BA77BC00C05E65 /* icon-ios7-gear-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */; };
+		FCAAA9E318DF96FC00E3A54B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCAAA9E218DF96FC00E3A54B /* Settings.bundle */; };
 		FCBC9FA118C2038B00744065 /* LeftSideMenu_Tag.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */; };
 		FCBC9FA518C2040F00744065 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA418C2040F00744065 /* plus.png */; };
 		FCBC9FAC18C3613F00744065 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */; };
@@ -108,6 +109,7 @@
 		FC73484B18BA5C8300C05E65 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		FC73484D18BA76BB00C05E65 /* icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home.png"; sourceTree = "<group>"; };
 		FC73485318BA77BC00C05E65 /* icon-ios7-gear-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline.png"; sourceTree = "<group>"; };
+		FCAAA9E218DF96FC00E3A54B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftSideMenu_Tag.png; sourceTree = "<group>"; };
 		FCBC9FA418C2040F00744065 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		FCBC9FAA18C3613F00744065 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				FC51CD1D18DA434D0096013B /* ColorScheme.h */,
 				FCBC9FDD18CB465600744065 /* RoomieHeader.h */,
 				FCFE9DCE18B506820019DC9F /* Main.storyboard */,
+				FCAAA9E218DF96FC00E3A54B /* Settings.bundle */,
 				FCFE9E1418B51F900019DC9F /* Delegate */,
 				FCBC9FD718CA379500744065 /* ext */,
 				FCBC9FD818CA37AF00744065 /* Login */,
@@ -634,6 +637,7 @@
 				FC73484918BA56C900C05E65 /* purple_signup.png in Resources */,
 				FC51CD1C18D257E80096013B /* koala_yoda_swrd.gif in Resources */,
 				FC51CD1918D257E80096013B /* Koala_yoda_cane.gif in Resources */,
+				FCAAA9E318DF96FC00E3A54B /* Settings.bundle in Resources */,
 				FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */,
 				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
 				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,

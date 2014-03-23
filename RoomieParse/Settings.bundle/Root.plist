@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>FooterText</key>
+			<string>We&apos;d love to hear from you !</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Support</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Website</string>
+			<key>Key</key>
+			<string>Support</string>
+			<key>DefaultValue</key>
+			<string>http://karmakoa.la</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>About</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Developer</string>
+			<key>Key</key>
+			<string>Developer</string>
+			<key>DefaultValue</key>
+			<string>Dylan Bourgeois</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0.1.9</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Version</string>
+			<key>Key</key>
+			<string>Version</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>This software is copyrighted under the Creative Commons License Agreement.</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>External Libraries</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>DOAutoCompleteTextField</string>
+			<key>Key</key>
+			<string>autocomplete</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>Reachability</string>
+			<key>Key</key>
+			<string>reachability</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>FlatUIKit</string>
+			<key>Key</key>
+			<string>uikit</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>EFCircularSliderView</string>
+			<key>Key</key>
+			<string>circular</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>HMSegmentedControl</string>
+			<key>Key</key>
+			<string>segcontrol</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>We respect your privacy. We only gather crash logs to make the app better. As soon as a task is completed, it is deleted from our servers. We will never sell, disclose or tamper with any of your information.</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Privacy policy</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
