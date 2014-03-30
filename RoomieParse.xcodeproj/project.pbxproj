@@ -30,7 +30,6 @@
 		FCBC9FC818C6444400744065 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC418C6444400744065 /* HockeySDK.framework */; };
 		FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */; };
 		FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */; };
-		FCBC9FD218CA348900744065 /* yoda.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FD118CA348900744065 /* yoda.gif */; };
 		FCF243E618BB7B9800AC4306 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF243E518BB7B9800AC4306 /* Parse.framework */; };
 		FCF2441518BD0F5F00AC4306 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F018BD0F5F00AC4306 /* FUIAlertView.m */; };
 		FCF2441618BD0F5F00AC4306 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF243F218BD0F5F00AC4306 /* FUIButton.m */; };
@@ -119,7 +118,6 @@
 		FCBC9FC418C6444400744065 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		FCBC9FC618C6444400744065 /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
 		FCBC9FC718C6444400744065 /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
-		FCBC9FD118CA348900744065 /* yoda.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoda.gif; sourceTree = "<group>"; };
 		FCBC9FDD18CB465600744065 /* RoomieHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomieHeader.h; sourceTree = "<group>"; };
 		FCF243E518BB7B9800AC4306 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FCF243EE18BD0F5F00AC4306 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
@@ -444,7 +442,6 @@
 				FC51CD1618D257E80096013B /* koala_seated.gif */,
 				FC51CD1718D257E80096013B /* koala_hip.gif */,
 				FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */,
-				FCBC9FD118CA348900744065 /* yoda.gif */,
 				FCBC9FB918C63BF200744065 /* forgot.png */,
 				FCBC9FA418C2040F00744065 /* plus.png */,
 				FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */,
@@ -638,7 +635,6 @@
 				FC51CD1B18D257E80096013B /* koala_hip.gif in Resources */,
 				FCBC9FC918C6444500744065 /* HockeySDK.xcconfig in Resources */,
 				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,
-				FCBC9FD218CA348900744065 /* yoda.gif in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
 				FCBC9FBA18C63BF200744065 /* forgot.png in Resources */,
 			);
