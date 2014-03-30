@@ -25,7 +25,6 @@
 		FCBC9FA518C2040F00744065 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FA418C2040F00744065 /* plus.png */; };
 		FCBC9FAC18C3613F00744065 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */; };
 		FCBC9FBA18C63BF200744065 /* forgot.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FB918C63BF200744065 /* forgot.png */; };
-		FCBC9FBC18C63C6D00744065 /* koala.png in Resources */ = {isa = PBXBuildFile; fileRef = FCBC9FBB18C63C6D00744065 /* koala.png */; };
 		FCBC9FC118C643C800744065 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FBF18C643C800744065 /* CoreText.framework */; };
 		FCBC9FC218C643C800744065 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC018C643C800744065 /* UIKit.framework */; };
 		FCBC9FC818C6444400744065 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC9FC418C6444400744065 /* HockeySDK.framework */; };
@@ -115,7 +114,6 @@
 		FCBC9FAA18C3613F00744065 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOAutocompleteTextField.h; sourceTree = "<group>"; };
 		FCBC9FAB18C3613F00744065 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOAutocompleteTextField.m; sourceTree = "<group>"; };
 		FCBC9FB918C63BF200744065 /* forgot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgot.png; sourceTree = "<group>"; };
-		FCBC9FBB18C63C6D00744065 /* koala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = koala.png; sourceTree = "<group>"; };
 		FCBC9FBF18C643C800744065 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		FCBC9FC018C643C800744065 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FCBC9FC418C6444400744065 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
@@ -447,7 +445,6 @@
 				FC51CD1718D257E80096013B /* koala_hip.gif */,
 				FC51CD1818D257E80096013B /* koala_yoda_swrd.gif */,
 				FCBC9FD118CA348900744065 /* yoda.gif */,
-				FCBC9FBB18C63C6D00744065 /* koala.png */,
 				FCBC9FB918C63BF200744065 /* forgot.png */,
 				FCBC9FA418C2040F00744065 /* plus.png */,
 				FCBC9FA018C2038B00744065 /* LeftSideMenu_Tag.png */,
@@ -643,7 +640,6 @@
 				FCBC9FCA18C6444500744065 /* HockeySDKResources.bundle in Resources */,
 				FCBC9FD218CA348900744065 /* yoda.gif in Resources */,
 				FCFE9DD018B506820019DC9F /* Main.storyboard in Resources */,
-				FCBC9FBC18C63C6D00744065 /* koala.png in Resources */,
 				FCBC9FBA18C63BF200744065 /* forgot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

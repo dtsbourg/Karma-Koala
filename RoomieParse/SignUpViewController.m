@@ -51,13 +51,30 @@
     
     self.signUpView.usernameField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     
-    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"karma.png"]]];
+    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"koala_yoda_swrd.gif"]]];
+    
+    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x,
+                                                               self.view.frame.origin.y-20,
+                                                               self.view.frame.size.width,
+                                                               200)];
+    newView.backgroundColor = PURPLE_DARK;
+    [self.view addSubview:newView];
+    
+    [self.view addSubview:self.signUpView.logo];
+    [self.view addSubview:self.signUpView.dismissButton];
+    
     
     if ([UIScreen mainScreen].bounds.size.height < 568)
+    {
         [self.signUpView.logo setFrame:CGRectMake(self.signUpView.logo.frame.origin.x,
                                                   self.signUpView.logo.frame.origin.y,
                                                   self.signUpView.logo.frame.size.width -80,
                                                   self.signUpView.logo.frame.size.height-80)];
+        [newView setFrame:CGRectMake(self.view.frame.origin.x,
+                                     self.view.frame.origin.y-20,
+                                     self.view.frame.size.width,
+                                     150)];
+    }
     
 }
 

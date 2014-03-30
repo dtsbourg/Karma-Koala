@@ -54,14 +54,26 @@
     layer.shadowOpacity = 0.0;
     layer               = self.logInView.passwordField.layer;
     layer.shadowOpacity = 0.0;
-    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"koala.png"]]];
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"koala_yoda_swrd.gif"]]];
+    [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x, self.logInView.logo.frame.origin.y, self.logInView.logo.frame.size.width +100, self.logInView.logo.frame.size.height+100)];
+    
+    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-20, self.view.frame.size.width, 190)];
+    newView.backgroundColor = PURPLE_DARK;
+    [self.view addSubview:newView];
+        
+    [self.view addSubview:self.logInView.logo];
     
     
-    if ([UIScreen mainScreen].bounds.size.height < 568)
+    if ([UIScreen mainScreen].bounds.size.height < 568){
         [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x,
                                                  self.logInView.logo.frame.origin.y,
                                                  self.logInView.logo.frame.size.width -190,
                                                  self.logInView.logo.frame.size.height-190)];
+        [newView setFrame:CGRectMake(self.view.frame.origin.x,
+                                     self.view.frame.origin.y-20,
+                                     self.view.frame.size.width,
+                                     110)];
+    }
     
     else [self.logInView.logo setFrame:CGRectMake(self.logInView.logo.frame.origin.x,
                                                   self.logInView.logo.frame.origin.y,

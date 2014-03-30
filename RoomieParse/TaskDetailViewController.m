@@ -181,43 +181,43 @@ EFCircularSlider* hourSlider;
     }];
     
     if ([UIScreen mainScreen].bounds.size.height < 568) {
-        self.taskName.frame       = CGRectMake(self.taskName.frame.origin.x,
-                                               self.taskName.frame.origin.y - 30,
-                                               self.taskName.frame.size.width,
-                                               self.taskName.frame.size.height);
+//        self.taskName.frame       = CGRectMake(self.taskName.frame.origin.x,
+//                                               self.taskName.frame.origin.y,
+//                                               self.taskName.frame.size.width,
+//                                               self.taskName.frame.size.height);
 
         self.karma.frame          = CGRectMake(self.karma.frame.origin.x,
-                                               self.karma.frame.origin.y - 30,
+                                               self.karma.frame.origin.y - 5,
                                                self.karma.frame.size.width,
                                                self.karma.frame.size.height);
 
         self.timeLeft.frame       = CGRectMake(self.timeLeft.frame.origin.x,
-                                               self.timeLeft.frame.origin.y - 50,
+                                               self.timeLeft.frame.origin.y - 30,
                                                self.timeLeft.frame.size.width,
                                                self.timeLeft.frame.size.height);
 
         self.daysLate.frame       = CGRectMake(self.daysLate.frame.origin.x,
-                                               self.daysLate.frame.origin.y - 65,
+                                               self.daysLate.frame.origin.y - 50,
                                                self.daysLate.frame.size.width,
                                                self.daysLate.frame.size.height);
 
         minuteSlider.frame        = CGRectMake(minuteSlider.frame.origin.x,
-                                               minuteSlider.frame.origin.y - 65,
+                                               minuteSlider.frame.origin.y - 50,
                                                minuteSlider.frame.size.width,
                                                minuteSlider.frame.size.height);
 
         hourSlider.frame          = CGRectMake(hourSlider.frame.origin.x,
-                                               hourSlider.frame.origin.y - 65,
+                                               hourSlider.frame.origin.y - 50,
                                                hourSlider.frame.size.width,
                                                hourSlider.frame.size.height);
 
         self.buttonDelay.frame    = CGRectMake(self.buttonDelay.frame.origin.x,
-                                               self.buttonDelay.frame.origin.y - 88,
+                                               self.buttonDelay.frame.origin.y - 68,
                                                self.buttonDelay.frame.size.width,
                                                self.buttonDelay.frame.size.height);
 
         self.buttonComplete.frame = CGRectMake(self.buttonComplete.frame.origin.x,
-                                               self.buttonComplete.frame.origin.y - 88,
+                                               self.buttonComplete.frame.origin.y - 68,
                                                self.buttonComplete.frame.size.width,
                                                self.buttonComplete.frame.size.height);
     }

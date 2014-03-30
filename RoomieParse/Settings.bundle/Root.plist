@@ -98,7 +98,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>We respect your privacy. We only gather crash logs to make the app better. As soon as a task is completed, it is deleted from our servers. We will never sell, disclose or tamper with any of your information.</string>
+			<string>We respect your privacy. We only gather crash logs to make the app better. As soon as a task is completed, it is deleted from the servers. We will never sell, disclose or tamper with any of your information.</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
