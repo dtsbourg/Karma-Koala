@@ -170,7 +170,7 @@
                     [self.koala setImage:[UIImage imageNamed:@"koala_seated.gif"]];
                 }
                 
-                else if (karma < 75){
+                else if (karma < 100){
                     [self.koala setImage:[UIImage imageNamed:@"Koala_yoda_cane.gif"]];
                 }
                 

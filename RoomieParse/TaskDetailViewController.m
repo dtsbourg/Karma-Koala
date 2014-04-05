@@ -304,8 +304,8 @@ EFCircularSlider* hourSlider;
     
     float y=0;
     
-    if ([UIScreen mainScreen].bounds.size.height < 568) y=65;
-    UIButton *confirm = [[UIButton alloc]initWithFrame:CGRectMake(20, 134-y, 280, 42)];
+    if ([UIScreen mainScreen].bounds.size.height < 568) y=245;
+    UIButton *confirm = [[UIButton alloc]initWithFrame:CGRectMake(20, 134+y, 280, 42)];
     [confirm setTitle:@"Confirm" forState:UIControlStateNormal];
     [confirm setBackgroundColor:[UIColor colorWithRed:53./255
                                                 green:25./255

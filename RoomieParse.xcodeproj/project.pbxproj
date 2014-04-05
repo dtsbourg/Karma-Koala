@@ -777,7 +777,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -791,7 +791,7 @@
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
+				PROVISIONING_PROFILE = "E0D7508C-52C4-45FA-A95D-D56D14C6B6D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Deployment;
@@ -894,7 +894,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -908,7 +908,7 @@
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
+				PROVISIONING_PROFILE = "E0D7508C-52C4-45FA-A95D-D56D14C6B6D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -919,7 +919,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dylan Bourgeois (DRXTS3ZU8M)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -933,7 +933,7 @@
 				INFOPLIST_FILE = "RoomieParse/RoomieParse-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4FD14E20-28B2-4675-BD16-A99E0C5E17F3";
+				PROVISIONING_PROFILE = "E0D7508C-52C4-45FA-A95D-D56D14C6B6D3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
