@@ -40,7 +40,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.1.9</string>
+			<string>1.0.1</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 			<key>Title</key>

@@ -67,7 +67,6 @@
 
     [super viewDidAppear:animated];
    
-    
     if ([PFUser currentUser]) {
         
         self.firstNameLabel.text = [[PFUser currentUser].username uppercaseString];
@@ -471,7 +470,8 @@
 #pragma mark - Signup
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [user setObject:[NSNumber numberWithInt:1] forKey:@"karma"];
+//    [user setObject:[NSNumber numberWithInt:1] forKey:@"karma"];
+    user[@"karma"]=[NSNumber numberWithInt:1];
     [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the PFSignUpViewController
 }
 
@@ -483,6 +483,50 @@
 // Sent to the delegate when the sign up screen is dismissed.
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
     NSLog(@"User dismissed the signUpViewController");
+}
+
+- (BOOL)signUpViewController:(SignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    
+    // loop through all of the submitted data
+    for (id key in info) {
+       
+        NSString *field = [info objectForKey:key];
+        if (!field || !field.length) { // check completion
+            informationComplete = NO;
+            break;
+        }
+        
+        if ([key isEqualToString:@"username"])
+        {
+            if([[field uppercaseString] isEqualToString:field]==FALSE)
+            {
+                informationComplete = NO;
+                FUIAlertView *al                      = [[FUIAlertView alloc] initWithTitle:@"Oops!"
+                                                                                    message:[NSString stringWithFormat:@"Your username should be all caps !"]
+                                                                                   delegate:self
+                                                                          cancelButtonTitle:@"FINE !"
+                                                                          otherButtonTitles:nil];
+                
+                al.titleLabel.textColor               = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                al.titleLabel.font                    = [UIFont fontWithName:@"Futura" size:20];
+                al.messageLabel.textColor             = [UIColor cloudsColor];
+                al.messageLabel.font                  = [UIFont fontWithName:@"Futura" size:20];
+                al.backgroundOverlay.backgroundColor  = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                al.alertContainer.backgroundColor     = [UIColor colorWithRed:83./255 green:38./255 blue:64./255 alpha:1];
+                al.defaultButtonColor                 = [UIColor colorWithRed:53./255 green:25./255 blue:55./255 alpha:1];
+                al.defaultButtonShadowColor           = [UIColor clearColor];
+                al.defaultButtonFont                  = [UIFont fontWithName:@"Futura" size:20];
+                al.defaultButtonTitleColor            = [UIColor colorWithRed:244./255 green:157./255 blue:25./255 alpha:1];
+                al.alertContainer.layer.cornerRadius  = 5;
+                al.alertContainer.layer.masksToBounds = NO;
+                [al show];
+
+            }
+        }
+    }
+    
+    return informationComplete;
 }
 
 #pragma mark - Login

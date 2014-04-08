@@ -265,7 +265,7 @@
 }
 
 - (IBAction)inviteFriends:(id)sender {
-    NSArray *activityItems = nil;
+    
     
     NSArray *excludedActivities = @[UIActivityTypeAssignToContact,
                                     UIActivityTypeSaveToCameraRoll,
@@ -274,9 +274,9 @@
                                     UIActivityTypeAirDrop,
                                     UIActivityTypePrint];
     
-    UIImage *appIcon = [UIImage imageNamed:@"koala.png"];
-    NSString *postText = [[NSString alloc] initWithFormat:@"Hey check out this awesome app called Roomie ! You can get karma points by completing tasks around the house."];
-    activityItems = @[postText,appIcon];
+    UIImage *appIcon = [UIImage imageNamed:@"koala_hip.gif"];
+    NSString *postText = [[NSString alloc] initWithFormat:@"Hey check out this awesome app called Roomie ! You can get karma points by completing tasks around the house. https://itunes.apple.com/fr/app/karma-koala/id851868166?l=en&mt=8"];
+    NSArray * activityItems = @[postText,appIcon];
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems
                                                                                      applicationActivities:nil];
     activityController.excludedActivityTypes = excludedActivities;

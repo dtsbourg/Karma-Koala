@@ -105,7 +105,7 @@
     UIFont *font                  = [UIFont fontWithName:@"Futura" size:20];
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:color, NSForegroundColorAttributeName, font, NSFontAttributeName, nil];
     
-    self.signUpView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:attrsDictionary];
+    self.signUpView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"USERNAME (ALL CAPS)" attributes:attrsDictionary];
     self.signUpView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attrsDictionary];
     self.signUpView.emailField.attributedPlaceholder    = [[NSAttributedString alloc] initWithString:@"Email" attributes:attrsDictionary];
 
@@ -138,7 +138,6 @@
     }
     
 }
-
 
 
 @end
