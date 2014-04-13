@@ -239,7 +239,6 @@
         if([reach isReachable]) [newTask saveInBackground];
         else [newTask saveEventually];
         
-//        if([trimmedUser isEqualToString:[PFUser currentUser].username]==0) {
         // Build a query to match user
         PFQuery *innerQuery = [PFUser query];
         
@@ -259,12 +258,9 @@
         [push setQuery:queryo];
         [push setMessage:[NSString stringWithFormat:@"%@ added a task for you to do : %@.",[PFUser currentUser].username, trimmedTask]];
         [push sendPushInBackground];
-            
-//        }
-         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    
-   
     
 }
 
