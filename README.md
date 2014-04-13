@@ -3,6 +3,12 @@ Roomie
 
 Get karma points for doing chores around the house.
 
+#Screenshots
+![a](https://raw.githubusercontent.com/dtsbourg/Roomie/master/Screens/sc1.png)
+![b](https://raw.githubusercontent.com/dtsbourg/Roomie/master/Screens/sc2.png)
+![c](https://raw.githubusercontent.com/dtsbourg/Roomie/master/Screens/sc3.png)
+![d](https://raw.githubusercontent.com/dtsbourg/Roomie/master/Screens/sc4.png)
+![e](https://raw.githubusercontent.com/dtsbourg/Roomie/master/Screens/sc5.png)
 
 #Get sh*t done
 This app is a fun way to get stuff done around the house. 
