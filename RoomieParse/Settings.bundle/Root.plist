@@ -50,7 +50,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>This software is copyrighted under the Creative Commons License Agreement.</string>
+			<string>This software is copyrighted under the Creative Commons License Agreement. It&apos;s code is open sourced on github, come find us and give us some love !</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
